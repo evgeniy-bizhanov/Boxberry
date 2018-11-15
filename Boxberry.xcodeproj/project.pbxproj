@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		7A316A64219DDE4300EED2E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A316A63219DDE4300EED2E7 /* AppDelegate.swift */; };
-		7A316A66219DDE4300EED2E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A316A65219DDE4300EED2E7 /* ViewController.swift */; };
-		7A316A69219DDE4300EED2E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A316A67219DDE4300EED2E7 /* Main.storyboard */; };
 		7A316A6C219DDE4300EED2E7 /* Boxberry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A316A6A219DDE4300EED2E7 /* Boxberry.xcdatamodeld */; };
 		7A316A6E219DDE4500EED2E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A316A6D219DDE4500EED2E7 /* Assets.xcassets */; };
 		7A316A71219DDE4500EED2E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A316A6F219DDE4500EED2E7 /* LaunchScreen.storyboard */; };
 		7A316A7C219DDE4500EED2E7 /* BoxberryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A316A7B219DDE4500EED2E7 /* BoxberryTests.swift */; };
+		AB723DB2C7DEDC2750374C67 /* Pods_BoxberryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BA988A438AE092CF052180 /* Pods_BoxberryTests.framework */; };
+		BAF3FD19C6E103E817FBC048 /* Pods_Boxberry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710586EBABBC2011706899A9 /* Pods_Boxberry.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,10 +27,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		710586EBABBC2011706899A9 /* Pods_Boxberry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Boxberry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		75C8E550A28ED86192D3CC37 /* Pods-Boxberry.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boxberry.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Boxberry/Pods-Boxberry.debug.xcconfig"; sourceTree = "<group>"; };
+		79BA988A438AE092CF052180 /* Pods_BoxberryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoxberryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A316A60219DDE4300EED2E7 /* Boxberry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boxberry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A316A63219DDE4300EED2E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7A316A65219DDE4300EED2E7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7A316A68219DDE4300EED2E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7A316A6B219DDE4300EED2E7 /* Boxberry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Boxberry.xcdatamodel; sourceTree = "<group>"; };
 		7A316A6D219DDE4500EED2E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A316A70219DDE4500EED2E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +39,9 @@
 		7A316A77219DDE4500EED2E7 /* BoxberryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoxberryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A316A7B219DDE4500EED2E7 /* BoxberryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxberryTests.swift; sourceTree = "<group>"; };
 		7A316A7D219DDE4500EED2E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E1CCA57F6AC8DB520570953 /* Pods-BoxberryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoxberryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BoxberryTests/Pods-BoxberryTests.debug.xcconfig"; sourceTree = "<group>"; };
+		84968CD9E8E35DB524BCDD78 /* Pods-Boxberry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boxberry.release.xcconfig"; path = "Pods/Target Support Files/Pods-Boxberry/Pods-Boxberry.release.xcconfig"; sourceTree = "<group>"; };
+		983D1FBD6C3FC2C02D6AE8A5 /* Pods-BoxberryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoxberryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BoxberryTests/Pods-BoxberryTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAF3FD19C6E103E817FBC048 /* Pods_Boxberry.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,18 +57,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB723DB2C7DEDC2750374C67 /* Pods_BoxberryTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7199B8770AAC52439B1B6058 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				75C8E550A28ED86192D3CC37 /* Pods-Boxberry.debug.xcconfig */,
+				84968CD9E8E35DB524BCDD78 /* Pods-Boxberry.release.xcconfig */,
+				7E1CCA57F6AC8DB520570953 /* Pods-BoxberryTests.debug.xcconfig */,
+				983D1FBD6C3FC2C02D6AE8A5 /* Pods-BoxberryTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		7A316A57219DDE4300EED2E7 = {
 			isa = PBXGroup;
 			children = (
 				7A316A62219DDE4300EED2E7 /* Boxberry */,
 				7A316A7A219DDE4500EED2E7 /* BoxberryTests */,
 				7A316A61219DDE4300EED2E7 /* Products */,
+				7199B8770AAC52439B1B6058 /* Pods */,
+				7F094F6A6FA681E82541A00F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,13 +98,12 @@
 		7A316A62219DDE4300EED2E7 /* Boxberry */ = {
 			isa = PBXGroup;
 			children = (
-				7A316A63219DDE4300EED2E7 /* AppDelegate.swift */,
-				7A316A65219DDE4300EED2E7 /* ViewController.swift */,
-				7A316A67219DDE4300EED2E7 /* Main.storyboard */,
-				7A316A6D219DDE4500EED2E7 /* Assets.xcassets */,
-				7A316A6F219DDE4500EED2E7 /* LaunchScreen.storyboard */,
-				7A316A72219DDE4500EED2E7 /* Info.plist */,
-				7A316A6A219DDE4300EED2E7 /* Boxberry.xcdatamodeld */,
+				7A5DDF2E219DE4A300152F07 /* App */,
+				7A5DDF28219DE4A300152F07 /* Core */,
+				7A5DDF2B219DE4A300152F07 /* CoreData */,
+				7A5DDF2A219DE4A300152F07 /* Environment */,
+				7A5DDF2C219DE4A300152F07 /* Flows */,
+				7A5DDF27219DE4A300152F07 /* Resources */,
 			);
 			path = Boxberry;
 			sourceTree = "<group>";
@@ -99,6 +117,86 @@
 			path = BoxberryTests;
 			sourceTree = "<group>";
 		};
+		7A5DDF27219DE4A300152F07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7A316A6D219DDE4500EED2E7 /* Assets.xcassets */,
+				7A316A6F219DDE4500EED2E7 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7A5DDF28219DE4A300152F07 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		7A5DDF2A219DE4A300152F07 /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				7A316A72219DDE4500EED2E7 /* Info.plist */,
+			);
+			path = Environment;
+			sourceTree = "<group>";
+		};
+		7A5DDF2B219DE4A300152F07 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				7A316A6A219DDE4300EED2E7 /* Boxberry.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		7A5DDF2C219DE4A300152F07 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		7A5DDF2E219DE4A300152F07 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				7A5DDF2F219DE4A300152F07 /* Assembly */,
+				7A5DDF31219DE4A300152F07 /* Business */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		7A5DDF2F219DE4A300152F07 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		7A5DDF31219DE4A300152F07 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				7A5DDF32219DE4A300152F07 /* AppDelegate */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		7A5DDF32219DE4A300152F07 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				7A316A63219DDE4300EED2E7 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		7F094F6A6FA681E82541A00F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				710586EBABBC2011706899A9 /* Pods_Boxberry.framework */,
+				79BA988A438AE092CF052180 /* Pods_BoxberryTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +204,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7A316A80219DDE4500EED2E7 /* Build configuration list for PBXNativeTarget "Boxberry" */;
 			buildPhases = (
+				7AFC8D13219DE7F800743970 /* SwiftLint */,
+				EA7EADAD0C44B8992D4D97AF /* [CP] Check Pods Manifest.lock */,
 				7A316A5C219DDE4300EED2E7 /* Sources */,
 				7A316A5D219DDE4300EED2E7 /* Frameworks */,
 				7A316A5E219DDE4300EED2E7 /* Resources */,
+				BD9C3F1E21F480B556014594 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,6 +224,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7A316A83219DDE4500EED2E7 /* Build configuration list for PBXNativeTarget "BoxberryTests" */;
 			buildPhases = (
+				618D21B751CA096A19F7509A /* [CP] Check Pods Manifest.lock */,
 				7A316A73219DDE4500EED2E7 /* Sources */,
 				7A316A74219DDE4500EED2E7 /* Frameworks */,
 				7A316A75219DDE4500EED2E7 /* Resources */,
@@ -182,7 +284,6 @@
 			files = (
 				7A316A71219DDE4500EED2E7 /* LaunchScreen.storyboard in Resources */,
 				7A316A6E219DDE4500EED2E7 /* Assets.xcassets in Resources */,
-				7A316A69219DDE4300EED2E7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,13 +296,107 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		618D21B751CA096A19F7509A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BoxberryTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7AFC8D13219DE7F800743970 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		BD9C3F1E21F480B556014594 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Boxberry/Pods-Boxberry-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Bond/Bond.framework",
+				"${BUILT_PRODUCTS_DIR}/Differ/Differ.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveKit/ReactiveKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bond.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differ.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Boxberry/Pods-Boxberry-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA7EADAD0C44B8992D4D97AF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Boxberry-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7A316A5C219DDE4300EED2E7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				7A316A6C219DDE4300EED2E7 /* Boxberry.xcdatamodeld in Sources */,
-				7A316A66219DDE4300EED2E7 /* ViewController.swift in Sources */,
 				7A316A64219DDE4300EED2E7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,14 +420,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7A316A67219DDE4300EED2E7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7A316A68219DDE4300EED2E7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7A316A6F219DDE4500EED2E7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -362,11 +549,12 @@
 		};
 		7A316A81219DDE4500EED2E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75C8E550A28ED86192D3CC37 /* Pods-Boxberry.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6TZ3MZ977X;
-				INFOPLIST_FILE = Boxberry/Info.plist;
+				INFOPLIST_FILE = Boxberry/Environment/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -380,11 +568,12 @@
 		};
 		7A316A82219DDE4500EED2E7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84968CD9E8E35DB524BCDD78 /* Pods-Boxberry.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6TZ3MZ977X;
-				INFOPLIST_FILE = Boxberry/Info.plist;
+				INFOPLIST_FILE = Boxberry/Environment/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -398,6 +587,7 @@
 		};
 		7A316A84219DDE4500EED2E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E1CCA57F6AC8DB520570953 /* Pods-BoxberryTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -419,6 +609,7 @@
 		};
 		7A316A85219DDE4500EED2E7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 983D1FBD6C3FC2C02D6AE8A5 /* Pods-BoxberryTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
