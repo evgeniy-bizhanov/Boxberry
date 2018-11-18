@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A0CEFE921A14797003C2A32 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CEFE821A14797003C2A32 /* Point.swift */; };
 		7A316A64219DDE4300EED2E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A316A63219DDE4300EED2E7 /* AppDelegate.swift */; };
 		7A316A6C219DDE4300EED2E7 /* Boxberry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A316A6A219DDE4300EED2E7 /* Boxberry.xcdatamodeld */; };
 		7A316A6E219DDE4500EED2E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A316A6D219DDE4500EED2E7 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		710586EBABBC2011706899A9 /* Pods_Boxberry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Boxberry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75C8E550A28ED86192D3CC37 /* Pods-Boxberry.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boxberry.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Boxberry/Pods-Boxberry.debug.xcconfig"; sourceTree = "<group>"; };
 		79BA988A438AE092CF052180 /* Pods_BoxberryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoxberryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A0CEFE821A14797003C2A32 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		7A316A60219DDE4300EED2E7 /* Boxberry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boxberry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A316A63219DDE4300EED2E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A316A6B219DDE4300EED2E7 /* Boxberry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Boxberry.xcdatamodel; sourceTree = "<group>"; };
@@ -73,6 +75,14 @@
 				983D1FBD6C3FC2C02D6AE8A5 /* Pods-BoxberryTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		7A0CEFE721A146CC003C2A32 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				7A0CEFE821A14797003C2A32 /* Point.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		7A316A57219DDE4300EED2E7 = {
@@ -175,6 +185,7 @@
 		7A5DDF31219DE4A300152F07 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				7A0CEFE721A146CC003C2A32 /* Entities */,
 				7A5DDF32219DE4A300152F07 /* AppDelegate */,
 			);
 			path = Business;
@@ -398,6 +409,7 @@
 			files = (
 				7A316A6C219DDE4300EED2E7 /* Boxberry.xcdatamodeld in Sources */,
 				7A316A64219DDE4300EED2E7 /* AppDelegate.swift in Sources */,
+				7A0CEFE921A14797003C2A32 /* Point.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
