@@ -8,6 +8,8 @@
 
 import UIKit
 
+protocol PointsViewOutput {}
+
 class PointsViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -17,3 +19,5 @@ class PointsViewController: UIViewController {
     }
     
 }
+
+extension PointsViewController: PointsViewOutput {}

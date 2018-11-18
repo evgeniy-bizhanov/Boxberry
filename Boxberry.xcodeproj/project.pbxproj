@@ -15,6 +15,8 @@
 		7A316A7C219DDE4500EED2E7 /* BoxberryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A316A7B219DDE4500EED2E7 /* BoxberryTests.swift */; };
 		7A3430FC21A1AD4100362CB6 /* Points.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A3430FB21A1AD4100362CB6 /* Points.storyboard */; };
 		7A3430FE21A1B0C700362CB6 /* PointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3430FD21A1B0C700362CB6 /* PointsViewController.swift */; };
+		7A34310021A1B23800362CB6 /* PointsViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3430FF21A1B23800362CB6 /* PointsViewPresenter.swift */; };
+		7A34310221A1B49000362CB6 /* ViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A34310121A1B49000362CB6 /* ViewInput.swift */; };
 		AB723DB2C7DEDC2750374C67 /* Pods_BoxberryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BA988A438AE092CF052180 /* Pods_BoxberryTests.framework */; };
 		BAF3FD19C6E103E817FBC048 /* Pods_Boxberry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710586EBABBC2011706899A9 /* Pods_Boxberry.framework */; };
 /* End PBXBuildFile section */
@@ -45,6 +47,8 @@
 		7A316A7D219DDE4500EED2E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A3430FB21A1AD4100362CB6 /* Points.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Points.storyboard; sourceTree = "<group>"; };
 		7A3430FD21A1B0C700362CB6 /* PointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsViewController.swift; sourceTree = "<group>"; };
+		7A3430FF21A1B23800362CB6 /* PointsViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsViewPresenter.swift; sourceTree = "<group>"; };
+		7A34310121A1B49000362CB6 /* ViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInput.swift; sourceTree = "<group>"; };
 		7E1CCA57F6AC8DB520570953 /* Pods-BoxberryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoxberryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BoxberryTests/Pods-BoxberryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		84968CD9E8E35DB524BCDD78 /* Pods-Boxberry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boxberry.release.xcconfig"; path = "Pods/Target Support Files/Pods-Boxberry/Pods-Boxberry.release.xcconfig"; sourceTree = "<group>"; };
 		983D1FBD6C3FC2C02D6AE8A5 /* Pods-BoxberryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoxberryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BoxberryTests/Pods-BoxberryTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 			children = (
 				7A3430FB21A1AD4100362CB6 /* Points.storyboard */,
 				7A3430FD21A1B0C700362CB6 /* PointsViewController.swift */,
+				7A3430FF21A1B23800362CB6 /* PointsViewPresenter.swift */,
 			);
 			path = Points;
 			sourceTree = "<group>";
@@ -152,6 +157,7 @@
 		7A5DDF28219DE4A300152F07 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				7A34310121A1B49000362CB6 /* ViewInput.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -424,6 +430,8 @@
 			files = (
 				7A316A6C219DDE4300EED2E7 /* Boxberry.xcdatamodeld in Sources */,
 				7A3430FE21A1B0C700362CB6 /* PointsViewController.swift in Sources */,
+				7A34310021A1B23800362CB6 /* PointsViewPresenter.swift in Sources */,
+				7A34310221A1B49000362CB6 /* ViewInput.swift in Sources */,
 				7A316A64219DDE4300EED2E7 /* AppDelegate.swift in Sources */,
 				7A0CEFE921A14797003C2A32 /* Point.swift in Sources */,
 			);
