@@ -18,6 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        window = UIWindow()
+        window?.makeKeyAndVisible()
+        
+        let vc = UIStoryboard(name: "Points", bundle: nil).instantiateInitialViewController()
+        window?.rootViewController = vc
+        
         return true
     }
 
