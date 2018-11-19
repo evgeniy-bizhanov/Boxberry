@@ -7,16 +7,30 @@
 //
 
 import UIKit
+import YandexMapKit
 
 protocol PointsViewOutput {}
 
 class PointsViewController: UIViewController {
 
+    // MARK: - IBOutlets
+    
+    @IBOutlet var mapView: YMKMapView!
+    
+    
+    // MARK: - Models
+    // MARK: - Services
+    // MARK: - Properties
+    // MARK: - Fields
+    // MARK: - IBActions
+    // MARK: - Functions
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     }
+    
+    
+    // MARK: - Initializers
     
 }
 
