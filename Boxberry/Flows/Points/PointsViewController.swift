@@ -35,6 +35,8 @@ class PointsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        input?.viewDidLoad()
     }
     
     

@@ -30,6 +30,10 @@ class PointsViewPresenter: PointsViewInput {
     
     // MARK: - Functions
     
+    func viewDidLoad() {
+        fetchUserLocation()
+    }
+    
     func fetchUserLocation() {
         print("fetch user location")
         locationService?.fetchUserLocation(completion: { [weak self] location in

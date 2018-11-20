@@ -11,5 +11,5 @@ import Foundation
 @objc protocol ViewInput {
     
     /// Представление загружено
-    @objc optional func viewDidLoad()
+    @objc func viewDidLoad()
 }
