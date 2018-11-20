@@ -27,6 +27,8 @@
 		7A34311C21A26FA100362CB6 /* UIScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A34310F21A26FA000362CB6 /* UIScrollViewController.swift */; };
 		7A34311D21A26FA100362CB6 /* UIBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A34311021A26FA000362CB6 /* UIBaseViewController.swift */; };
 		7A34311E21A26FA100362CB6 /* ReactiveOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A34311121A26FA000362CB6 /* ReactiveOperators.swift */; };
+		7A36100921A4697D00909FA4 /* AbstractModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A36100821A4697D00909FA4 /* AbstractModuleBuilder.swift */; };
+		7A36100C21A46A1000909FA4 /* PointsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A36100B21A46A1000909FA4 /* PointsAssembler.swift */; };
 		7AC8FEB721A3C7F7004C48ED /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC8FEB621A3C7F7004C48ED /* Location.swift */; };
 		7AC8FEB921A3C80F004C48ED /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC8FEB821A3C80F004C48ED /* LocationService.swift */; };
 		AB723DB2C7DEDC2750374C67 /* Pods_BoxberryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BA988A438AE092CF052180 /* Pods_BoxberryTests.framework */; };
@@ -71,6 +73,8 @@
 		7A34310F21A26FA000362CB6 /* UIScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewController.swift; sourceTree = "<group>"; };
 		7A34311021A26FA000362CB6 /* UIBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBaseViewController.swift; sourceTree = "<group>"; };
 		7A34311121A26FA000362CB6 /* ReactiveOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveOperators.swift; sourceTree = "<group>"; };
+		7A36100821A4697D00909FA4 /* AbstractModuleBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractModuleBuilder.swift; sourceTree = "<group>"; };
+		7A36100B21A46A1000909FA4 /* PointsAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsAssembler.swift; sourceTree = "<group>"; };
 		7AC8FEB621A3C7F7004C48ED /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		7AC8FEB821A3C80F004C48ED /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		7E1CCA57F6AC8DB520570953 /* Pods-BoxberryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoxberryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BoxberryTests/Pods-BoxberryTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -190,6 +194,14 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		7A36100A21A469F800909FA4 /* Assemblers */ = {
+			isa = PBXGroup;
+			children = (
+				7A36100B21A46A1000909FA4 /* PointsAssembler.swift */,
+			);
+			path = Assemblers;
+			sourceTree = "<group>";
+		};
 		7A5DDF27219DE4A300152F07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +260,8 @@
 		7A5DDF2F219DE4A300152F07 /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
+				7A36100A21A469F800909FA4 /* Assemblers */,
+				7A36100821A4697D00909FA4 /* AbstractModuleBuilder.swift */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
@@ -526,11 +540,13 @@
 				7A34311821A26FA100362CB6 /* AbstractErrorParser.swift in Sources */,
 				7A34311421A26FA100362CB6 /* Key.swift in Sources */,
 				7A3430FE21A1B0C700362CB6 /* PointsViewController.swift in Sources */,
+				7A36100921A4697D00909FA4 /* AbstractModuleBuilder.swift in Sources */,
 				7AC8FEB721A3C7F7004C48ED /* Location.swift in Sources */,
 				7A34311321A26FA100362CB6 /* Extensions.swift in Sources */,
 				7A34311E21A26FA100362CB6 /* ReactiveOperators.swift in Sources */,
 				7A34310021A1B23800362CB6 /* PointsViewPresenter.swift in Sources */,
 				7A34311C21A26FA100362CB6 /* UIScrollViewController.swift in Sources */,
+				7A36100C21A46A1000909FA4 /* PointsAssembler.swift in Sources */,
 				7A34310221A1B49000362CB6 /* ViewInput.swift in Sources */,
 				7A34311A21A26FA100362CB6 /* RequestRouter.swift in Sources */,
 				7A34311D21A26FA100362CB6 /* UIBaseViewController.swift in Sources */,

@@ -2,6 +2,7 @@ disabled_rules:
   - trailing_whitespace # Lines should not have trailing whitespace.
   - vertical_whitespace # Limit vertical whitespace to a single empty line.
   - object_literal # Prefer object literals over image and color inits. object literal breaks down IBDesignable
+  - private_over_fileprivate
 
 opt_in_rules:
   - closure_end_indentation # Closure end should have the same indentation as the line that started it.
