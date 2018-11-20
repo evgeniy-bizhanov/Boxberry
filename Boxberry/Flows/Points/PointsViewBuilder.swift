@@ -13,7 +13,7 @@ class PointsViewBuilder: AbstractModuleBuilder {
     @IBOutlet weak var vc: PointsViewController!
     
     override func resolve(resolver: Resolver) {
-        let input = resolver.resolve(PointsViewInput.self)
+        let input = resolver.resolve(PointsViewInput.self, argument: vc as PointsViewOutput)
         vc.input = input
     }
 }
