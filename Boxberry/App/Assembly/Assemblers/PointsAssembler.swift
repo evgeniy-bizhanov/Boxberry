@@ -13,9 +13,16 @@ class PointsAssembler: Assembly {
     func assemble(container: Container) {
         
         // Сервисы
-        container.register(Location.self, factory: { _ in LocationService() })
+        container.register(Location.self) { _ in
+            LocationService()
+        }
         
         // Презентер
-        container.register(PointsViewInput.self, factory: { _ in PointsViewPresenter() })
+        container.register(PointsViewInput.self) { resolver, output in
+            return PointsViewPresenter(
+                output: output,
+                locationService: resolver.resolve(Location.self)
+            )
+        }
     }
 }

@@ -45,7 +45,7 @@ class PointsViewPresenter: PointsViewInput {
     
     // MARK: - Initializers
     
-    init(output: PointsViewOutput, locationService: Location) {
+    init(output: PointsViewOutput, locationService: Location?) {
         self.output = output
         self.locationService = locationService
     }
