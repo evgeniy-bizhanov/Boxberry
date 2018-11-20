@@ -45,7 +45,26 @@ class PointsViewController: UIViewController {
 }
 
 extension PointsViewController: PointsViewOutput {
+    
     func didFetch(userLocation location: CLLocation) {
-        print("fetched user location \(location.coordinate)")
+        
+        locate(onLocation: location)
+    }
+    
+    fileprivate func locate(onLocation location: CLLocation) {
+        let target = YMKPoint(
+            latitude: location.coordinate.latitude,
+            longitude: location.coordinate.longitude
+        )
+        
+        let camera = YMKCameraPosition(target: target, zoom: 15, azimuth: 0, tilt: 0)
+        
+        let animation = YMKAnimation(type: YMKAnimationType.smooth, duration: 1)
+        
+        mapView.mapWindow.map.move(
+            with: camera,
+            animationType: animation,
+            cameraCallback: nil
+        )
     }
 }

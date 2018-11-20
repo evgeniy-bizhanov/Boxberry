@@ -6,16 +6,15 @@
 //  Copyright © 2018 Евгений Бижанов. All rights reserved.
 //
 
-//
-// Работа с локацией
-//
-
 import CoreLocation
 
 protocol Location {
     
-    typealias UserLocationCompletionHandler = (CLLocation?) -> Void
+    typealias LocationDelegate = (CLLocation?) -> Void
+    
+    /// Замыкание-делегат для передачи полученной локации
+    var completion: LocationDelegate? { get set }
     
     /// Получает текущее положение (координаты) пользователя
-    func fetchUserLocation(completion: @escaping UserLocationCompletionHandler)
+    func fetchUserLocation()
 }

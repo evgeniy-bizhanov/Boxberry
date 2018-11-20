@@ -10,13 +10,14 @@ import CoreLocation
 
 class LocationService: NSObject {
     
-//    typealias UserLocationCompletionHandler = (CLLocation) -> Void
-    
     // MARK: - Properties
+    
+    var completion: LocationDelegate?
+    
+    
     // MARK: - Fields
     
     private lazy var locationManager: CLLocationManager = initLocationManager()
-    private var completion: UserLocationCompletionHandler?
     
     
     // MARK: - Functions
@@ -26,6 +27,8 @@ class LocationService: NSObject {
         let manager = CLLocationManager()
         
         manager.requestWhenInUseAuthorization()
+        
+        manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         manager.delegate = self
         
         return manager
@@ -37,8 +40,7 @@ class LocationService: NSObject {
 
 extension LocationService: Location {
     
-    func fetchUserLocation(completion: @escaping (CLLocation?) -> Void) {
-        self.completion = completion
+    func fetchUserLocation() {
         locationManager.requestLocation()
     }
 }
