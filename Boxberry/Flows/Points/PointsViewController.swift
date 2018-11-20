@@ -25,6 +25,10 @@ class PointsViewController: UIViewController {
     // MARK: - Models
     // MARK: - Services
     // MARK: - Properties
+    
+    var input: PointsViewInput?
+    
+    
     // MARK: - Fields
     // MARK: - IBActions
     // MARK: - Functions

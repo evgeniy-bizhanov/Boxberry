@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Points View Controller-->
+        <!--Vc-->
         <scene sceneID="c9m-fG-pom">
             <objects>
                 <viewController id="OH5-Pg-bTm" customClass="PointsViewController" customModule="Boxberry" customModuleProvider="target" sceneMemberID="viewController">
@@ -37,6 +37,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qVg-dw-YCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="dLf-qh-scB" customClass="PointsViewBuilder" customModule="Boxberry" customModuleProvider="target">
+                    <connections>
+                        <outlet property="vc" destination="OH5-Pg-bTm" id="s9L-yv-LWN"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="1052" y="132.68365817091455"/>
         </scene>
