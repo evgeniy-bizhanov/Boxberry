@@ -6,10 +6,14 @@
 //  Copyright © 2018 Евгений Бижанов. All rights reserved.
 //
 
+import CoreLocation
 import UIKit
 import YandexMapKit
 
-protocol PointsViewOutput {}
+protocol PointsViewOutput {
+    
+    func didFetch(userLocation location: CLLocation)
+}
 
 class PointsViewController: UIViewController {
 
@@ -34,4 +38,8 @@ class PointsViewController: UIViewController {
     
 }
 
-extension PointsViewController: PointsViewOutput {}
+extension PointsViewController: PointsViewOutput {
+    func didFetch(userLocation location: CLLocation) {
+        print("fetched user location \(location.coordinate)")
+    }
+}
