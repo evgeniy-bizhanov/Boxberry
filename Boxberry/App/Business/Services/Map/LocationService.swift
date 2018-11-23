@@ -41,13 +41,14 @@ class LocationService: NSObject {
 extension LocationService: Location {
     
     func fetchUserLocation() {
-        locationManager.requestLocation()
+        locationManager.startUpdatingLocation()
     }
 }
 
 extension LocationService: CLLocationManagerDelegate {
     
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        manager.stopUpdatingLocation()
         completion?(locations.first)
     }
     
