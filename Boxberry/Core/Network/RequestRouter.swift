@@ -5,26 +5,32 @@ enum RequestRouterEncoding {
 }
 
 protocol RequestRouter: URLRequestConvertible {
-    var baseUrl: URL { get }
-    var method: HTTPMethod { get }
-    var path: String { get }
+    
+    var url: URL { get }
+    var httpMethod: HTTPMethod { get }
+    
+    var method: String { get }
     var parameters: Parameters? { get }
-    var fullUrl: URL { get }
+    
     var encoding: RequestRouterEncoding { get }
 }
 
 extension RequestRouter {
-    var fullUrl: URL {
-        return baseUrl.appendingPathComponent(path)
-    }
-    
+
     var encoding: RequestRouterEncoding {
-        return .url
+        
+        switch httpMethod {
+        case .get:
+            return .url
+        default:
+            return .json
+        }
     }
     
     func asURLRequest() throws -> URLRequest {
-        var urlRequest = URLRequest(url: fullUrl)
-        urlRequest.httpMethod = method.rawValue
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = httpMethod.rawValue
         
         switch self.encoding {
         case .url:

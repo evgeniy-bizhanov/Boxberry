@@ -13,7 +13,7 @@ protocol AbstractRequestManager {
     @discardableResult
     func request<T: Decodable>(
         request: URLRequestConvertible,
-        completionHandler: @escaping Completion<T>) -> DataRequest
+        completion: @escaping Completion<T>) -> DataRequest
     
     init (
         errorParser: ​AbstractErrorParser​,
@@ -23,11 +23,17 @@ protocol AbstractRequestManager {
 }
 
 extension AbstractRequestManager {
-    @discardableResult
-    public func request<T: Decodable>(request: URLRequestConvertible,
-                                      completionHandler: @escaping Completion<T>) -> DataRequest {
+    
+    @discardableResult public func request<T: Decodable>(
+        request: URLRequestConvertible,
+        completion: @escaping Completion<T>) -> DataRequest {
+        
         return sessionManager
             .request(request)
-            .responseCodable(errorParser: errorParser, queue: queue, completionHandler: completionHandler)
+            .responseCodable(
+                errorParser: errorParser,
+                queue: queue,
+                completion: completion
+        )
     }
 }

@@ -30,8 +30,13 @@
 		7A36100921A4697D00909FA4 /* AbstractModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A36100821A4697D00909FA4 /* AbstractModuleBuilder.swift */; };
 		7A36100C21A46A1000909FA4 /* PointsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A36100B21A46A1000909FA4 /* PointsAssembler.swift */; };
 		7A36100E21A4727C00909FA4 /* PointsViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A36100D21A4727C00909FA4 /* PointsViewBuilder.swift */; };
+		7A5E364721A8A740009249E0 /* PointsRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5E364621A8A740009249E0 /* PointsRequestFactory.swift */; };
+		7A5E364921A8AB73009249E0 /* PointsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5E364821A8AB73009249E0 /* PointsManager.swift */; };
+		7A5E364B21A8AC0A009249E0 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5E364A21A8AC0A009249E0 /* RequestManager.swift */; };
+		7A7B486321AB1DFD00772370 /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7B486221AB1DFD00772370 /* RequestFactory.swift */; };
 		7AC8FEB721A3C7F7004C48ED /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC8FEB621A3C7F7004C48ED /* Location.swift */; };
 		7AC8FEB921A3C80F004C48ED /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC8FEB821A3C80F004C48ED /* LocationService.swift */; };
+		7AFB799721AB392200E48085 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFB799621AB392200E48085 /* AppConfig.swift */; };
 		AB723DB2C7DEDC2750374C67 /* Pods_BoxberryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BA988A438AE092CF052180 /* Pods_BoxberryTests.framework */; };
 		BAF3FD19C6E103E817FBC048 /* Pods_Boxberry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710586EBABBC2011706899A9 /* Pods_Boxberry.framework */; };
 /* End PBXBuildFile section */
@@ -77,8 +82,13 @@
 		7A36100821A4697D00909FA4 /* AbstractModuleBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractModuleBuilder.swift; sourceTree = "<group>"; };
 		7A36100B21A46A1000909FA4 /* PointsAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsAssembler.swift; sourceTree = "<group>"; };
 		7A36100D21A4727C00909FA4 /* PointsViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsViewBuilder.swift; sourceTree = "<group>"; };
+		7A5E364621A8A740009249E0 /* PointsRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsRequestFactory.swift; sourceTree = "<group>"; };
+		7A5E364821A8AB73009249E0 /* PointsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsManager.swift; sourceTree = "<group>"; };
+		7A5E364A21A8AC0A009249E0 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
+		7A7B486221AB1DFD00772370 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
 		7AC8FEB621A3C7F7004C48ED /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		7AC8FEB821A3C80F004C48ED /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		7AFB799621AB392200E48085 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		7E1CCA57F6AC8DB520570953 /* Pods-BoxberryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoxberryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BoxberryTests/Pods-BoxberryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		84968CD9E8E35DB524BCDD78 /* Pods-Boxberry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boxberry.release.xcconfig"; path = "Pods/Target Support Files/Pods-Boxberry/Pods-Boxberry.release.xcconfig"; sourceTree = "<group>"; };
 		983D1FBD6C3FC2C02D6AE8A5 /* Pods-BoxberryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoxberryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BoxberryTests/Pods-BoxberryTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -179,11 +189,10 @@
 		7A34310821A26FA000362CB6 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				7A34310921A26FA000362CB6 /* ResponseCodable.swift */,
-				7A34310A21A26FA000362CB6 /* AbstractErrorParser.swift */,
-				7A34310B21A26FA000362CB6 /* ErrorParser.swift */,
 				7A34310C21A26FA000362CB6 /* RequestRouter.swift */,
 				7A34310D21A26FA000362CB6 /* AbstractRequestManager.swift */,
+				7A34310921A26FA000362CB6 /* ResponseCodable.swift */,
+				7A7B486221AB1DFD00772370 /* RequestFactory.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -210,6 +219,7 @@
 			children = (
 				7A316A6D219DDE4500EED2E7 /* Assets.xcassets */,
 				7A316A6F219DDE4500EED2E7 /* LaunchScreen.storyboard */,
+				7AFB799621AB392200E48085 /* AppConfig.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -217,6 +227,7 @@
 		7A5DDF28219DE4A300152F07 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				7A7B485F21AB0BD600772370 /* Error */,
 				7A34310821A26FA000362CB6 /* Network */,
 				7A34310E21A26FA000362CB6 /* ViewController */,
 				7A34310421A26FA000362CB6 /* Extensions.swift */,
@@ -272,6 +283,7 @@
 		7A5DDF31219DE4A300152F07 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				7A5E364521A8A714009249E0 /* Network */,
 				7AC8FEB421A3C393004C48ED /* Services */,
 				7A0CEFE721A146CC003C2A32 /* Entities */,
 				7A5DDF32219DE4A300152F07 /* AppDelegate */,
@@ -285,6 +297,33 @@
 				7A316A63219DDE4300EED2E7 /* AppDelegate.swift */,
 			);
 			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		7A5E364521A8A714009249E0 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				7A5E364A21A8AC0A009249E0 /* RequestManager.swift */,
+				7A5E364C21A8AEBB009249E0 /* Points */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		7A5E364C21A8AEBB009249E0 /* Points */ = {
+			isa = PBXGroup;
+			children = (
+				7A5E364621A8A740009249E0 /* PointsRequestFactory.swift */,
+				7A5E364821A8AB73009249E0 /* PointsManager.swift */,
+			);
+			path = Points;
+			sourceTree = "<group>";
+		};
+		7A7B485F21AB0BD600772370 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				7A34310A21A26FA000362CB6 /* AbstractErrorParser.swift */,
+				7A34310B21A26FA000362CB6 /* ErrorParser.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		7AC8FEB421A3C393004C48ED /* Services */ = {
@@ -541,9 +580,11 @@
 				7A316A6C219DDE4300EED2E7 /* Boxberry.xcdatamodeld in Sources */,
 				7A34311721A26FA100362CB6 /* ResponseCodable.swift in Sources */,
 				7A34311821A26FA100362CB6 /* AbstractErrorParser.swift in Sources */,
+				7A5E364B21A8AC0A009249E0 /* RequestManager.swift in Sources */,
 				7A34311421A26FA100362CB6 /* Key.swift in Sources */,
 				7A3430FE21A1B0C700362CB6 /* PointsViewController.swift in Sources */,
 				7A36100921A4697D00909FA4 /* AbstractModuleBuilder.swift in Sources */,
+				7A5E364921A8AB73009249E0 /* PointsManager.swift in Sources */,
 				7AC8FEB721A3C7F7004C48ED /* Location.swift in Sources */,
 				7A34311321A26FA100362CB6 /* Extensions.swift in Sources */,
 				7A34311E21A26FA100362CB6 /* ReactiveOperators.swift in Sources */,
@@ -552,11 +593,14 @@
 				7A36100C21A46A1000909FA4 /* PointsAssembler.swift in Sources */,
 				7A34310221A1B49000362CB6 /* ViewInput.swift in Sources */,
 				7A36100E21A4727C00909FA4 /* PointsViewBuilder.swift in Sources */,
+				7A7B486321AB1DFD00772370 /* RequestFactory.swift in Sources */,
 				7A34311A21A26FA100362CB6 /* RequestRouter.swift in Sources */,
 				7A34311D21A26FA100362CB6 /* UIBaseViewController.swift in Sources */,
 				7A34311921A26FA100362CB6 /* ErrorParser.swift in Sources */,
 				7A316A64219DDE4300EED2E7 /* AppDelegate.swift in Sources */,
 				7A0CEFE921A14797003C2A32 /* Point.swift in Sources */,
+				7A5E364721A8A740009249E0 /* PointsRequestFactory.swift in Sources */,
+				7AFB799721AB392200E48085 /* AppConfig.swift in Sources */,
 				7AC8FEB921A3C80F004C48ED /* LocationService.swift in Sources */,
 				7A34311B21A26FA100362CB6 /* AbstractRequestManager.swift in Sources */,
 			);
