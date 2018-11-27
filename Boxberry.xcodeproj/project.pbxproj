@@ -37,6 +37,9 @@
 		7A5E364921A8AB73009249E0 /* PointsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5E364821A8AB73009249E0 /* PointsManager.swift */; };
 		7A5E364B21A8AC0A009249E0 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5E364A21A8AC0A009249E0 /* RequestManager.swift */; };
 		7A7B486321AB1DFD00772370 /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7B486221AB1DFD00772370 /* RequestFactory.swift */; };
+		7AB88B9021AD8171002A9EA4 /* CityRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB88B8F21AD8171002A9EA4 /* CityRequestProtocol.swift */; };
+		7AB88B9221AD8200002A9EA4 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB88B9121AD8200002A9EA4 /* City.swift */; };
+		7AB88B9421AD8384002A9EA4 /* CityRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB88B9321AD8384002A9EA4 /* CityRequestManager.swift */; };
 		7AC8FEB721A3C7F7004C48ED /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC8FEB621A3C7F7004C48ED /* Location.swift */; };
 		7AC8FEB921A3C80F004C48ED /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC8FEB821A3C80F004C48ED /* LocationService.swift */; };
 		7AFB799721AB392200E48085 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFB799621AB392200E48085 /* AppConfig.swift */; };
@@ -92,6 +95,9 @@
 		7A5E364821A8AB73009249E0 /* PointsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsManager.swift; sourceTree = "<group>"; };
 		7A5E364A21A8AC0A009249E0 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		7A7B486221AB1DFD00772370 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
+		7AB88B8F21AD8171002A9EA4 /* CityRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityRequestProtocol.swift; sourceTree = "<group>"; };
+		7AB88B9121AD8200002A9EA4 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		7AB88B9321AD8384002A9EA4 /* CityRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityRequestManager.swift; sourceTree = "<group>"; };
 		7AC8FEB621A3C7F7004C48ED /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		7AC8FEB821A3C80F004C48ED /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		7AFB799621AB392200E48085 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
@@ -320,18 +326,19 @@
 			isa = PBXGroup;
 			children = (
 				7A5E364A21A8AC0A009249E0 /* RequestManager.swift */,
-				7A5E364C21A8AEBB009249E0 /* Points */,
+				7AB88B8E21AD813E002A9EA4 /* City */,
+				7A5E364C21A8AEBB009249E0 /* Point */,
 			);
 			path = Network;
 			sourceTree = "<group>";
 		};
-		7A5E364C21A8AEBB009249E0 /* Points */ = {
+		7A5E364C21A8AEBB009249E0 /* Point */ = {
 			isa = PBXGroup;
 			children = (
 				7A5E364621A8A740009249E0 /* PointsRequestFactory.swift */,
 				7A5E364821A8AB73009249E0 /* PointsManager.swift */,
 			);
-			path = Points;
+			path = Point;
 			sourceTree = "<group>";
 		};
 		7A7B485F21AB0BD600772370 /* Error */ = {
@@ -341,6 +348,16 @@
 				7A34310B21A26FA000362CB6 /* ErrorParser.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		7AB88B8E21AD813E002A9EA4 /* City */ = {
+			isa = PBXGroup;
+			children = (
+				7AB88B9121AD8200002A9EA4 /* City.swift */,
+				7AB88B8F21AD8171002A9EA4 /* CityRequestProtocol.swift */,
+				7AB88B9321AD8384002A9EA4 /* CityRequestManager.swift */,
+			);
+			path = City;
 			sourceTree = "<group>";
 		};
 		7AC8FEB421A3C393004C48ED /* Services */ = {
@@ -610,12 +627,15 @@
 				7A34310021A1B23800362CB6 /* PointsViewPresenter.swift in Sources */,
 				7A34311C21A26FA100362CB6 /* UIScrollViewController.swift in Sources */,
 				7A36100C21A46A1000909FA4 /* PointsAssembler.swift in Sources */,
+				7AB88B9421AD8384002A9EA4 /* CityRequestManager.swift in Sources */,
 				7A34310221A1B49000362CB6 /* ViewInput.swift in Sources */,
 				7A23301321AB4032005BCFD7 /* NetworkAssembler.swift in Sources */,
 				7A36100E21A4727C00909FA4 /* PointsViewBuilder.swift in Sources */,
 				7A7B486321AB1DFD00772370 /* RequestFactory.swift in Sources */,
 				7A34311A21A26FA100362CB6 /* RequestRouter.swift in Sources */,
 				7A34311D21A26FA100362CB6 /* UIBaseViewController.swift in Sources */,
+				7AB88B9221AD8200002A9EA4 /* City.swift in Sources */,
+				7AB88B9021AD8171002A9EA4 /* CityRequestProtocol.swift in Sources */,
 				7A34311921A26FA100362CB6 /* ErrorParser.swift in Sources */,
 				7A316A64219DDE4300EED2E7 /* AppDelegate.swift in Sources */,
 				7A0CEFE921A14797003C2A32 /* Point.swift in Sources */,

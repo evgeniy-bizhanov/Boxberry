@@ -35,6 +35,7 @@ class PointsViewPresenter: PointsViewInput {
         setupService()
         fetchUserLocation()
         
+        // FIXME: - Удалить тестовый код
         pointsService?.listPoints(completion: { response in
             
             guard let value = response.value else {
