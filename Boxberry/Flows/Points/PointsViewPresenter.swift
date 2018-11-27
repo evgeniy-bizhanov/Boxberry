@@ -20,6 +20,7 @@ class PointsViewPresenter: PointsViewInput {
     // MARK: - Services
     
     var locationService: Location?
+    var pointsService: PointsRequestFactory?
     
     
     // MARK: - Properties
@@ -33,6 +34,15 @@ class PointsViewPresenter: PointsViewInput {
     func viewDidLoad() {
         setupService()
         fetchUserLocation()
+        
+        pointsService?.listPoints(completion: { response in
+            
+            guard let value = response.value else {
+                return
+            }
+            
+            print(value)
+        })
     }
     
     func setupService() {
@@ -53,8 +63,13 @@ class PointsViewPresenter: PointsViewInput {
     
     // MARK: - Initializers
     
-    init(output: PointsViewOutput, locationService: Location?) {
+    init(
+        output: PointsViewOutput,
+        locationService: Location?,
+        pointsService: PointsRequestFactory?) {
+        
         self.output = output
         self.locationService = locationService
+        self.pointsService = pointsService
     }
 }

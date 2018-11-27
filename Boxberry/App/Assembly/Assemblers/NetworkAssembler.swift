@@ -13,13 +13,13 @@ class NetworkAssembler: Assembly {
     
     func assemble(container: Container) {
         
-        container.register(SessionManager.self) { [unowned self] _ in
-            return self.makeSessionManager()
-        }
+        container.register(SessionManager.self) { _ in
+            return NetworkAssembler.makeSessionManager()
+        }.inObjectScope(.container)
     }
     
     /// Создает и конфигурирует менеджер сессий
-    private func makeSessionManager() -> SessionManager {
+    private static func makeSessionManager() -> SessionManager {
         let configuration = URLSessionConfiguration.default
         configuration.httpShouldSetCookies = false
         configuration.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders

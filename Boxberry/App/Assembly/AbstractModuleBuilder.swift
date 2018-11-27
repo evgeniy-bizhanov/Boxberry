@@ -11,6 +11,8 @@ import Swinject
 // Экземпляр сборщика DI-контейнера, доступен только из текущего файла
 fileprivate let assembler = Assembler(
     [
+        EnvironmentAssembler(),
+        NetworkAssembler(),
         PointsAssembler()
     ]
 )

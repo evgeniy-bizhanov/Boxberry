@@ -10,6 +10,7 @@
 		7A0CEFE921A14797003C2A32 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CEFE821A14797003C2A32 /* Point.swift */; };
 		7A23301321AB4032005BCFD7 /* NetworkAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A23301221AB4032005BCFD7 /* NetworkAssembler.swift */; };
 		7A23301521AB4164005BCFD7 /* EnvironmentAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A23301421AB4164005BCFD7 /* EnvironmentAssembler.swift */; };
+		7A23301821AB482B005BCFD7 /* RequestFactoryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A23301721AB482B005BCFD7 /* RequestFactoryHelper.swift */; };
 		7A316A64219DDE4300EED2E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A316A63219DDE4300EED2E7 /* AppDelegate.swift */; };
 		7A316A6C219DDE4300EED2E7 /* Boxberry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A316A6A219DDE4300EED2E7 /* Boxberry.xcdatamodeld */; };
 		7A316A6E219DDE4500EED2E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A316A6D219DDE4500EED2E7 /* Assets.xcassets */; };
@@ -60,6 +61,7 @@
 		7A0CEFE821A14797003C2A32 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		7A23301221AB4032005BCFD7 /* NetworkAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAssembler.swift; sourceTree = "<group>"; };
 		7A23301421AB4164005BCFD7 /* EnvironmentAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentAssembler.swift; sourceTree = "<group>"; };
+		7A23301721AB482B005BCFD7 /* RequestFactoryHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactoryHelper.swift; sourceTree = "<group>"; };
 		7A316A60219DDE4300EED2E7 /* Boxberry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boxberry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A316A63219DDE4300EED2E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A316A6B219DDE4300EED2E7 /* Boxberry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Boxberry.xcdatamodel; sourceTree = "<group>"; };
@@ -135,6 +137,14 @@
 				7A0CEFE821A14797003C2A32 /* Point.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		7A23301621AB4807005BCFD7 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				7A23301721AB482B005BCFD7 /* RequestFactoryHelper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		7A316A57219DDE4300EED2E7 = {
@@ -233,6 +243,7 @@
 		7A5DDF28219DE4A300152F07 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				7A23301621AB4807005BCFD7 /* Helper */,
 				7A7B485F21AB0BD600772370 /* Error */,
 				7A34310821A26FA000362CB6 /* Network */,
 				7A34310E21A26FA000362CB6 /* ViewController */,
@@ -584,6 +595,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A316A6C219DDE4300EED2E7 /* Boxberry.xcdatamodeld in Sources */,
+				7A23301821AB482B005BCFD7 /* RequestFactoryHelper.swift in Sources */,
 				7A34311721A26FA100362CB6 /* ResponseCodable.swift in Sources */,
 				7A34311821A26FA100362CB6 /* AbstractErrorParser.swift in Sources */,
 				7A5E364B21A8AC0A009249E0 /* RequestManager.swift in Sources */,

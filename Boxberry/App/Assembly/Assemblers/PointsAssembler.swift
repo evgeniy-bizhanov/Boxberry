@@ -17,11 +17,16 @@ class PointsAssembler: Assembly {
             LocationService()
         }
         
+        container.register(PointsRequestFactory.self) { resolver in
+            RequestFactoryHelper.makeFactory(PointsManager.self, resolver: resolver)
+        }
+        
         // Презентер
         container.register(PointsViewInput.self) { resolver, output in
             return PointsViewPresenter(
                 output: output,
-                locationService: resolver.resolve(Location.self)
+                locationService: resolver.resolve(Location.self),
+                pointsService: resolver.resolve(PointsRequestFactory.self)
             )
         }
     }

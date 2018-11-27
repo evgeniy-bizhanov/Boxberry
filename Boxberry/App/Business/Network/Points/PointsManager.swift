@@ -10,8 +10,6 @@ import Alamofire
 
 class PointsManager: RequestManager, PointsRequestFactory {
     
-    typealias TData = [Point]
-    
     func listPoints(
         prepaid: Bool, city: Int, completion: @escaping RequestCompletion) {
         
@@ -73,16 +71,18 @@ extension PointsManager {
         let method: String = "ListPoints"
         var parameters: Parameters? {
             
-            var ttt: Parameters {
-                return [
-                    "l": 6
-                ]
-            }
-            
             var array: Parameters = [:]
+            
+            // FIXME: - Вынести токен куда нибудь
+            array["token"] = "55555.rvpqcfee"
+            array["method"] = method
             
             if prepaid {
                 array["prepaid"] = 1
+            }
+            
+            if let city = city {
+                array["CityCode"] = city
             }
             
             return array

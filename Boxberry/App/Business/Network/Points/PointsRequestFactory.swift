@@ -8,7 +8,9 @@
 
 import Alamofire
 
-protocol PointsRequestFactory: RequestFactory {
+protocol PointsRequestFactory {
+    
+    typealias RequestCompletion = (DataResponse<[Point]>) -> Void
     
     /**
      Получает список точек выдачи заказов
