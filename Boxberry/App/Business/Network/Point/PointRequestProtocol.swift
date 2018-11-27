@@ -1,5 +1,5 @@
 //
-//  PointsRequestFactory.swift
+//  PointRequestProtocol.swift
 //  Boxberry
 //
 //  Created by Евгений Бижанов on 24/11/2018.
@@ -8,7 +8,7 @@
 
 import Alamofire
 
-protocol PointsRequestFactory {
+protocol PointRequestProtocol {
     
     typealias RequestCompletion = (DataResponse<[Point]>) -> Void
     

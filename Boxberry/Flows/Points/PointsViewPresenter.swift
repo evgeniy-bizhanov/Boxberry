@@ -20,7 +20,7 @@ class PointsViewPresenter: PointsViewInput {
     // MARK: - Services
     
     var locationService: Location?
-    var pointsService: PointsRequestFactory?
+    var pointsService: PointRequestProtocol?
     
     
     // MARK: - Properties
@@ -67,7 +67,7 @@ class PointsViewPresenter: PointsViewInput {
     init(
         output: PointsViewOutput,
         locationService: Location?,
-        pointsService: PointsRequestFactory?) {
+        pointsService: PointRequestProtocol?) {
         
         self.output = output
         self.locationService = locationService

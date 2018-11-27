@@ -1,5 +1,5 @@
 //
-//  PointsManager.swift
+//  PointRequestManager.swift
 //  Boxberry
 //
 //  Created by Евгений Бижанов on 24/11/2018.
@@ -8,7 +8,7 @@
 
 import Alamofire
 
-class PointsManager: RequestManager, PointsRequestFactory {
+class PointsManager: RequestManager, PointRequestProtocol {
     
     func listPoints(
         prepaid: Bool, city: Int, completion: @escaping RequestCompletion) {
