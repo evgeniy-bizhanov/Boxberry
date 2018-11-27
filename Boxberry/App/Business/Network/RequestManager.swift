@@ -15,10 +15,12 @@ class RequestManager: AbstractRequestManager {
     let errorParser: ​AbstractErrorParser​
     let sessionManager: SessionManager
     let queue: DispatchQueue?
+
+    let url: URL! = URL(string: "http://api.boxberry.de/json.php")
     
-    lazy var url: URL! = {
-        return URL(string: AppConfig.Network.url)
-    }()
+//    lazy var url: URL! = {
+//        return URL(string: AppConfig.Network.url)
+//    }()
     
     
     // MARK: - Functions

@@ -12,4 +12,10 @@ protocol CityRequestProtocol {
     
     associatedtype TData
     typealias Completion = (TData) -> Void
+    
+    /// Получает список городов из базы Boxberry
+    func listCities(completion: @escaping Completion)
+    
+    /// Получает список городов с полной информацией из базы Boxberry
+    func listCitiesFull(completion: @escaping Completion)
 }
