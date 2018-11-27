@@ -4,16 +4,17 @@ import Alamofire
  Предоставляет реализацию сетевого запроса по умолчанию
  */
 protocol AbstractRequestManager {
-    typealias Completion<T> = (DataResponse<T>) -> Void
+    associatedtype TData: Decodable
+    typealias Completion = (DataResponse<TData>) -> Void
     
     var errorParser: ​AbstractErrorParser​ { get }
     var sessionManager: SessionManager { get }
     var queue: DispatchQueue? { get }
     
     @discardableResult
-    func request<T: Decodable>(
+    func request(
         request: URLRequestConvertible,
-        completion: @escaping Completion<T>) -> DataRequest
+        completion: @escaping Completion) -> DataRequest
     
     init (
         errorParser: ​AbstractErrorParser​,
@@ -24,9 +25,9 @@ protocol AbstractRequestManager {
 
 extension AbstractRequestManager {
     
-    @discardableResult public func request<T: Decodable>(
+    @discardableResult public func request(
         request: URLRequestConvertible,
-        completion: @escaping Completion<T>) -> DataRequest {
+        completion: @escaping Completion) -> DataRequest {
         
         return sessionManager
             .request(request)

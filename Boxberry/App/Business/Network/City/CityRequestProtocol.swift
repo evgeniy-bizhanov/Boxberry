@@ -9,9 +9,9 @@
 import Alamofire
 
 protocol CityRequestProtocol {
-    
+
     associatedtype TData
-    typealias Completion = (TData) -> Void
+    typealias Completion = (DataResponse<TData>) -> Void
     
     /// Получает список городов из базы Boxberry
     func listCities(completion: @escaping Completion)

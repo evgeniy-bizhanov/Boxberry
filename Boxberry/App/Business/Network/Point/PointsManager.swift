@@ -55,7 +55,7 @@ class PointsManager: RequestManager, PointsRequestFactory {
         prepaid: Bool, city: Int?, completion: @escaping RequestCompletion) {
         
         let listPointsRequest = ListPointsRequest(url: url, prepaid: prepaid, city: city)
-        request(request: listPointsRequest, completion: completion)
+//        request(request: listPointsRequest, completion: completion)
     }
 }
 

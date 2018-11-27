@@ -9,16 +9,20 @@
 import Alamofire
 
 extension RequestManager: CityRequestProtocol {
-
-    func listCities(completion: @escaping ([City]) -> Void) {
+    
+    typealias TData = [City]
+    
+    func listCities(completion: @escaping Completion) {
         
         let request = CitiesRequest(url: url)
+        self.request(request: request, completion: completion)
     }
     
-    func listCitiesFull(completion: @escaping ([City]) -> Void) {
+    func listCitiesFull(completion: @escaping Completion) {
+        
         let request = CitiesFullRequest(url: url)
+        self.request(request: request, completion: completion)
     }
-    
 }
 
 extension RequestManager {
