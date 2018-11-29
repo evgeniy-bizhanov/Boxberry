@@ -10,16 +10,14 @@ import Alamofire
 
 extension RequestManager: CityRequestProtocol {
     
-    typealias TData = [City]
-    
-    func listCities(completion: @escaping Completion) {
-        
+    func listCities(completion: @escaping Completion<[City]>) {
+
         let request = CitiesRequest(url: url)
         self.request(request: request, completion: completion)
     }
-    
-    func listCitiesFull(completion: @escaping Completion) {
-        
+
+    func listCitiesFull(completion: @escaping Completion<[City]>) {
+
         let request = CitiesFullRequest(url: url)
         self.request(request: request, completion: completion)
     }
@@ -27,34 +25,34 @@ extension RequestManager: CityRequestProtocol {
 
 extension RequestManager {
     internal struct CitiesRequest: RequestRouter {
-        
+
         // MARK: - Properties
-        
+
         let url: URL
         let httpMethod: HTTPMethod = .get
-        
+
         let method: String = "ListCities"
         let parameters: Parameters? = [
             // FIXME: - Убрать токен
             "token": "55555.rvpqcfee",
             "method": "ListCities"
         ]
-        
+
     }
-    
+
     internal struct CitiesFullRequest: RequestRouter {
-        
+
         // MARK: - Properties
-        
+
         let url: URL
         let httpMethod: HTTPMethod = .get
-        
+
         let method: String = "ListCitiesFull"
         let parameters: Parameters? = [
             // FIXME: - Убрать токен
             "token": "55555.rvpqcfee",
             "method": "ListCitiesFull"
         ]
-        
+
     }
 }

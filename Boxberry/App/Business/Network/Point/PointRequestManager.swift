@@ -8,41 +8,41 @@
 
 import Alamofire
 
-class PointsManager: RequestManager, PointRequestProtocol {
+extension RequestManager: PointRequestProtocol {
     
     func listPoints(
-        prepaid: Bool, city: Int, completion: @escaping RequestCompletion) {
-        
+        prepaid: Bool, city: Int, completion: @escaping Completion<[Point]>) {
+
         listPointsRequest(
             prepaid: prepaid,
             city: city,
             completion: completion
         )
     }
-    
+
     func listPoints(
-        prepaid: Bool, completion: @escaping RequestCompletion) {
-        
+        prepaid: Bool, completion: @escaping Completion<[Point]>) {
+
         listPointsRequest(
             prepaid: prepaid,
             city: nil,
             completion: completion
         )
     }
-    
+
     func listPoints(
-        city: Int, completion: @escaping RequestCompletion) {
-        
+        city: Int, completion: @escaping Completion<[Point]>) {
+
         listPointsRequest(
             prepaid: false,
             city: city,
             completion: completion
         )
     }
-    
+
     func listPoints(
-        completion: @escaping RequestCompletion) {
-        
+        completion: @escaping Completion<[Point]>) {
+
         listPointsRequest(
             prepaid: false,
             city: nil,
@@ -52,14 +52,14 @@ class PointsManager: RequestManager, PointRequestProtocol {
     
     fileprivate
     func listPointsRequest(
-        prepaid: Bool, city: Int?, completion: @escaping RequestCompletion) {
-        
+        prepaid: Bool, city: Int?, completion: @escaping Completion<[Point]>) {
+
         let listPointsRequest = ListPointsRequest(url: url, prepaid: prepaid, city: city)
-//        request(request: listPointsRequest, completion: completion)
+        request(request: listPointsRequest, completion: completion)
     }
 }
 
-extension PointsManager {
+extension RequestManager {
     
     struct ListPointsRequest: RequestRouter {
         
@@ -93,11 +93,6 @@ extension PointsManager {
         
         let prepaid: Bool
         let city: Int?
-        
-        
-        // MARK: - Functions
-        // MARK: - Initializers
-
         
     }
 }

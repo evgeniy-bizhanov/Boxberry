@@ -12,23 +12,19 @@ class RequestManager: AbstractRequestManager {
     
     // MARK: - Properties
     
-    let errorParser: ​AbstractErrorParser​
+    let errorParser: AbstractErrorParser
     let sessionManager: SessionManager
     let queue: DispatchQueue?
 
-    let url: URL! = URL(string: "http://api.boxberry.de/json.php")
-    
-//    lazy var url: URL! = {
-//        return URL(string: AppConfig.Network.url)
-//    }()
-    
+    let url: URL! = URL(string: AppConfig.Network.url)
+
     
     // MARK: - Functions
     
     // MARK: - Initializers
     
     required init(
-        errorParser: ​AbstractErrorParser​,
+        errorParser: AbstractErrorParser,
         sessionManager: SessionManager,
         queue: DispatchQueue?) {
         

@@ -9,7 +9,7 @@ extension DataRequest {
      для распаковки ответа сервера
      */
     @discardableResult func responseCodable<T: Decodable>(
-        errorParser: ​AbstractErrorParser​,
+        errorParser: AbstractErrorParser,
         queue: DispatchQueue?,
         completion: @escaping Completion<T>) -> Self {
         

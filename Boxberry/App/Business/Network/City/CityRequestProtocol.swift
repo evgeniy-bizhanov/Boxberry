@@ -6,16 +6,11 @@
 //  Copyright © 2018 Евгений Бижанов. All rights reserved.
 //
 
-import Alamofire
-
-protocol CityRequestProtocol {
-
-    associatedtype TData
-    typealias Completion = (DataResponse<TData>) -> Void
+protocol CityRequestProtocol: AbstractRequestManager {
     
     /// Получает список городов из базы Boxberry
-    func listCities(completion: @escaping Completion)
-    
+    func listCities(completion: @escaping Completion<[City]>)
+
     /// Получает список городов с полной информацией из базы Boxberry
-    func listCitiesFull(completion: @escaping Completion)
+    func listCitiesFull(completion: @escaping Completion<[City]>)
 }

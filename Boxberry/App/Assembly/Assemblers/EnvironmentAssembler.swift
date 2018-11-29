@@ -12,7 +12,7 @@ class EnvironmentAssembler: Assembly {
     
     func assemble(container: Container) {
         
-        container.register(​AbstractErrorParser​.self) { _ in
+        container.register(AbstractErrorParser.self) { _ in
             ErrorParser()
         }
         

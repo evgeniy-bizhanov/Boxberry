@@ -18,7 +18,7 @@ class PointsAssembler: Assembly {
         }
         
         container.register(PointRequestProtocol.self) { resolver in
-            RequestFactoryHelper.makeFactory(PointsManager.self, resolver: resolver)
+            RequestFactoryHelper.makeFactory(RequestManager.self, resolver: resolver)
         }
         
         // Презентер
