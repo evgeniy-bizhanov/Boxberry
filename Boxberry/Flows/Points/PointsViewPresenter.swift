@@ -19,8 +19,9 @@ class PointsViewPresenter: PointsViewInput {
     // MARK: - Models
     // MARK: - Services
     
-    var locationService: Location?
-    var pointsService: (PointRequestProtocol & CityRequestProtocol)?
+    var geocoder: GeoCodable?
+    var locationManager: Location?
+    var requestManager: (PointRequestProtocol & CityRequestProtocol)?
     
     
     // MARK: - Properties
@@ -36,18 +37,18 @@ class PointsViewPresenter: PointsViewInput {
         fetchUserLocation()
         
         // FIXME: - Удалить тестовый код
-        pointsService?.listCities(completion: { response in
+        requestManager?.listCities(completion: { response in
             
             guard let value = response.value else {
                 return
             }
             
-            print(value)
+//            print(value)
         })
     }
     
     func setupService() {
-        locationService?.completion = { [weak self] location in
+        locationManager?.completion = { [weak self] location in
             
             guard let location = location else {
                 return
@@ -58,7 +59,7 @@ class PointsViewPresenter: PointsViewInput {
     }
     
     func fetchUserLocation() {
-        locationService?.fetchUserLocation()
+        locationManager?.fetchUserLocation()
     }
     
     
@@ -66,11 +67,13 @@ class PointsViewPresenter: PointsViewInput {
     
     init(
         output: PointsViewOutput,
-        locationService: Location?,
-        pointsService: (PointRequestProtocol & CityRequestProtocol)?) {
+        geocoder: GeoCodable?,
+        locationManager: Location?,
+        requestManager: (PointRequestProtocol & CityRequestProtocol)?) {
         
         self.output = output
-        self.locationService = locationService
-        self.pointsService = pointsService
+        self.geocoder = geocoder
+        self.locationManager = locationManager
+        self.requestManager = requestManager
     }
 }

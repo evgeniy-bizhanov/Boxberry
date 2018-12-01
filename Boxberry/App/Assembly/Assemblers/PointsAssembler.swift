@@ -13,6 +13,10 @@ class PointsAssembler: Assembly {
     func assemble(container: Container) {
         
         // Сервисы
+        container.register(GeoCodable.self) { _ in
+            GeoCoder()
+        }
+        
         container.register(Location.self) { _ in
             LocationService()
         }
@@ -25,8 +29,9 @@ class PointsAssembler: Assembly {
         container.register(PointsViewInput.self) { resolver, output in
             return PointsViewPresenter(
                 output: output,
-                locationService: resolver.resolve(Location.self),
-                pointsService: resolver.resolve((PointRequestProtocol & CityRequestProtocol).self)
+                geocoder: resolver.resolve(GeoCodable.self),
+                locationManager: resolver.resolve(Location.self),
+                requestManager: resolver.resolve((PointRequestProtocol & CityRequestProtocol).self)
             )
         }
     }
