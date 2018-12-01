@@ -20,7 +20,7 @@ class PointsViewPresenter: PointsViewInput {
     // MARK: - Services
     
     var locationService: Location?
-    var pointsService: PointRequestProtocol?
+    var pointsService: (PointRequestProtocol & CityRequestProtocol)?
     
     
     // MARK: - Properties
@@ -36,7 +36,7 @@ class PointsViewPresenter: PointsViewInput {
         fetchUserLocation()
         
         // FIXME: - Удалить тестовый код
-        pointsService?.listPoints(completion: { response in
+        pointsService?.listCities(completion: { response in
             
             guard let value = response.value else {
                 return
@@ -67,7 +67,7 @@ class PointsViewPresenter: PointsViewInput {
     init(
         output: PointsViewOutput,
         locationService: Location?,
-        pointsService: PointRequestProtocol?) {
+        pointsService: (PointRequestProtocol & CityRequestProtocol)?) {
         
         self.output = output
         self.locationService = locationService

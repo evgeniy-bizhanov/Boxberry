@@ -17,7 +17,7 @@ class PointsAssembler: Assembly {
             LocationService()
         }
         
-        container.register(PointRequestProtocol.self) { resolver in
+        container.register((PointRequestProtocol & CityRequestProtocol).self) { resolver in
             RequestFactoryHelper.makeFactory(RequestManager.self, resolver: resolver)
         }
         
@@ -26,7 +26,7 @@ class PointsAssembler: Assembly {
             return PointsViewPresenter(
                 output: output,
                 locationService: resolver.resolve(Location.self),
-                pointsService: resolver.resolve(PointRequestProtocol.self)
+                pointsService: resolver.resolve((PointRequestProtocol & CityRequestProtocol).self)
             )
         }
     }

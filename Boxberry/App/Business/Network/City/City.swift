@@ -6,7 +6,7 @@
 //  Copyright © 2018 Евгений Бижанов. All rights reserved.
 //
 
-struct City: Decodable {
+struct City {
     
     /// Код города в boxberry
     let code: String
@@ -52,4 +52,25 @@ struct City: Decodable {
     
     /// Район
     let district: String
+}
+
+extension City: Decodable {
+    
+    enum CodingKeys: String, CodingKey {
+        case code = "Code"
+        case name = "Name"
+        case prefix = "Prefix"
+        case receptionLaP = "ReceptionLaP"
+        case deliveryLaP = "DeliveryLaP"
+        case reception = "Reception"
+        case pickupPoint = "PickupPoint"
+        case courierDelivery = "CourierDelivery"
+        case foreignReceptionReturns = "ForeignReceptionReturns"
+        case terminal = "Terminal"
+        case kladr = "Kladr"
+        case region = "Region"
+        case countryCode = "CountryCode"
+        case uniqName = "UniqName"
+        case district = "District"
+    }
 }
