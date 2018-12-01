@@ -95,6 +95,7 @@
 		7A5E364821A8AB73009249E0 /* PointRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointRequestManager.swift; sourceTree = "<group>"; };
 		7A5E364A21A8AC0A009249E0 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		7A7B486221AB1DFD00772370 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
+		7AA0F4F521B2E46A00DD389C /* current-location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "current-location.gpx"; path = "/Users/evgeniy/Documents/Programming/Boxberry/Boxberry/Resources/current-location.gpx"; sourceTree = "<absolute>"; };
 		7AB88B8F21AD8171002A9EA4 /* CityRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityRequestProtocol.swift; sourceTree = "<group>"; };
 		7AB88B9121AD8200002A9EA4 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		7AB88B9321AD8384002A9EA4 /* CityRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityRequestManager.swift; sourceTree = "<group>"; };
@@ -238,6 +239,7 @@
 		7A5DDF27219DE4A300152F07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7AA0F4F521B2E46A00DD389C /* current-location.gpx */,
 				7A316A6D219DDE4500EED2E7 /* Assets.xcassets */,
 				7A316A6F219DDE4500EED2E7 /* LaunchScreen.storyboard */,
 				7AFB799621AB392200E48085 /* AppConfig.swift */,

@@ -18,6 +18,7 @@ class LocationService: NSObject {
     // MARK: - Fields
     
     private lazy var locationManager: CLLocationManager = initLocationManager()
+    private var didFindLocation = false
     
     
     // MARK: - Functions
@@ -41,6 +42,7 @@ class LocationService: NSObject {
 extension LocationService: Location {
     
     func fetchUserLocation() {
+        didFindLocation = false
         locationManager.startUpdatingLocation()
     }
 }
@@ -48,6 +50,13 @@ extension LocationService: Location {
 extension LocationService: CLLocationManagerDelegate {
     
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        if didFindLocation {
+            return
+        }
+        
+        didFindLocation = true
+        
         manager.stopUpdatingLocation()
         completion?(locations.first)
     }
