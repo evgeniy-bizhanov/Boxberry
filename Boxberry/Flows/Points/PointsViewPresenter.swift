@@ -55,7 +55,14 @@ class PointsViewPresenter: PointsViewInput {
             }
             
             self?.output?.didFetch(userLocation: location)
+//            self?.decodeLocation(coordinate: location.coordinate)
         }
+    }
+    
+    func decodeLocation(coordinate: LocationCoordinate) {
+        geocoder?.decodeCity(byCoordinate: coordinate, completion: { city in
+            print(city)
+        })
     }
     
     func fetchUserLocation() {
