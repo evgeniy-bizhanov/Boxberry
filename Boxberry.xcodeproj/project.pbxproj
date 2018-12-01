@@ -46,6 +46,8 @@
 		7AF12BFE21B2E697006EE048 /* GeoCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF12BFD21B2E697006EE048 /* GeoCodable.swift */; };
 		7AF12C0021B2E6EA006EE048 /* LocationCoordinateDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF12BFF21B2E6EA006EE048 /* LocationCoordinateDto.swift */; };
 		7AF12C0321B2E9AA006EE048 /* LocationCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF12C0221B2E9AA006EE048 /* LocationCoordinate.swift */; };
+		7AF12C0721B2F5A1006EE048 /* Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF12C0621B2F5A1006EE048 /* Mappable.swift */; };
+		7AF12C0A21B2F5DB006EE048 /* MappableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF12C0921B2F5DB006EE048 /* MappableExtensions.swift */; };
 		7AFB799721AB392200E48085 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFB799621AB392200E48085 /* AppConfig.swift */; };
 		AB723DB2C7DEDC2750374C67 /* Pods_BoxberryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BA988A438AE092CF052180 /* Pods_BoxberryTests.framework */; };
 		BAF3FD19C6E103E817FBC048 /* Pods_Boxberry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710586EBABBC2011706899A9 /* Pods_Boxberry.framework */; };
@@ -109,6 +111,8 @@
 		7AF12BFD21B2E697006EE048 /* GeoCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCodable.swift; sourceTree = "<group>"; };
 		7AF12BFF21B2E6EA006EE048 /* LocationCoordinateDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCoordinateDto.swift; sourceTree = "<group>"; };
 		7AF12C0221B2E9AA006EE048 /* LocationCoordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCoordinate.swift; sourceTree = "<group>"; };
+		7AF12C0621B2F5A1006EE048 /* Mappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mappable.swift; sourceTree = "<group>"; };
+		7AF12C0921B2F5DB006EE048 /* MappableExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MappableExtensions.swift; sourceTree = "<group>"; };
 		7AFB799621AB392200E48085 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		7E1CCA57F6AC8DB520570953 /* Pods-BoxberryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoxberryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BoxberryTests/Pods-BoxberryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		84968CD9E8E35DB524BCDD78 /* Pods-Boxberry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boxberry.release.xcconfig"; path = "Pods/Target Support Files/Pods-Boxberry/Pods-Boxberry.release.xcconfig"; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				7A23301721AB482B005BCFD7 /* RequestFactoryHelper.swift */,
+				7AF12C0621B2F5A1006EE048 /* Mappable.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -259,11 +264,11 @@
 		7A5DDF28219DE4A300152F07 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				7AF12C0821B2F5C4006EE048 /* Extensions */,
 				7A23301621AB4807005BCFD7 /* Helper */,
 				7A7B485F21AB0BD600772370 /* Error */,
 				7A34310821A26FA000362CB6 /* Network */,
 				7A34310E21A26FA000362CB6 /* ViewController */,
-				7A34310421A26FA000362CB6 /* Extensions.swift */,
 				7A34310521A26FA000362CB6 /* Key.swift */,
 				7A34311121A26FA000362CB6 /* ReactiveOperators.swift */,
 				7A34310121A1B49000362CB6 /* ViewInput.swift */,
@@ -397,6 +402,15 @@
 				7AF12BFF21B2E6EA006EE048 /* LocationCoordinateDto.swift */,
 			);
 			path = DTO;
+			sourceTree = "<group>";
+		};
+		7AF12C0821B2F5C4006EE048 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7A34310421A26FA000362CB6 /* Extensions.swift */,
+				7AF12C0921B2F5DB006EE048 /* MappableExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		7F094F6A6FA681E82541A00F /* Frameworks */ = {
@@ -652,12 +666,14 @@
 				7AF12C0321B2E9AA006EE048 /* LocationCoordinate.swift in Sources */,
 				7AF12BFE21B2E697006EE048 /* GeoCodable.swift in Sources */,
 				7A36100C21A46A1000909FA4 /* PointsAssembler.swift in Sources */,
+				7AF12C0A21B2F5DB006EE048 /* MappableExtensions.swift in Sources */,
 				7AB88B9421AD8384002A9EA4 /* CityRequestManager.swift in Sources */,
 				7AF12BFC21B2E68C006EE048 /* GeoCoder.swift in Sources */,
 				7A34310221A1B49000362CB6 /* ViewInput.swift in Sources */,
 				7A23301321AB4032005BCFD7 /* NetworkAssembler.swift in Sources */,
 				7A36100E21A4727C00909FA4 /* PointsViewBuilder.swift in Sources */,
 				7A7B486321AB1DFD00772370 /* RequestFactory.swift in Sources */,
+				7AF12C0721B2F5A1006EE048 /* Mappable.swift in Sources */,
 				7A34311A21A26FA100362CB6 /* RequestRouter.swift in Sources */,
 				7A34311D21A26FA100362CB6 /* UIBaseViewController.swift in Sources */,
 				7AB88B9221AD8200002A9EA4 /* City.swift in Sources */,

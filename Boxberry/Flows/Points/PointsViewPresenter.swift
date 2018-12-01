@@ -47,6 +47,7 @@ class PointsViewPresenter: PointsViewInput {
         })
     }
     
+    // FIXME: Реализовать через completion, убрать метод, оставить fetchUserLocation
     func setupService() {
         locationManager?.completion = { [weak self] location in
             
@@ -55,7 +56,10 @@ class PointsViewPresenter: PointsViewInput {
             }
             
             self?.output?.didFetch(userLocation: location)
-//            self?.decodeLocation(coordinate: location.coordinate)
+            
+            if let coordinate: LocationCoordinate = try? location.coordinate.map() {
+                self?.decodeLocation(coordinate: coordinate)
+            }
         }
     }
     
