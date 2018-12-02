@@ -10,11 +10,8 @@ import CoreLocation
 
 protocol Location {
     
-    typealias LocationDelegate = (CLLocation?) -> Void
-    
-    /// Замыкание-делегат для передачи полученной локации
-    var completion: LocationDelegate? { get set }
+    typealias Completion = (CLLocation?) -> Void
     
     /// Получает текущее положение (координаты) пользователя
-    func fetchUserLocation()
+    func requestLocation(completion: Completion?)
 }

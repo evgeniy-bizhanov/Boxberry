@@ -12,7 +12,7 @@ import YandexMapKit
 
 protocol PointsViewOutput {
     
-    func didFetch(userLocation location: CLLocation)
+    func didRequestUserLocation(_ location: CLLocation)
 }
 
 class PointsViewController: UIViewController {
@@ -23,13 +23,10 @@ class PointsViewController: UIViewController {
     
     
     // MARK: - Models
-    // MARK: - Services
-    // MARK: - Properties
     
     var input: PointsViewInput?
     
     
-    // MARK: - Fields
     // MARK: - IBActions
     // MARK: - Functions
     
@@ -37,16 +34,19 @@ class PointsViewController: UIViewController {
         super.viewDidLoad()
         
         input?.viewDidLoad()
+        input?.requestUserLocation()
     }
-    
-    
-    // MARK: - Initializers
-    
 }
 
 extension PointsViewController: PointsViewOutput {
     
-    func didFetch(userLocation location: CLLocation) {
+    func didRequestUserLocation(_ location: CLLocation) {
+        
+        if
+            let coordinate: LocationCoordinate = try? location.coordinate.map() {
+            
+            input?.decodeUserLocation(coordinate)
+        }
         
         locate(onLocation: location)
     }
@@ -57,9 +57,9 @@ extension PointsViewController: PointsViewOutput {
             longitude: location.coordinate.longitude
         )
         
-        let camera = YMKCameraPosition(target: target, zoom: 15, azimuth: 0, tilt: 0)
+        let camera = YMKCameraPosition(target: target, zoom: 14, azimuth: 0, tilt: 0)
         
-        let animation = YMKAnimation(type: YMKAnimationType.smooth, duration: 1)
+        let animation = YMKAnimation(type: .smooth, duration: 1)
         
         mapView.mapWindow.map.move(
             with: camera,

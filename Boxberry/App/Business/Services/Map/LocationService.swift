@@ -10,15 +10,10 @@ import CoreLocation
 
 class LocationService: NSObject {
     
-    // MARK: - Properties
-    
-    var completion: LocationDelegate?
-    
-    
     // MARK: - Fields
     
     private lazy var locationManager: CLLocationManager = initLocationManager()
-    private var didFindLocation = false
+    private var completion: Completion?
     
     
     // MARK: - Functions
@@ -41,8 +36,8 @@ class LocationService: NSObject {
 
 extension LocationService: Location {
     
-    func fetchUserLocation() {
-        didFindLocation = false
+    func requestLocation(completion: Completion?) {
+        self.completion = completion
         locationManager.startUpdatingLocation()
     }
 }
@@ -51,14 +46,10 @@ extension LocationService: CLLocationManagerDelegate {
     
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        if didFindLocation {
-            return
-        }
-        
-        didFindLocation = true
+        completion?(locations.first)
+        completion = nil
         
         manager.stopUpdatingLocation()
-        completion?(locations.first)
     }
     
     public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

@@ -8,6 +8,8 @@
 
 import Swinject
 
+typealias PointsRequestManager = PointRequestProtocol & CityRequestProtocol
+
 class PointsAssembler: Assembly {
     
     func assemble(container: Container) {
@@ -21,7 +23,7 @@ class PointsAssembler: Assembly {
             LocationService()
         }
         
-        container.register((PointRequestProtocol & CityRequestProtocol).self) { resolver in
+        container.register(PointsRequestManager.self) { resolver in
             RequestFactoryHelper.makeFactory(RequestManager.self, resolver: resolver)
         }
         
@@ -31,7 +33,7 @@ class PointsAssembler: Assembly {
                 output: output,
                 geocoder: resolver.resolve(GeoCodable.self),
                 locationManager: resolver.resolve(Location.self),
-                requestManager: resolver.resolve((PointRequestProtocol & CityRequestProtocol).self)
+                requestManager: resolver.resolve(PointsRequestManager.self)
             )
         }
     }
