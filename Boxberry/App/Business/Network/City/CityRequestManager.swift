@@ -36,7 +36,7 @@ extension RequestManager {
 
     }
 
-    internal struct CitiesFullRequest: RequestRouter {
+    internal struct CitiesFullRequest: RequestRouter, RequestParameter {
 
         // MARK: - Properties
 

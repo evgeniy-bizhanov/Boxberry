@@ -61,7 +61,7 @@ extension RequestManager: PointRequestProtocol {
 
 extension RequestManager {
     
-    struct ListPointsRequest: RequestRouter {
+    struct ListPointsRequest: RequestRouter, RequestParameter {
         
         // MARK: - Properties
         
