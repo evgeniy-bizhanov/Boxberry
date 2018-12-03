@@ -51,9 +51,14 @@ class PointsViewPresenter: PointsViewInput {
     }
     
     func decodeUserLocation(_ coordinate: LocationCoordinate) {
-        geocoder?.decodeCity(byCoordinate: coordinate, completion: { city in
-            print(city)
-        })
+        geocoder?.decodeCity(byCoordinate: coordinate) { [weak self] location in
+            
+            guard let location = location else {
+                return
+            }
+            
+            self?.output?.didDecodeUserLocation(location)
+        }
     }
     
     

@@ -8,11 +8,15 @@ protocol RequestRouter: URLRequestConvertible {
     
     var url: URL { get }
     var httpMethod: HTTPMethod { get }
-    
-    var method: String { get }
-    var parameters: Parameters? { get }
-    
     var encoding: RequestRouterEncoding { get }
+    var method: String { get }
+    
+    var parameters: Parameters? { get }
+}
+
+protocol RequestParameter {
+    
+    func parameters() -> Parameters?
 }
 
 extension RequestRouter {
@@ -31,6 +35,8 @@ extension RequestRouter {
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = httpMethod.rawValue
+        
+        let parameters = (self as? RequestParameter)?.parameters() ?? self.parameters
         
         switch self.encoding {
         case .url:

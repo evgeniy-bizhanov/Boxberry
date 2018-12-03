@@ -24,7 +24,7 @@ extension RequestManager: CityRequestProtocol {
 }
 
 extension RequestManager {
-    internal struct CitiesRequest: RequestRouter {
+    internal struct CitiesRequest: RequestRouter, RequestParameter {
 
         // MARK: - Properties
 
@@ -32,11 +32,7 @@ extension RequestManager {
         let httpMethod: HTTPMethod = .get
 
         let method: String = "ListCities"
-        let parameters: Parameters? = [
-            // FIXME: - Убрать токен
-            "token": "55555.rvpqcfee",
-            "method": "ListCities"
-        ]
+        let parameters: Parameters? = nil
 
     }
 
@@ -48,11 +44,7 @@ extension RequestManager {
         let httpMethod: HTTPMethod = .get
 
         let method: String = "ListCitiesFull"
-        let parameters: Parameters? = [
-            // FIXME: - Убрать токен
-            "token": "55555.rvpqcfee",
-            "method": "ListCitiesFull"
-        ]
+        let parameters: Parameters? = nil
 
     }
 }

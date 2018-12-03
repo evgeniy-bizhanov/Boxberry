@@ -70,22 +70,18 @@ extension RequestManager {
         
         let method: String = "ListPoints"
         var parameters: Parameters? {
-            
-            var array: Parameters = [:]
-            
-            // FIXME: - Вынести токен куда нибудь
-            array["token"] = "55555.rvpqcfee"
-            array["method"] = method
-            
+
+            var parameters: Parameters = [:]
+
             if prepaid {
-                array["prepaid"] = 1
+                parameters["prepaid"] = 1
             }
-            
+
             if let city = city {
-                array["CityCode"] = city
+                parameters["CityCode"] = city
             }
-            
-            return array
+
+            return parameters
         }
         
         

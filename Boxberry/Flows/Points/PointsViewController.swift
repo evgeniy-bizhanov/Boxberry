@@ -13,6 +13,7 @@ import YandexMapKit
 protocol PointsViewOutput {
     
     func didRequestUserLocation(_ location: CLLocation)
+    func didDecodeUserLocation(_ location: String)
 }
 
 class PointsViewController: UIViewController {
@@ -39,6 +40,10 @@ class PointsViewController: UIViewController {
 }
 
 extension PointsViewController: PointsViewOutput {
+    
+    func didDecodeUserLocation(_ location: String) {
+        print(location)
+    }
     
     func didRequestUserLocation(_ location: CLLocation) {
         

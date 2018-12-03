@@ -48,6 +48,7 @@
 		7AF12C0321B2E9AA006EE048 /* LocationCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF12C0221B2E9AA006EE048 /* LocationCoordinate.swift */; };
 		7AF12C0721B2F5A1006EE048 /* Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF12C0621B2F5A1006EE048 /* Mappable.swift */; };
 		7AF12C0A21B2F5DB006EE048 /* MappableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF12C0921B2F5DB006EE048 /* MappableExtensions.swift */; };
+		7AF12C1221B54609006EE048 /* AbstractRequestParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF12C1121B54609006EE048 /* AbstractRequestParameter.swift */; };
 		7AFB799721AB392200E48085 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFB799621AB392200E48085 /* AppConfig.swift */; };
 		AB723DB2C7DEDC2750374C67 /* Pods_BoxberryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BA988A438AE092CF052180 /* Pods_BoxberryTests.framework */; };
 		BAF3FD19C6E103E817FBC048 /* Pods_Boxberry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710586EBABBC2011706899A9 /* Pods_Boxberry.framework */; };
@@ -113,6 +114,7 @@
 		7AF12C0221B2E9AA006EE048 /* LocationCoordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCoordinate.swift; sourceTree = "<group>"; };
 		7AF12C0621B2F5A1006EE048 /* Mappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mappable.swift; sourceTree = "<group>"; };
 		7AF12C0921B2F5DB006EE048 /* MappableExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MappableExtensions.swift; sourceTree = "<group>"; };
+		7AF12C1121B54609006EE048 /* AbstractRequestParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractRequestParameter.swift; sourceTree = "<group>"; };
 		7AFB799621AB392200E48085 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		7E1CCA57F6AC8DB520570953 /* Pods-BoxberryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoxberryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BoxberryTests/Pods-BoxberryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		84968CD9E8E35DB524BCDD78 /* Pods-Boxberry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boxberry.release.xcconfig"; path = "Pods/Target Support Files/Pods-Boxberry/Pods-Boxberry.release.xcconfig"; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				7A5E364A21A8AC0A009249E0 /* RequestManager.swift */,
+				7AF12C1121B54609006EE048 /* AbstractRequestParameter.swift */,
 				7AB88B8E21AD813E002A9EA4 /* City */,
 				7A5E364C21A8AEBB009249E0 /* Point */,
 			);
@@ -684,6 +687,7 @@
 				7A5E364721A8A740009249E0 /* PointRequestProtocol.swift in Sources */,
 				7AFB799721AB392200E48085 /* AppConfig.swift in Sources */,
 				7AC8FEB921A3C80F004C48ED /* LocationService.swift in Sources */,
+				7AF12C1221B54609006EE048 /* AbstractRequestParameter.swift in Sources */,
 				7A34311B21A26FA100362CB6 /* AbstractRequestManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
