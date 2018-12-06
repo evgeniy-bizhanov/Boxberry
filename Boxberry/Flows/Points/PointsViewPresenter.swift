@@ -6,21 +6,15 @@
 //  Copyright © 2018 Евгений Бижанов. All rights reserved.
 //
 
+// 1. Запрос городов (группа)
+// 2. Запрос положения пользователя
+// |- 3. Декодируем положение пользователя
+// |- 4. Получаем код города из списка городов (группа)
+// |- 5. Запрос пунктов выдачи заказов
+
 import Foundation
 
-protocol PointsViewInput: ViewInput {
-    
-    /// Запрашивает текущее положение пользователя
-    func requestUserLocation()
-    
-    /// Декодирует текущее положение пользователя
-    /// - Parameter coordinate: Координаты пользователя
-    func decodeUserLocation(_ coordinate: LocationCoordinate)
-    
-    /// Делает запрос точек выдачи заказов для указанной локации
-    /// - Parameter location: Название города/локации
-    func requestPoints(forLocation location: String)
-}
+protocol PointsViewInput: ViewInput {}
 
 
 /// Презентер для представления отображения точек выдачи заказов на карте
@@ -41,73 +35,14 @@ class PointsViewPresenter: PointsViewInput {
     // MARK: - Fields
     private var cities: [City]?
     private var points: [Point]?
-    private var semaphore: DispatchSemaphore?
     private var group = DispatchGroup()
     
     
     // MARK: - Functions
     
     func viewDidLoad() {
-        semaphore = DispatchSemaphore(value: 1)
-        
         requestCities()
-    }
-    
-    func requestUserLocation() {
-        
-        locationManager?.requestLocation { [weak self] location in
-            
-            guard let location = location else {
-                return
-            }
-            
-            self?.output?.didRequestUserLocation(location)
-        }
-    }
-    
-    func decodeUserLocation(_ coordinate: LocationCoordinate) {
-        geocoder?.decodeCity(byCoordinate: coordinate) { [weak self] location in
-            
-            guard let location = location else {
-                return
-            }
-            
-            self?.group.notify(queue: .main) {
-                self?.output?.didDecodeUserLocation(location)
-            }
-        }
-    }
-    
-    func requestPoints(forLocation location: String) {
-        
-        guard let cityCode = cities?.first(where: { $0.name == location })?.code else {
-            return
-        }
-        
-        requestManager?.listPoints(prepaid: true, city: cityCode) { [weak self] response in
-            
-            guard
-                let points = response.value,
-                let viewPoints: [ViewPoint] = try? points.map() else {
-                // FIXME: Показать пользователю алерт
-                return
-            }
-            
-            DispatchQueue.main.async {
-                self?.output?.didRequestPoints(viewPoints)
-            }
-        }
-    }
-    
-    func requestCities() {
-        
-        group.enter()
-        
-        requestManager?.listCitiesFull { [weak self] response in
-            self?.cities = response.value
-            self?.group.leave()
-            
-        }
+        requestUserLocation()
     }
     
     
@@ -123,5 +58,80 @@ class PointsViewPresenter: PointsViewInput {
         self.geocoder = geocoder
         self.locationManager = locationManager
         self.requestManager = requestManager
+    }
+}
+
+
+extension PointsViewPresenter {
+
+    // MARK: - Location manager
+    
+    func requestUserLocation() {
+        
+        locationManager?.requestLocation { [weak self] location in
+            guard
+                let self = self,
+                let location = location,
+                let coordinate: LocationCoordinate = try? location.coordinate.map() else {
+                    return
+            }
+            
+            self.decodeUserLocation(coordinate)
+            self.output?.didRequestUserLocation(location)
+        }
+    }
+    
+    func decodeUserLocation(_ coordinate: LocationCoordinate) {
+        
+        geocoder?.decodeCity(byCoordinate: coordinate) { [weak self] city in
+            guard
+                let self = self,
+                let city = city else {
+                return
+            }
+            
+            // Thread synchronization
+            self.group.notify(queue: .global(qos: .userInteractive)) {
+                guard let cityCode = self.cities?.first(where: { $0.name == city })?.code else {
+                    return
+                }
+                
+                self.requestPoints(withCode: cityCode)
+            }
+        }
+    }
+    
+    
+    //MARK: - Network request manager
+    
+    func requestCities() {
+        
+        group.enter()
+        requestManager?.listCitiesFull { [weak self] response in
+            guard
+                let self = self else {
+                    return
+            }
+            
+            self.cities = response.value
+            self.group.leave()
+        }
+    }
+    
+    func requestPoints(withCode cityCode: String) {
+        
+        requestManager?.listPoints(prepaid: true, city: cityCode) { [weak self] response in
+            guard
+                let self = self,
+                let points = response.value,
+                let viewPoints: [ViewPoint] = try? points.map() else {
+                    // FIXME: Показать пользователю алерт
+                    return
+            }
+            
+            DispatchQueue.main.async {
+                self.output?.didRequestPoints(viewPoints)
+            }
+        }
     }
 }

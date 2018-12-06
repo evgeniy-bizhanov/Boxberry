@@ -13,7 +13,7 @@ import YandexMapKit
 protocol PointsViewOutput {
     
     func didRequestUserLocation(_ location: CLLocation)
-    func didDecodeUserLocation(_ location: String)
+    func didUpdateUserLocation(_ location: CLLocation)
     func didRequestPoints(_ points: [ViewPoint])
 }
 
@@ -42,16 +42,23 @@ class PointsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         input?.viewDidLoad()
-        input?.requestUserLocation()
     }
 }
 
 extension PointsViewController: PointsViewOutput {
     
-    func didDecodeUserLocation(_ location: String) {
-        input?.requestPoints(forLocation: location)
+    // MARK: - Points placemarks
+    
+    func didRequestPoints(_ points: [ViewPoint]) {
+        for point in points {
+            if let gps = point.gps {
+                let target = YMKPoint(latitude: gps.latitude, longitude: gps.longitude)
+                let placemark = map.mapObjects.addPlacemark(with: target)
+                
+                customizePlacemark(placemark)
+            }
+        }
     }
     
     fileprivate func customizePlacemark(_ placemark: YMKPlacemarkMapObject) {
@@ -71,40 +78,38 @@ extension PointsViewController: PointsViewOutput {
         }
     }
     
-    func didRequestPoints(_ points: [ViewPoint]) {
-        for point in points {
-            if let gps = point.gps {
-                let ymkPoint = YMKPoint(latitude: gps.latitude, longitude: gps.longitude)
-                let placemark = map.mapObjects.addPlacemark(with: ymkPoint)
-                
-                customizePlacemark(placemark)
-            }
-        }
-    }
+    
+    // MARK: - User location
     
     func didRequestUserLocation(_ location: CLLocation) {
-        if
-            let coordinate: LocationCoordinate = try? location.coordinate.map() {
-            input?.decodeUserLocation(coordinate)
-        }
-        
-        locate(onLocation: location)
+        locate(to: location)
     }
     
-    fileprivate func locate(onLocation location: CLLocation) {
+    func didUpdateUserLocation(_ location: CLLocation) {
+        let zoom = map.cameraPosition.zoom
+        locate(to: location, zoom: zoom)
+    }
+    
+    typealias CameraCompletion = (Bool) -> Void
+    
+    fileprivate func locate(
+        to location: CLLocation,
+        zoom: Float? = nil,
+        completion: CameraCompletion? = nil) {
+        
         let target = YMKPoint(
             latitude: location.coordinate.latitude,
             longitude: location.coordinate.longitude
         )
         
-        let camera = YMKCameraPosition(target: target, zoom: 14, azimuth: 0, tilt: 0)
-        
+        let zoom = zoom ?? 14
+        let camera = YMKCameraPosition(target: target, zoom: zoom, azimuth: 0, tilt: 0)
         let animation = YMKAnimation(type: .smooth, duration: 1)
         
-        mapView.mapWindow.map.move(
+        map.move(
             with: camera,
             animationType: animation,
-            cameraCallback: nil
+            cameraCallback: completion
         )
     }
 }
