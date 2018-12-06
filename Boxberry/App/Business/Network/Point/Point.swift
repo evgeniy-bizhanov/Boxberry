@@ -6,7 +6,7 @@
 //  Copyright © 2018 Евгений Бижанов. All rights reserved.
 //
 
-struct Point {
+struct Point: Mappable {
     
     /// Код в базе boxberry
     let code: String
@@ -80,7 +80,7 @@ struct Point {
 
 extension Point: Decodable {
     
-    enum CodingKeys: String, CodingKey {
+    enum DecodingKeys: String, CodingKey {
         case code = "Code"
         case name = "Name"
         case address = "Address"
@@ -104,5 +104,33 @@ extension Point: Decodable {
         case volumeLimit = "VolumeLimit"
         case loadLimit = "LoadLimit"
         case gps = "GPS"
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: DecodingKeys.self)
+        
+        code = try container.decode(String.self, forKey: .code)
+        name = try container.decode(String.self, forKey: .name)
+        address = try container.decode(String.self, forKey: .address)
+        phone = try container.decode(String.self, forKey: .phone)
+        workSchedule = try container.decode(String.self, forKey: .workSchedule)
+        tripDescription = try container.decode(String.self, forKey: .tripDescription)
+        deliveryPeriod = try container.decode(Int.self, forKey: .deliveryPeriod)
+        cityCode = try container.decode(String.self, forKey: .cityCode)
+        cityName = try container.decode(String.self, forKey: .cityName)
+        tariffZone = try container.decode(String.self, forKey: .tariffZone)
+        settlement = try container.decode(String.self, forKey: .settlement)
+        area = try container.decode(String.self, forKey: .area)
+        country = try container.decode(String.self, forKey: .country)
+        onlyPrepaidOrders = try container.decode(String.self, forKey: .onlyPrepaidOrders)
+        addressReduce = try container.decode(String.self, forKey: .addressReduce)
+        acquiring = try container.decode(String.self, forKey: .acquiring)
+        digitalSignature = try container.decode(String.self, forKey: .digitalSignature)
+        typeOfOffice = try container.decode(String.self, forKey: .typeOfOffice)
+        nalKD = try container.decode(String.self, forKey: .nalKD)
+        metro = try container.decode(String.self, forKey: .metro)
+        volumeLimit = try container.decode(String.self, forKey: .volumeLimit)
+        loadLimit = try container.decode(String.self, forKey: .loadLimit)
+        gps = try container.decode(String.self, forKey: .gps)
     }
 }

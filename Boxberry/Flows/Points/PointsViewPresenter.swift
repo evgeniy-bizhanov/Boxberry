@@ -16,6 +16,10 @@ protocol PointsViewInput: ViewInput {
     /// Декодирует текущее положение пользователя
     /// - Parameter coordinate: Координаты пользователя
     func decodeUserLocation(_ coordinate: LocationCoordinate)
+    
+    /// Делает запрос точек выдачи заказов для указанной локации
+    /// - Parameter location: Название города/локации
+    func requestPoints(forLocation location: String)
 }
 
 
@@ -34,9 +38,20 @@ class PointsViewPresenter: PointsViewInput {
     var output: PointsViewOutput?
     
     
+    // MARK: - Fields
+    private var cities: [City]?
+    private var points: [Point]?
+    private var semaphore: DispatchSemaphore?
+    private var group = DispatchGroup()
+    
+    
     // MARK: - Functions
     
-    func viewDidLoad() {}
+    func viewDidLoad() {
+        semaphore = DispatchSemaphore(value: 1)
+        
+        requestCities()
+    }
     
     func requestUserLocation() {
         
@@ -57,7 +72,41 @@ class PointsViewPresenter: PointsViewInput {
                 return
             }
             
-            self?.output?.didDecodeUserLocation(location)
+            self?.group.notify(queue: .main) {
+                self?.output?.didDecodeUserLocation(location)
+            }
+        }
+    }
+    
+    func requestPoints(forLocation location: String) {
+        
+        guard let cityCode = cities?.first(where: { $0.name == location })?.code else {
+            return
+        }
+        
+        requestManager?.listPoints(prepaid: true, city: cityCode) { [weak self] response in
+            
+            guard
+                let points = response.value,
+                let viewPoints: [ViewPoint] = try? points.map() else {
+                // FIXME: Показать пользователю алерт
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self?.output?.didRequestPoints(viewPoints)
+            }
+        }
+    }
+    
+    func requestCities() {
+        
+        group.enter()
+        
+        requestManager?.listCitiesFull { [weak self] response in
+            self?.cities = response.value
+            self?.group.leave()
+            
         }
     }
     

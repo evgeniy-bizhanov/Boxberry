@@ -22,3 +22,5 @@ extension CLLocationCoordinate2D: Mappable {
         try container.encode(longitude, forKey: .longitude)
     }
 }
+
+extension Array: Mappable where Element: Codable {}

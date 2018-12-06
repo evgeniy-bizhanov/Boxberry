@@ -15,7 +15,7 @@ protocol PointRequestProtocol: AbstractRequestManager {
      */
     func listPoints(
         prepaid: Bool,
-        city: Int,
+        city: String,
         completion: @escaping Completion<[Point]>
     )
 
@@ -33,7 +33,7 @@ protocol PointRequestProtocol: AbstractRequestManager {
      - Parameter city: Код города, для которого необходимо получить список отеделений
      */
     func listPoints(
-        city: Int,
+        city: String,
         completion: @escaping Completion<[Point]>
     )
 

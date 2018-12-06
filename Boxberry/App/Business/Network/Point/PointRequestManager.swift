@@ -11,7 +11,7 @@ import Alamofire
 extension RequestManager: PointRequestProtocol {
     
     func listPoints(
-        prepaid: Bool, city: Int, completion: @escaping Completion<[Point]>) {
+        prepaid: Bool, city: String, completion: @escaping Completion<[Point]>) {
 
         listPointsRequest(
             prepaid: prepaid,
@@ -31,7 +31,7 @@ extension RequestManager: PointRequestProtocol {
     }
 
     func listPoints(
-        city: Int, completion: @escaping Completion<[Point]>) {
+        city: String, completion: @escaping Completion<[Point]>) {
 
         listPointsRequest(
             prepaid: false,
@@ -52,7 +52,7 @@ extension RequestManager: PointRequestProtocol {
     
     fileprivate
     func listPointsRequest(
-        prepaid: Bool, city: Int?, completion: @escaping Completion<[Point]>) {
+        prepaid: Bool, city: String?, completion: @escaping Completion<[Point]>) {
 
         let listPointsRequest = ListPointsRequest(url: url, prepaid: prepaid, city: city)
         request(request: listPointsRequest, completion: completion)
@@ -88,7 +88,7 @@ extension RequestManager {
         // MARK: - Fields
         
         let prepaid: Bool
-        let city: Int?
+        let city: String?
         
     }
 }

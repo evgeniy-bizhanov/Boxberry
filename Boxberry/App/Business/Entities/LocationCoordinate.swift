@@ -6,7 +6,12 @@
 //  Copyright © 2018 Евгений Бижанов. All rights reserved.
 //
 
-class LocationCoordinate: Decodable {
+struct LocationCoordinate: Codable {
     let latitude: Double
     let longitude: Double
+    
+    init(latitude: Double, longitude: Double) {
+        self.latitude = latitude
+        self.longitude = longitude
+    }
 }
