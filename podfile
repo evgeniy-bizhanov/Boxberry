@@ -18,6 +18,9 @@ target 'Boxberry' do
   # DI
   pod 'Swinject', '~> 2.5'
 
+  # Other
+  pod 'YandexMapKit', '~> 3.1'
+
   target 'BoxberryTests' do
     inherit! :search_paths
     # Pods for testing
