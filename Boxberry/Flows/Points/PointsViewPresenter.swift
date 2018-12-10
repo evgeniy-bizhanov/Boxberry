@@ -14,7 +14,10 @@
 
 import Foundation
 
-protocol PointsViewInput: ViewInput {}
+protocol PointsViewInput: ViewInput {
+    
+    func requestUserLocation()
+}
 
 
 /// Презентер для представления отображения точек выдачи заказов на карте

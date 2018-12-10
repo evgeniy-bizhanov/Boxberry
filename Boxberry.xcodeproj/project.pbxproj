@@ -45,6 +45,7 @@
 		7AB88B9421AD8384002A9EA4 /* CityRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB88B9321AD8384002A9EA4 /* CityRequestManager.swift */; };
 		7AC8FEB721A3C7F7004C48ED /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC8FEB621A3C7F7004C48ED /* Location.swift */; };
 		7AC8FEB921A3C80F004C48ED /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC8FEB821A3C80F004C48ED /* LocationService.swift */; };
+		7ADB6D9621BE4EC0006405DA /* Pods_Boxberry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710586EBABBC2011706899A9 /* Pods_Boxberry.framework */; };
 		7AF12BFC21B2E68C006EE048 /* GeoCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF12BFB21B2E68C006EE048 /* GeoCoder.swift */; };
 		7AF12BFE21B2E697006EE048 /* GeoCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF12BFD21B2E697006EE048 /* GeoCodable.swift */; };
 		7AF12C0021B2E6EA006EE048 /* LocationCoordinateDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF12BFF21B2E6EA006EE048 /* LocationCoordinateDto.swift */; };
@@ -54,7 +55,6 @@
 		7AF12C1221B54609006EE048 /* AbstractRequestParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF12C1121B54609006EE048 /* AbstractRequestParameter.swift */; };
 		7AFB799721AB392200E48085 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFB799621AB392200E48085 /* AppConfig.swift */; };
 		AB723DB2C7DEDC2750374C67 /* Pods_BoxberryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BA988A438AE092CF052180 /* Pods_BoxberryTests.framework */; };
-		BAF3FD19C6E103E817FBC048 /* Pods_Boxberry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710586EBABBC2011706899A9 /* Pods_Boxberry.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,7 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAF3FD19C6E103E817FBC048 /* Pods_Boxberry.framework in Frameworks */,
+				7ADB6D9621BE4EC0006405DA /* Pods_Boxberry.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,7 +447,7 @@
 				7A316A5D219DDE4300EED2E7 /* Frameworks */,
 				7A316A5E219DDE4300EED2E7 /* Resources */,
 				BD9C3F1E21F480B556014594 /* [CP] Embed Pods Frameworks */,
-				D4B90A0AC297DD20C0DE2E92 /* [CP] Copy Pods Resources */,
+				A4E4B4C06EB2C12A38031187 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -576,6 +576,30 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
+		A4E4B4C06EB2C12A38031187 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Boxberry/Pods-Boxberry-resources.sh",
+				"${PODS_ROOT}/YandexMapKit/YandexMapKit.framework/Versions/A/Resources/YandexMapKit.bundle",
+				"${PODS_ROOT}/YandexRuntime/YandexRuntime.framework/Versions/A/Resources/YandexRuntime.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/YandexMapKit.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/YandexRuntime.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Boxberry/Pods-Boxberry-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BD9C3F1E21F480B556014594 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -604,30 +628,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Boxberry/Pods-Boxberry-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D4B90A0AC297DD20C0DE2E92 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Boxberry/Pods-Boxberry-resources.sh",
-				"${PODS_ROOT}/YandexMapKit/YandexMapKit.framework/Versions/A/Resources/YandexMapKit.bundle",
-				"${PODS_ROOT}/YandexRuntime/YandexRuntime.framework/Versions/A/Resources/YandexRuntime.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/YandexMapKit.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/YandexRuntime.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Boxberry/Pods-Boxberry-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EA7EADAD0C44B8992D4D97AF /* [CP] Check Pods Manifest.lock */ = {

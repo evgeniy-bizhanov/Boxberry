@@ -25,9 +25,9 @@ class PointsViewController: UIViewController {
     // MARK: - IBOutlets
     
     @IBOutlet var mapView: YMKMapView!
-    @IBOutlet var northButton: UIButton!
-    @IBOutlet var userLocationButton: UIButton!
+    @IBOutlet var azimutButton: UIButton!
     @IBOutlet var filterButton: UIButton!
+    @IBOutlet var userLocationButton: UIButton!
     
     
     // MARK: - Models
@@ -37,7 +37,7 @@ class PointsViewController: UIViewController {
     
     // MARK: - Fields
     
-    lazy var placemarkImage: UIImage! = UIImage(named: "Pin")
+    lazy var mapAnimation = YMKAnimation(type: .smooth, duration: 0.6)
     var map: YMKMap {
         return mapView.mapWindow.map
     }
@@ -45,16 +45,31 @@ class PointsViewController: UIViewController {
     
     // MARK: - IBActions
     
-    @IBAction func northButtonAction(_ sender: UIButton) {
+    @IBAction func azimutAction(_ sender: UIButton) {
+        let target = map.cameraPosition.target
+        let zoom = map.cameraPosition.zoom
+        let tilt = map.cameraPosition.tilt
+        
+        let camera = YMKCameraPosition(
+            target: target,
+            zoom: zoom,
+            azimuth: 0,
+            tilt: tilt
+        )
+        
+        map.move(
+            with: camera,
+            animationType: mapAnimation,
+            cameraCallback: nil
+        )
+    }
+    
+    @IBAction func filterAction(_ sender: UIButton) {
         //
     }
     
-    @IBAction func filterButtonAction(_ sender: UIButton) {
-        //
-    }
-    
-    @IBAction func userLocationButtonAction(_ sender: UIButton) {
-        //
+    @IBAction func userLocationAction(_ sender: UIButton) {
+        input?.requestUserLocation()
     }
     
     
@@ -65,6 +80,8 @@ class PointsViewController: UIViewController {
         input?.viewDidLoad()
         
         addButtonsToMap()
+        
+        map.addCameraListener(with: self)
 
         // Включение / выключение жестов наклона, например, параллельное панорамирование двумя пальцами.
         map.isTiltGesturesEnabled = false
@@ -121,6 +138,7 @@ extension PointsViewController: PointsViewOutput {
     
     func didRequestUserLocation(_ location: CLLocation) {
         locate(to: location)
+        userLocationButton.isHidden = true
     }
     
     func didUpdateUserLocation(_ location: CLLocation) {
@@ -142,11 +160,10 @@ extension PointsViewController: PointsViewOutput {
         
         let zoom = zoom ?? 14
         let camera = YMKCameraPosition(target: target, zoom: zoom, azimuth: 0, tilt: 0)
-        let animation = YMKAnimation(type: .smooth, duration: 1)
         
         map.move(
             with: camera,
-            animationType: animation,
+            animationType: mapAnimation,
             cameraCallback: completion
         )
     }
@@ -191,6 +208,28 @@ extension PointsViewController: YMKUserLocationObjectListener {
     }
 }
 
+extension PointsViewController: YMKMapCameraListener {
+    func onCameraPositionChanged(
+        with map: YMKMap,
+        cameraPosition: YMKCameraPosition,
+        cameraUpdateSource: YMKCameraUpdateSource,
+        finished: Bool) {
+        
+        if cameraUpdateSource == .gestures {
+            if userLocationButton.isHidden {
+                userLocationButton.isHidden = false
+            }
+            
+            if
+                cameraPosition.azimuth != 0,
+                azimutButton.isHidden {
+                
+                azimutButton.isHidden = false
+            }
+        }
+    }
+}
+
 
 // MARK: - Fileprivate
 
@@ -198,18 +237,18 @@ extension PointsViewController {
     
     fileprivate func addButtonsToMap() {
         createButtons()
-        embedMapControlsInStack([northButton, userLocationButton, filterButton])
+        embedMapControlsInStack([azimutButton, userLocationButton, filterButton])
     }
     
     fileprivate func createButtons() {
-        northButton = UIButton.circleButton(forImage: UIImage(named: "North"), radius: 16)
-        northButton.addTarget(self, action: #selector(northButtonAction), for: .touchUpInside)
+        azimutButton = UIButton.circleButton(forImage: UIImage(named: "North"), radius: 16)
+        azimutButton.addTarget(self, action: #selector(azimutAction), for: .touchUpInside)
         
         filterButton = UIButton.circleButton(forImage: UIImage(named: "Filter"), radius: 20)
-        filterButton.addTarget(self, action: #selector(filterButtonAction), for: .touchUpInside)
+        filterButton.addTarget(self, action: #selector(filterAction), for: .touchUpInside)
         
         userLocationButton = UIButton.circleButton(forImage: UIImage(named: "Arrow"), radius: 16)
-        userLocationButton.addTarget(self, action: #selector(userLocationButtonAction), for: .touchUpInside)
+        userLocationButton.addTarget(self, action: #selector(userLocationAction), for: .touchUpInside)
     }
     
     fileprivate func layoutStackView(_ stack: UIStackView) {
