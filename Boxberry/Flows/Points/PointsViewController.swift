@@ -37,7 +37,7 @@ class PointsViewController: UIViewController {
     
     // MARK: - Fields
     
-    lazy var mapAnimation = YMKAnimation(type: .smooth, duration: 0.6)
+    lazy var mapAnimation = YMKAnimation(type: .smooth, duration: 0.7)
     var map: YMKMap {
         return mapView.mapWindow.map
     }
@@ -46,6 +46,10 @@ class PointsViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func azimutAction(_ sender: UIButton) {
+        defer {
+            azimutButton.isHidden = true
+        }
+        
         let target = map.cameraPosition.target
         let zoom = map.cameraPosition.zoom
         let tilt = map.cameraPosition.tilt
@@ -137,8 +141,12 @@ extension PointsViewController: PointsViewOutput {
     // MARK: - User location
     
     func didRequestUserLocation(_ location: CLLocation) {
+        defer {
+            userLocationButton.isHidden = true
+            azimutButton.isHidden = true
+        }
+        
         locate(to: location)
-        userLocationButton.isHidden = true
     }
     
     func didUpdateUserLocation(_ location: CLLocation) {
