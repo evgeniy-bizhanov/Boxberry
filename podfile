@@ -6,20 +6,20 @@ target 'Boxberry' do
   use_frameworks!
 
   # Pods for TOGO
-  pod 'SwiftLint', '~> 0.27'
+  pod 'SwiftLint'
 
   # Networking
-  pod 'Alamofire', '~> 4.7'
+  pod 'Alamofire'
   # pod 'OHHTTPStubs/Swift', '~> 6.1.0'
 
   # Bindings
-  pod 'Bond', '~> 6.10'
+  pod 'Bond'
 
   # DI
-  pod 'Swinject', '~> 2.5'
+  pod 'Swinject'
 
   # Other
-  pod 'YandexMapKit', '~> 3.1'
+  pod 'YandexMapKit'
 
   target 'BoxberryTests' do
     inherit! :search_paths

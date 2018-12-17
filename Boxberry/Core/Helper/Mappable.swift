@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias BidirectionalMappable = Mappable & Decodable
+
 /// Экземпляры протокола могут быть сконвертированы друг в друга
 public protocol Mappable: Encodable {
     /// Выполняет мэппинг свойств одного типа на другой

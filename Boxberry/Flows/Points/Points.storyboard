@@ -14,7 +14,7 @@
         <scene sceneID="c9m-fG-pom">
             <objects>
                 <viewController id="OH5-Pg-bTm" customClass="PointsViewController" customModule="Boxberry" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="f9K-na-sug" customClass="YMKMapView">
+                    <view key="view" contentMode="scaleToFill" id="f9K-na-sug" customClass="YMKView" customModule="Boxberry" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -33,7 +33,7 @@
                         </segmentedControl>
                     </navigationItem>
                     <connections>
-                        <outlet property="mapView" destination="f9K-na-sug" id="FoX-X0-3AF"/>
+                        <outlet property="mapView" destination="f9K-na-sug" id="nLb-Qn-x69"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qVg-dw-YCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
