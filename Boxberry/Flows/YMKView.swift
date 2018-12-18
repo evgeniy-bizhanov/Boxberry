@@ -35,12 +35,15 @@ class YMKView: YMKMapView {
         return layer
     }()
     
+    private var placemarks: YMKMapObjectCollection!
+    
     
     // MARK: - Functions
     
     override func awakeFromNib() {
         setupView()
         setupListeners()
+        layoutLayers()
     }
     
     private func setupView() {
@@ -51,6 +54,10 @@ class YMKView: YMKMapView {
     private func setupListeners() {
         self.map.addCameraListener(with: self)
         self.userLocationLayer.setObjectListenerWith(self)
+    }
+    
+    private func layoutLayers() {
+        placemarks = map.addObjectLayer(withLayerId: "placemarks")
     }
     
 }
@@ -102,7 +109,7 @@ extension YMKView {
 extension YMKView {
     func addPlacemark(forLocation location: LocationCoordinate, didAddPlacemark: PlacemarkCompletion?) {
         let target = YMKPoint(latitude: location.latitude, longitude: location.longitude)
-        let placemark = map.mapObjects.addPlacemark(with: target)
+        let placemark = placemarks.addPlacemark(with: target)
         didAddPlacemark?(placemark)
     }
     
