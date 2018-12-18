@@ -107,19 +107,21 @@ extension YMKView {
 // MARK: - Map objects
 
 extension YMKView {
-    func addPlacemark(forLocation location: LocationCoordinate, didAddPlacemark: PlacemarkCompletion?) {
-        let target = YMKPoint(latitude: location.latitude, longitude: location.longitude)
-        let placemark = placemarks.addPlacemark(with: target)
-        didAddPlacemark?(placemark)
-    }
-    
-    func addPlacemarks(forLocations locations: [LocationCoordinate], didAddPlacemark: PlacemarksCompletion?) {
+    func addPlacemark(
+        forLocation location: LocationCoordinate, withImage image: UIImage? = nil,
+        didAddPlacemark: PlacemarkCompletion? = nil) {
         
-        var index = 0
-        locations.forEach { location in
-            addPlacemark(forLocation: location, didAddPlacemark: didAddPlacemark?(index))
-            index += 1
+        let target = YMKPoint(latitude: location.latitude, longitude: location.longitude)
+        
+        let placemark: YMKPlacemarkMapObject
+        
+        if let image = image {
+            placemark = placemarks.addPlacemark(with: target, image: image)
+        } else {
+            placemark = placemarks.addEmptyPlacemark(with: target)
         }
+        
+        didAddPlacemark?(placemark)
     }
 }
 
