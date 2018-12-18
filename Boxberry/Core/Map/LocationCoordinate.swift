@@ -6,7 +6,7 @@
 //  Copyright © 2018 Евгений Бижанов. All rights reserved.
 //
 
-struct LocationCoordinate: Codable {
+struct LocationCoordinate: BidirectionalMappable {
     let latitude: Double
     let longitude: Double
     

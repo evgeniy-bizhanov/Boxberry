@@ -32,7 +32,7 @@ class PointsViewPresenter: PointsViewInput {
     
     // MARK: - Properties
     
-    var output: PointsViewOutput?
+    weak var output: PointsViewOutput?
     
     
     // MARK: - Fields
