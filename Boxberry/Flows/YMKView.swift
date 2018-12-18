@@ -35,12 +35,15 @@ class YMKView: YMKMapView {
         return layer
     }()
     
+    private var placemarks: YMKMapObjectCollection!
+    
     
     // MARK: - Functions
     
     override func awakeFromNib() {
         setupView()
         setupListeners()
+        layoutLayers()
     }
     
     private func setupView() {
@@ -51,6 +54,10 @@ class YMKView: YMKMapView {
     private func setupListeners() {
         self.map.addCameraListener(with: self)
         self.userLocationLayer.setObjectListenerWith(self)
+    }
+    
+    private func layoutLayers() {
+        placemarks = map.addObjectLayer(withLayerId: "placemarks")
     }
     
 }
@@ -100,19 +107,21 @@ extension YMKView {
 // MARK: - Map objects
 
 extension YMKView {
-    func addPlacemark(forLocation location: LocationCoordinate, didAddPlacemark: PlacemarkCompletion?) {
-        let target = YMKPoint(latitude: location.latitude, longitude: location.longitude)
-        let placemark = map.mapObjects.addPlacemark(with: target)
-        didAddPlacemark?(placemark)
-    }
-    
-    func addPlacemarks(forLocations locations: [LocationCoordinate], didAddPlacemark: PlacemarksCompletion?) {
+    func addPlacemark(
+        forLocation location: LocationCoordinate, withImage image: UIImage? = nil,
+        didAddPlacemark: PlacemarkCompletion? = nil) {
         
-        var index = 0
-        locations.forEach { location in
-            addPlacemark(forLocation: location, didAddPlacemark: didAddPlacemark?(index))
-            index += 1
+        let target = YMKPoint(latitude: location.latitude, longitude: location.longitude)
+        
+        let placemark: YMKPlacemarkMapObject
+        
+        if let image = image {
+            placemark = placemarks.addPlacemark(with: target, image: image)
+        } else {
+            placemark = placemarks.addEmptyPlacemark(with: target)
         }
+        
+        didAddPlacemark?(placemark)
     }
 }
 

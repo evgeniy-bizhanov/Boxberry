@@ -12,6 +12,4 @@ protocol MapViewDelegate: class {
     
     func cameraPositionDidChanged()
     func azimuthDidChanged()
-    
-    func didAddPlacemark(placemark: YMKPlacemarkMapObject)
 }

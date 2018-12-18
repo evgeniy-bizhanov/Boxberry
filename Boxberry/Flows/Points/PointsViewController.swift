@@ -37,6 +37,12 @@ class PointsViewController: UIViewController {
     
     // MARK: - Fields
     
+    let cardImage = UIImage(named: "Card")
+    let prepaidImage = UIImage(named: "Prepaid")
+    let deliveryImage = UIImage(named: "Delivery")
+    let emptyImage = UIImage(named: "Empty")
+    
+    
     // MARK: - IBActions
     
     @IBAction func azimutAction(_ sender: UIButton) {
@@ -79,25 +85,24 @@ extension PointsViewController: PointsViewOutput {
             filterButton.isHidden = false
         }
         
-        points.forEach { [weak self]point in
+        points.forEach { point in
+            
+            let image: UIImage!
+            
+            if point.nalKD {
+                image = deliveryImage
+            } else if point.acquiring {
+                image = cardImage
+            } else if point.onlyPrepaidOrders {
+                image = prepaidImage
+            } else {
+                image = emptyImage
+            }
+            
             if let location = point.gps {
-                mapView.addPlacemark(forLocation: location) { placemark in
-                    self?.setupPlacemark(placemark, withPoint: point)
-                }
+                mapView.addPlacemark(forLocation: location, withImage: image)
             }
         }
-        
-        // Нужно тестить, есть подозрение, что не очень надежно
-//        let locations = points
-//            .map { $0.gps.unsafelyUnwrapped }
-        
-//        mapView.addPlacemarks(forLocations: locations) { index in
-//            let point = points[index]
-//
-//            return { [weak self]placemark in
-//                self?.setupPlacemark(placemark, withPoint: point)
-//            }
-//        }
     }
     
     fileprivate func setupPlacemark(_ placemark: YMKPlacemarkMapObject, withPoint point: ViewPoint) {
@@ -138,10 +143,6 @@ extension PointsViewController: PointsViewOutput {
 // MARK: - MapViewDelegate
 
 extension PointsViewController: MapViewDelegate {
-    func didAddPlacemark(placemark: YMKPlacemarkMapObject) {
-        // TODO: Реализовать или убрать
-    }
-    
     func cameraPositionDidChanged() {
         userLocationButton.isHidden = false
     }
