@@ -100,7 +100,7 @@ extension PointsViewController: PointsViewOutput {
             }
             
             if let location = point.gps {
-                mapView.addPlacemark(forLocation: location, withImage: image)
+                mapView.addPlacemark(forLocation: location, withImage: image, userData: point.code)
             }
         }
     }
@@ -143,12 +143,16 @@ extension PointsViewController: PointsViewOutput {
 // MARK: - MapViewDelegate
 
 extension PointsViewController: MapViewDelegate {
-    func cameraPositionDidChanged() {
+    func didCameraPositionChanged() {
         userLocationButton.isHidden = false
     }
     
-    func azimuthDidChanged() {
+    func didAzimuthChanged() {
         azimutButton.isHidden = false
+    }
+    
+    func didPlacemarkTapped(withUserData data: Any?, _ location: LocationCoordinate) {
+        print(data)
     }
 }
 

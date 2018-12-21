@@ -10,6 +10,8 @@ import YandexMapKit
 
 protocol MapViewDelegate: class {
     
-    func cameraPositionDidChanged()
-    func azimuthDidChanged()
+    func didCameraPositionChanged()
+    func didAzimuthChanged()
+    
+    func didPlacemarkTapped(withUserData data: Any?, _ location: LocationCoordinate)
 }

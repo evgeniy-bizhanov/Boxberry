@@ -8,6 +8,9 @@
 
 struct ViewPoint {
     
+    /// Код в базе boxberry
+    let code: String
+    
     /// Наименование ПВЗ
     let name: String
     
@@ -76,6 +79,7 @@ extension ViewPoint: Codable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
+        code = try container.decode(String.self, forKey: .code)
         name = try container.decode(String.self, forKey: .name)
         address = try container.decode(String.self, forKey: .address)
         phone = try container.decode(String.self, forKey: .phone)
