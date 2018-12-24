@@ -22,11 +22,11 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="XD9-hk-z8x">
-                                <rect key="frame" x="164" y="318" width="46" height="90"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="XD9-hk-z8x">
+                                <rect key="frame" x="367" y="333.5" width="0.0" height="0.0"/>
                                 <subviews>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTZ-hu-yPY">
-                                        <rect key="frame" x="15" y="4" width="17" height="22"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
                                         <color key="backgroundColor" white="1" alpha="0.89525363869863017" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="Qmh-Xi-lLi"/>
@@ -55,7 +55,7 @@
                                         </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OO3-Do-Wb4">
-                                        <rect key="frame" x="15" y="34" width="17" height="22"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
                                         <color key="backgroundColor" white="1" alpha="0.89525363869863017" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="32" id="EqV-5E-gPQ"/>
@@ -84,7 +84,7 @@
                                         </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iVa-hw-J9d">
-                                        <rect key="frame" x="14" y="64" width="19" height="22"/>
+                                        <rect key="frame" x="-4" y="0.0" width="40" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="0.89525363869863017" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Fzq-T5-kP7"/>
@@ -114,6 +114,32 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbc-MB-3dJ">
+                                <rect key="frame" x="159.5" y="603" width="56" height="56"/>
+                                <color key="backgroundColor" red="0.83137254900000002" green="0.21176470589999999" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="56" id="26V-7T-Dnj"/>
+                                    <constraint firstAttribute="height" constant="56" id="YRy-ar-esf"/>
+                                </constraints>
+                                <state key="normal" image="Phone"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="28"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -121,8 +147,10 @@
                             <constraint firstItem="I0G-gV-Ns3" firstAttribute="leading" secondItem="f9K-na-sug" secondAttribute="leading" id="HVT-nP-6sp"/>
                             <constraint firstAttribute="trailing" secondItem="I0G-gV-Ns3" secondAttribute="trailing" id="XxK-8A-TUl"/>
                             <constraint firstItem="XD9-hk-z8x" firstAttribute="bottom" secondItem="f9K-na-sug" secondAttribute="centerY" id="ZaN-N7-AZF"/>
+                            <constraint firstItem="7De-P0-dUa" firstAttribute="bottom" secondItem="hbc-MB-3dJ" secondAttribute="bottom" constant="8" id="ZkP-LO-ipc"/>
                             <constraint firstItem="7De-P0-dUa" firstAttribute="trailing" secondItem="XD9-hk-z8x" secondAttribute="trailing" constant="8" id="g67-cl-dSt"/>
                             <constraint firstItem="I0G-gV-Ns3" firstAttribute="top" secondItem="f9K-na-sug" secondAttribute="top" constant="64" id="wFX-Pc-Fl0"/>
+                            <constraint firstItem="hbc-MB-3dJ" firstAttribute="centerX" secondItem="f9K-na-sug" secondAttribute="centerX" id="wsM-ji-qX7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7De-P0-dUa"/>
                     </view>
@@ -177,5 +205,6 @@
         <image name="Arrow" width="17" height="18"/>
         <image name="Filter" width="19" height="18"/>
         <image name="North" width="17" height="18"/>
+        <image name="Phone" width="26" height="26"/>
     </resources>
 </document>
