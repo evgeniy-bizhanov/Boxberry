@@ -14,10 +14,116 @@
         <scene sceneID="c9m-fG-pom">
             <objects>
                 <viewController id="OH5-Pg-bTm" customClass="PointsViewController" customModule="Boxberry" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="f9K-na-sug" customClass="YMKView" customModule="Boxberry" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="f9K-na-sug">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I0G-gV-Ns3" customClass="YMKView" customModule="Boxberry" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="XD9-hk-z8x">
+                                <rect key="frame" x="164" y="318" width="46" height="90"/>
+                                <subviews>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTZ-hu-yPY">
+                                        <rect key="frame" x="15" y="4" width="17" height="22"/>
+                                        <color key="backgroundColor" white="1" alpha="0.89525363869863017" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="Qmh-Xi-lLi"/>
+                                            <constraint firstAttribute="width" constant="32" id="cAS-vf-Adg"/>
+                                        </constraints>
+                                        <state key="normal" image="North"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="0.0" height="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="0.20000000000000001"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="azimutAction:" destination="OH5-Pg-bTm" eventType="touchUpInside" id="Cl8-bq-HuG"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OO3-Do-Wb4">
+                                        <rect key="frame" x="15" y="34" width="17" height="22"/>
+                                        <color key="backgroundColor" white="1" alpha="0.89525363869863017" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="32" id="EqV-5E-gPQ"/>
+                                            <constraint firstAttribute="height" constant="32" id="icq-xb-Ge2"/>
+                                        </constraints>
+                                        <state key="normal" image="Arrow"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="0.0" height="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="0.20000000000000001"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="userLocationAction:" destination="OH5-Pg-bTm" eventType="touchUpInside" id="jNM-nB-QeM"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iVa-hw-J9d">
+                                        <rect key="frame" x="14" y="64" width="19" height="22"/>
+                                        <color key="backgroundColor" white="1" alpha="0.89525363869863017" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Fzq-T5-kP7"/>
+                                            <constraint firstAttribute="width" constant="40" id="hHF-4Z-9uh"/>
+                                        </constraints>
+                                        <state key="normal" image="Filter"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="0.20000000000000001"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="0.0" height="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="filterAction:" destination="OH5-Pg-bTm" eventType="touchUpInside" id="cmS-bc-uhu"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="I0G-gV-Ns3" secondAttribute="bottom" id="Eac-CQ-nHS"/>
+                            <constraint firstItem="I0G-gV-Ns3" firstAttribute="leading" secondItem="f9K-na-sug" secondAttribute="leading" id="HVT-nP-6sp"/>
+                            <constraint firstAttribute="trailing" secondItem="I0G-gV-Ns3" secondAttribute="trailing" id="XxK-8A-TUl"/>
+                            <constraint firstItem="XD9-hk-z8x" firstAttribute="bottom" secondItem="f9K-na-sug" secondAttribute="centerY" id="ZaN-N7-AZF"/>
+                            <constraint firstItem="7De-P0-dUa" firstAttribute="trailing" secondItem="XD9-hk-z8x" secondAttribute="trailing" constant="8" id="g67-cl-dSt"/>
+                            <constraint firstItem="I0G-gV-Ns3" firstAttribute="top" secondItem="f9K-na-sug" secondAttribute="top" constant="64" id="wFX-Pc-Fl0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="7De-P0-dUa"/>
                     </view>
                     <navigationItem key="navigationItem" id="pHF-Xl-8j1">
@@ -33,7 +139,10 @@
                         </segmentedControl>
                     </navigationItem>
                     <connections>
-                        <outlet property="mapView" destination="f9K-na-sug" id="nLb-Qn-x69"/>
+                        <outlet property="azimutButton" destination="KTZ-hu-yPY" id="WOb-06-Irq"/>
+                        <outlet property="filterButton" destination="iVa-hw-J9d" id="ebL-6h-fTy"/>
+                        <outlet property="mapView" destination="I0G-gV-Ns3" id="TEE-t0-peQ"/>
+                        <outlet property="userLocationButton" destination="OO3-Do-Wb4" id="Td6-eW-67A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qVg-dw-YCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -64,4 +173,9 @@
             <point key="canvasLocation" x="112.8" y="132.68365817091455"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Arrow" width="17" height="18"/>
+        <image name="Filter" width="19" height="18"/>
+        <image name="North" width="17" height="18"/>
+    </resources>
 </document>

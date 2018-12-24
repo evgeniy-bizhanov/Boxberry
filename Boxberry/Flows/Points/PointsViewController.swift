@@ -69,7 +69,6 @@ class PointsViewController: UIViewController {
         input?.viewDidLoad()
         
         mapView.delegate = self
-        buttonsToMap()
     }
 }
 
@@ -153,56 +152,5 @@ extension PointsViewController: MapViewDelegate {
     
     func didPlacemarkTapped(withUserData data: Any?, _ location: LocationCoordinate) {
         print(data)
-    }
-}
-
-
-// MARK: - Fileprivate
-
-extension PointsViewController {
-    
-    fileprivate func buttonsToMap() {
-        azimutButton = UIButton.circleButton(forImage: UIImage(named: "North"), radius: 16)
-        azimutButton.addTarget(self, action: #selector(azimutAction), for: .touchUpInside)
-        
-        filterButton = UIButton.circleButton(forImage: UIImage(named: "Filter"), radius: 20)
-        filterButton.addTarget(self, action: #selector(filterAction), for: .touchUpInside)
-        
-        userLocationButton = UIButton.circleButton(forImage: UIImage(named: "Arrow"), radius: 16)
-        userLocationButton.addTarget(self, action: #selector(userLocationAction), for: .touchUpInside)
-        
-        embedMapControlsInStack([azimutButton, userLocationButton, filterButton])
-    }
-    
-    fileprivate func layoutStackView(_ stack: UIStackView) {
-        let margins = mapView.layoutMarginsGuide
-        
-        self.mapView.addSubview(stack)
-        
-        stack.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 6).isActive = true
-        stack.bottomAnchor.constraint(equalTo: margins.centerYAnchor, constant: 50).isActive = true
-    }
-    
-    fileprivate func embedMapControlsInStack(_ controls: [UIView]) {
-        let stack = UIStackView.mapControlsStackView(arrangedSubviews: controls)
-        
-        self.layoutStackView(stack)
-    }
-}
-
-
-// MARK: - Fileprivate fabric
-
-fileprivate extension UIStackView {
-    
-    static func mapControlsStackView(arrangedSubviews views: [UIView]) -> UIStackView {
-        
-        let stack = UIStackView(arrangedSubviews: views)
-        stack.axis = .vertical
-        stack.spacing = 6
-        stack.alignment = .center
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        
-        return stack
     }
 }

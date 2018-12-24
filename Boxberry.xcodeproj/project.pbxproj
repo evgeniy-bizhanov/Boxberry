@@ -10,7 +10,6 @@
 		7A04F8C221C752EF000CA6CD /* YMKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A04F8C121C752EF000CA6CD /* YMKView.swift */; };
 		7A04F8C421C753C4000CA6CD /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A04F8C321C753C4000CA6CD /* MapViewDelegate.swift */; };
 		7A0CEFE921A14797003C2A32 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CEFE821A14797003C2A32 /* Point.swift */; };
-		7A22254F21BCE00800113D7A /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A22254E21BCE00800113D7A /* UIButton.swift */; };
 		7A23301321AB4032005BCFD7 /* NetworkAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A23301221AB4032005BCFD7 /* NetworkAssembler.swift */; };
 		7A23301521AB4164005BCFD7 /* EnvironmentAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A23301421AB4164005BCFD7 /* EnvironmentAssembler.swift */; };
 		7A23301821AB482B005BCFD7 /* RequestFactoryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A23301721AB482B005BCFD7 /* RequestFactoryHelper.swift */; };
@@ -76,7 +75,6 @@
 		7A04F8C121C752EF000CA6CD /* YMKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMKView.swift; sourceTree = "<group>"; };
 		7A04F8C321C753C4000CA6CD /* MapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
 		7A0CEFE821A14797003C2A32 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
-		7A22254E21BCE00800113D7A /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		7A23301221AB4032005BCFD7 /* NetworkAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAssembler.swift; sourceTree = "<group>"; };
 		7A23301421AB4164005BCFD7 /* EnvironmentAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentAssembler.swift; sourceTree = "<group>"; };
 		7A23301721AB482B005BCFD7 /* RequestFactoryHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactoryHelper.swift; sourceTree = "<group>"; };
@@ -434,7 +432,6 @@
 				7A34310421A26FA000362CB6 /* Extensions.swift */,
 				7AF12C0921B2F5DB006EE048 /* MappableExtensions.swift */,
 				7A5CE36421B82EC1007B2E55 /* UIExtensions.swift */,
-				7A22254E21BCE00800113D7A /* UIButton.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -685,7 +682,6 @@
 				7A36100921A4697D00909FA4 /* AbstractModuleBuilder.swift in Sources */,
 				7A5E364921A8AB73009249E0 /* PointRequestManager.swift in Sources */,
 				7A23301521AB4164005BCFD7 /* EnvironmentAssembler.swift in Sources */,
-				7A22254F21BCE00800113D7A /* UIButton.swift in Sources */,
 				7AF12C0021B2E6EA006EE048 /* LocationCoordinateDto.swift in Sources */,
 				7AC8FEB721A3C7F7004C48ED /* Location.swift in Sources */,
 				7A34311321A26FA100362CB6 /* Extensions.swift in Sources */,
