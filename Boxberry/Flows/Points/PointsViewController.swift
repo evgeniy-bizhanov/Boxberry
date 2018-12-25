@@ -24,10 +24,11 @@ class PointsViewController: UIViewController {
     
     // MARK: - IBOutlets
     
-    @IBOutlet var mapView: YMKView!
-    @IBOutlet var azimutButton: UIButton!
-    @IBOutlet var filterButton: UIButton!
-    @IBOutlet var userLocationButton: UIButton!
+    @IBOutlet weak var mapView: YMKView!
+    @IBOutlet weak var azimutButton: UIButton!
+    @IBOutlet weak var filterButton: UIButton!
+    @IBOutlet weak var userLocationButton: UIButton!
+    @IBOutlet weak var callButton: UIButton!
     
     
     // MARK: - Models
@@ -59,6 +60,19 @@ class PointsViewController: UIViewController {
     
     @IBAction func userLocationAction(_ sender: UIButton) {
         input?.requestUserLocation()
+    }
+    
+    @IBAction func callAction(_ sender: Any) {
+        print("call")
+    }
+    
+    @IBAction func pan(_ sender: UIPanGestureRecognizer) {
+        
+        let velocity = sender.velocity(in: self.callButton)
+        
+        if velocity.y > 0 {
+            self.callButton.isHidden = true
+        }
     }
     
     
@@ -151,6 +165,8 @@ extension PointsViewController: MapViewDelegate {
     }
     
     func didPlacemarkTapped(withUserData data: Any?, _ location: LocationCoordinate) {
-        print(data)
+        input?.selectPoint(withUserData: data) { [weak self] isHidden in
+            self?.callButton.isHidden = isHidden
+        }
     }
 }

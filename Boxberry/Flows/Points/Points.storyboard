@@ -115,13 +115,16 @@
                                 </subviews>
                             </stackView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbc-MB-3dJ">
-                                <rect key="frame" x="159.5" y="603" width="56" height="56"/>
+                                <rect key="frame" x="159.5" y="595" width="56" height="56"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.21176470589999999" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="56" id="26V-7T-Dnj"/>
                                     <constraint firstAttribute="height" constant="56" id="YRy-ar-esf"/>
                                 </constraints>
                                 <state key="normal" image="Phone"/>
+                                <state key="selected" image="Card"/>
+                                <state key="highlighted" image="PhoneTint"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -139,6 +142,10 @@
                                         <size key="value" width="0.0" height="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="callAction:" destination="OH5-Pg-bTm" eventType="touchUpInside" id="XcT-BF-IiY"/>
+                                    <outletCollection property="gestureRecognizers" destination="lFY-ER-tur" appends="YES" id="9Oo-Xw-xeF"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -147,7 +154,7 @@
                             <constraint firstItem="I0G-gV-Ns3" firstAttribute="leading" secondItem="f9K-na-sug" secondAttribute="leading" id="HVT-nP-6sp"/>
                             <constraint firstAttribute="trailing" secondItem="I0G-gV-Ns3" secondAttribute="trailing" id="XxK-8A-TUl"/>
                             <constraint firstItem="XD9-hk-z8x" firstAttribute="bottom" secondItem="f9K-na-sug" secondAttribute="centerY" id="ZaN-N7-AZF"/>
-                            <constraint firstItem="7De-P0-dUa" firstAttribute="bottom" secondItem="hbc-MB-3dJ" secondAttribute="bottom" constant="8" id="ZkP-LO-ipc"/>
+                            <constraint firstItem="7De-P0-dUa" firstAttribute="bottom" secondItem="hbc-MB-3dJ" secondAttribute="bottom" constant="16" id="ZkP-LO-ipc"/>
                             <constraint firstItem="7De-P0-dUa" firstAttribute="trailing" secondItem="XD9-hk-z8x" secondAttribute="trailing" constant="8" id="g67-cl-dSt"/>
                             <constraint firstItem="I0G-gV-Ns3" firstAttribute="top" secondItem="f9K-na-sug" secondAttribute="top" constant="64" id="wFX-Pc-Fl0"/>
                             <constraint firstItem="hbc-MB-3dJ" firstAttribute="centerX" secondItem="f9K-na-sug" secondAttribute="centerX" id="wsM-ji-qX7"/>
@@ -168,6 +175,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="azimutButton" destination="KTZ-hu-yPY" id="WOb-06-Irq"/>
+                        <outlet property="callButton" destination="hbc-MB-3dJ" id="7L8-u0-edx"/>
                         <outlet property="filterButton" destination="iVa-hw-J9d" id="ebL-6h-fTy"/>
                         <outlet property="mapView" destination="I0G-gV-Ns3" id="TEE-t0-peQ"/>
                         <outlet property="userLocationButton" destination="OO3-Do-Wb4" id="Td6-eW-67A"/>
@@ -179,6 +187,11 @@
                         <outlet property="vc" destination="OH5-Pg-bTm" id="s9L-yv-LWN"/>
                     </connections>
                 </customObject>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="lFY-ER-tur">
+                    <connections>
+                        <action selector="pan:" destination="OH5-Pg-bTm" id="KbP-7H-Sum"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1052" y="132.68365817091455"/>
         </scene>
@@ -203,8 +216,10 @@
     </scenes>
     <resources>
         <image name="Arrow" width="17" height="18"/>
+        <image name="Card" width="24" height="24"/>
         <image name="Filter" width="19" height="18"/>
         <image name="North" width="17" height="18"/>
         <image name="Phone" width="26" height="26"/>
+        <image name="PhoneTint" width="26" height="26"/>
     </resources>
 </document>

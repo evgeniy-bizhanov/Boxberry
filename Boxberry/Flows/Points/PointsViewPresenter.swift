@@ -16,7 +16,13 @@ import Foundation
 
 protocol PointsViewInput: ViewInput {
     
+    typealias Visibility = Bool
+    typealias SelectCompletion = (Visibility) -> Void
+    
+    var selectedPoint: ViewPoint? { get }
+    
     func requestUserLocation()
+    func selectPoint(withUserData data: Any?, completion: SelectCompletion?)
 }
 
 
@@ -33,11 +39,12 @@ class PointsViewPresenter: PointsViewInput {
     // MARK: - Properties
     
     weak var output: PointsViewOutput?
+    var selectedPoint: ViewPoint?
     
     
     // MARK: - Fields
     private var cities: [City]?
-    private var points: [Point]?
+    private var points: [ViewPoint]?
     private var group = DispatchGroup()
     
     
@@ -132,9 +139,33 @@ extension PointsViewPresenter {
                     return
             }
             
+            self.points = viewPoints
+            
             DispatchQueue.main.async {
                 self.output?.didRequestPoints(viewPoints)
             }
+        }
+    }
+}
+
+
+// MARK: Placemarks
+
+extension PointsViewPresenter {
+    func selectPoint(withUserData data: Any?, completion: SelectCompletion?) {
+        
+        guard
+            let code = data as? String,
+            code != "" else {
+            
+                return
+        }
+        
+        if let point = points?.first(where: { $0.code == code }) {
+            self.selectedPoint = point
+            completion?(false)
+        } else {
+            completion?(true)
         }
     }
 }
