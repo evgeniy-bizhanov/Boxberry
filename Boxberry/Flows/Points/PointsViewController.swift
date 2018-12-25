@@ -36,6 +36,11 @@ class PointsViewController: UIViewController {
     var input: PointsViewInput?
     
     
+    // MARK: - Properties
+    
+    var onDetailRequest: ((ViewPoint?) -> Void)?
+    
+    
     // MARK: - Fields
     
     let cardImage = UIImage(named: "Card")
@@ -72,6 +77,8 @@ class PointsViewController: UIViewController {
         
         if velocity.y > 0 {
             self.callButton.isHidden = true
+        } else {
+            onDetailRequest?(input?.selectedPoint)
         }
     }
     

@@ -13,7 +13,7 @@ import YandexMapKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var coordinator: AppCoordinator?
 
     func application(
         _ application: UIApplication,
@@ -24,8 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.makeKeyAndVisible()
         
-        let vc = UIStoryboard(name: "Points", bundle: nil).instantiateInitialViewController()
-        window?.rootViewController = vc
+        coordinator = AppCoordinator()
+        coordinator?.start()
         
         return true
     }

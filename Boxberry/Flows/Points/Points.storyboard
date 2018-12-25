@@ -13,7 +13,7 @@
         <!--Vc-->
         <scene sceneID="c9m-fG-pom">
             <objects>
-                <viewController id="OH5-Pg-bTm" customClass="PointsViewController" customModule="Boxberry" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PointsViewController" id="OH5-Pg-bTm" customClass="PointsViewController" customModule="Boxberry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f9K-na-sug">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
