@@ -22,6 +22,8 @@ protocol PointsViewOutput: class {
 
 class PointsViewController: UIViewController {
     
+    typealias ContainerView = UIView
+    
     // MARK: - IBOutlets
     
     @IBOutlet weak var mapView: YMKView!
@@ -29,6 +31,7 @@ class PointsViewController: UIViewController {
     @IBOutlet weak var filterButton: UIButton!
     @IBOutlet weak var userLocationButton: UIButton!
     @IBOutlet weak var callButton: UIButton!
+    @IBOutlet weak var detailView: UIView!
     
     
     // MARK: - Models
@@ -38,7 +41,7 @@ class PointsViewController: UIViewController {
     
     // MARK: - Properties
     
-    var onDetailRequest: ((ViewPoint?) -> Void)?
+    var onDetailRequest: ((ContainerView, ViewPoint?) -> Void)?
     
     
     // MARK: - Fields
@@ -78,7 +81,7 @@ class PointsViewController: UIViewController {
         if velocity.y > 0 {
             self.callButton.isHidden = true
         } else {
-            onDetailRequest?(input?.selectedPoint)
+            onDetailRequest?(detailView, input?.selectedPoint)
         }
     }
     
