@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PointsViewDetailController: UIViewController {
+class PointViewController: UIViewController {
     // MARK: - IBOutlets
     // MARK: - Models
     // MARK: - Services

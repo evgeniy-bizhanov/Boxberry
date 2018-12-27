@@ -35,6 +35,7 @@
 		7A36100921A4697D00909FA4 /* AbstractModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A36100821A4697D00909FA4 /* AbstractModuleBuilder.swift */; };
 		7A36100C21A46A1000909FA4 /* PointsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A36100B21A46A1000909FA4 /* PointsAssembler.swift */; };
 		7A36100E21A4727C00909FA4 /* PointsViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A36100D21A4727C00909FA4 /* PointsViewBuilder.swift */; };
+		7A3CC0C221D4B8B10025838E /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3CC0C121D4B8B10025838E /* UIViewController.swift */; };
 		7A5CE36521B82EC1007B2E55 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CE36421B82EC1007B2E55 /* UIExtensions.swift */; };
 		7A5CE36721B837FD007B2E55 /* ViewPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CE36621B837FD007B2E55 /* ViewPoint.swift */; };
 		7A5E364721A8A740009249E0 /* PointRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5E364621A8A740009249E0 /* PointRequestProtocol.swift */; };
@@ -51,7 +52,7 @@
 		7AEF8FCE21D2998E004359F3 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEF8FCD21D2998E004359F3 /* AppCoordinator.swift */; };
 		7AEF8FD021D29A40004359F3 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEF8FCF21D29A40004359F3 /* MainCoordinator.swift */; };
 		7AEF8FD221D29BEA004359F3 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEF8FD121D29BEA004359F3 /* UIStoryboard.swift */; };
-		7AEF8FD621D35AD9004359F3 /* PointsViewDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEF8FD521D35AD9004359F3 /* PointsViewDetailController.swift */; };
+		7AEF8FD621D35AD9004359F3 /* PointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEF8FD521D35AD9004359F3 /* PointViewController.swift */; };
 		7AF12BFC21B2E68C006EE048 /* GeoCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF12BFB21B2E68C006EE048 /* GeoCoder.swift */; };
 		7AF12BFE21B2E697006EE048 /* GeoCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF12BFD21B2E697006EE048 /* GeoCodable.swift */; };
 		7AF12C0021B2E6EA006EE048 /* LocationCoordinateDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF12BFF21B2E6EA006EE048 /* LocationCoordinateDto.swift */; };
@@ -109,6 +110,7 @@
 		7A36100821A4697D00909FA4 /* AbstractModuleBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractModuleBuilder.swift; sourceTree = "<group>"; };
 		7A36100B21A46A1000909FA4 /* PointsAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsAssembler.swift; sourceTree = "<group>"; };
 		7A36100D21A4727C00909FA4 /* PointsViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsViewBuilder.swift; sourceTree = "<group>"; };
+		7A3CC0C121D4B8B10025838E /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		7A5CE36421B82EC1007B2E55 /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		7A5CE36621B837FD007B2E55 /* ViewPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPoint.swift; sourceTree = "<group>"; };
 		7A5E364621A8A740009249E0 /* PointRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointRequestProtocol.swift; sourceTree = "<group>"; };
@@ -125,7 +127,7 @@
 		7AEF8FCD21D2998E004359F3 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		7AEF8FCF21D29A40004359F3 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		7AEF8FD121D29BEA004359F3 /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
-		7AEF8FD521D35AD9004359F3 /* PointsViewDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsViewDetailController.swift; sourceTree = "<group>"; };
+		7AEF8FD521D35AD9004359F3 /* PointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointViewController.swift; sourceTree = "<group>"; };
 		7AF12BFB21B2E68C006EE048 /* GeoCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCoder.swift; sourceTree = "<group>"; };
 		7AF12BFD21B2E697006EE048 /* GeoCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCodable.swift; sourceTree = "<group>"; };
 		7AF12BFF21B2E6EA006EE048 /* LocationCoordinateDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCoordinateDto.swift; sourceTree = "<group>"; };
@@ -452,7 +454,7 @@
 		7AEF8FD721D35D8B004359F3 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				7AEF8FD521D35AD9004359F3 /* PointsViewDetailController.swift */,
+				7AEF8FD521D35AD9004359F3 /* PointViewController.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -471,6 +473,7 @@
 				7A34310421A26FA000362CB6 /* Extensions.swift */,
 				7AF12C0921B2F5DB006EE048 /* MappableExtensions.swift */,
 				7A5CE36421B82EC1007B2E55 /* UIExtensions.swift */,
+				7A3CC0C121D4B8B10025838E /* UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -737,10 +740,11 @@
 				7AF12BFC21B2E68C006EE048 /* GeoCoder.swift in Sources */,
 				7A5CE36721B837FD007B2E55 /* ViewPoint.swift in Sources */,
 				7A34310221A1B49000362CB6 /* ViewInput.swift in Sources */,
+				7A3CC0C221D4B8B10025838E /* UIViewController.swift in Sources */,
 				7A23301321AB4032005BCFD7 /* NetworkAssembler.swift in Sources */,
 				7A36100E21A4727C00909FA4 /* PointsViewBuilder.swift in Sources */,
 				7A7B486321AB1DFD00772370 /* RequestFactory.swift in Sources */,
-				7AEF8FD621D35AD9004359F3 /* PointsViewDetailController.swift in Sources */,
+				7AEF8FD621D35AD9004359F3 /* PointViewController.swift in Sources */,
 				7AF12C0721B2F5A1006EE048 /* Mappable.swift in Sources */,
 				7AEF8FD021D29A40004359F3 /* MainCoordinator.swift in Sources */,
 				7A34311A21A26FA100362CB6 /* RequestRouter.swift in Sources */,

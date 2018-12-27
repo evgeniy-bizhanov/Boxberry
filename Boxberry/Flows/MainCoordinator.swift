@@ -43,15 +43,10 @@ final class MainCoordinator: AbstractCoordinator {
         }
         
         let controller = UIStoryboard(name: storyboardId, bundle: nil)
-            .instantiateViewController(PointsViewDetailController.self)
-//        view.superview = controller.view
-        let sss = controller.view.intrinsicContentSize
-        destination.addChild(controller)
-        view.addSubview(controller.view)
-        controller.didMove(toParent: destination)
+            .instantiateViewController(PointViewController.self)
+        
+        destination.addChild(viewController: controller, embedIn: view)
         
         self.detailController = controller
-        
-//        let container = UIView(
     }
 }
