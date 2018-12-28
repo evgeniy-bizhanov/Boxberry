@@ -36,6 +36,8 @@
 		7A36100C21A46A1000909FA4 /* PointsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A36100B21A46A1000909FA4 /* PointsAssembler.swift */; };
 		7A36100E21A4727C00909FA4 /* PointsViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A36100D21A4727C00909FA4 /* PointsViewBuilder.swift */; };
 		7A3CC0C221D4B8B10025838E /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3CC0C121D4B8B10025838E /* UIViewController.swift */; };
+		7A3CC0C421D52F4D0025838E /* PointView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A3CC0C321D52F4D0025838E /* PointView.xib */; };
+		7A3CC0CA21D53D000025838E /* PointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3CC0C921D53D000025838E /* PointView.swift */; };
 		7A5CE36521B82EC1007B2E55 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CE36421B82EC1007B2E55 /* UIExtensions.swift */; };
 		7A5CE36721B837FD007B2E55 /* ViewPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CE36621B837FD007B2E55 /* ViewPoint.swift */; };
 		7A5E364721A8A740009249E0 /* PointRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5E364621A8A740009249E0 /* PointRequestProtocol.swift */; };
@@ -111,6 +113,8 @@
 		7A36100B21A46A1000909FA4 /* PointsAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsAssembler.swift; sourceTree = "<group>"; };
 		7A36100D21A4727C00909FA4 /* PointsViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsViewBuilder.swift; sourceTree = "<group>"; };
 		7A3CC0C121D4B8B10025838E /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		7A3CC0C321D52F4D0025838E /* PointView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PointView.xib; sourceTree = "<group>"; };
+		7A3CC0C921D53D000025838E /* PointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointView.swift; sourceTree = "<group>"; };
 		7A5CE36421B82EC1007B2E55 /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		7A5CE36621B837FD007B2E55 /* ViewPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPoint.swift; sourceTree = "<group>"; };
 		7A5E364621A8A740009249E0 /* PointRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointRequestProtocol.swift; sourceTree = "<group>"; };
@@ -454,6 +458,8 @@
 		7AEF8FD721D35D8B004359F3 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				7A3CC0C321D52F4D0025838E /* PointView.xib */,
+				7A3CC0C921D53D000025838E /* PointView.swift */,
 				7AEF8FD521D35AD9004359F3 /* PointViewController.swift */,
 			);
 			path = Detail;
@@ -573,6 +579,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A3CC0C421D52F4D0025838E /* PointView.xib in Resources */,
 				7A316A71219DDE4500EED2E7 /* LaunchScreen.storyboard in Resources */,
 				7A316A6E219DDE4500EED2E7 /* Assets.xcassets in Resources */,
 				7A3430FC21A1AD4100362CB6 /* Points.storyboard in Resources */,
@@ -752,6 +759,7 @@
 				7AB88B9221AD8200002A9EA4 /* City.swift in Sources */,
 				7AB88B9021AD8171002A9EA4 /* CityRequestProtocol.swift in Sources */,
 				7A34311921A26FA100362CB6 /* ErrorParser.swift in Sources */,
+				7A3CC0CA21D53D000025838E /* PointView.swift in Sources */,
 				7A316A64219DDE4300EED2E7 /* AppDelegate.swift in Sources */,
 				7A0CEFE921A14797003C2A32 /* Point.swift in Sources */,
 				7A5E364721A8A740009249E0 /* PointRequestProtocol.swift in Sources */,

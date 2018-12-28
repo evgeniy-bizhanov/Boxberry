@@ -9,22 +9,45 @@
 import UIKit
 
 extension UIViewController {
-    func addChild(viewController controller: UIViewController, embedIn view: UIView? = nil) {
+    func addChild(viewController controller: UIViewController, embedIn container: UIView? = nil) {
         
-        guard let view = view ?? self.view else {
+        guard let container = container ?? self.view else {
             fatalError("Контейнер для контроллера не определен")
         }
         
         addChild(controller)
-        view.addSubview(controller.view)
+        container.addSubview(controller.view)
         
-        NSLayoutConstraint.activate([
-            controller.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            controller.view.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
-            controller.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
-            ])
+        layoutConstraints(controller.view, toView: container)
         
         controller.didMove(toParent: self)
+    }
+    
+    @discardableResult
+    func loadFromNib<T: UIViewController>(_: T.Type, to container: UIView?) -> T {
+        
+        guard let container = container ?? self.view else {
+            fatalError("Контейнер для контроллера не определен")
+        }
+        
+        let controller = T(nibName: T.identifier, bundle: nil)
+        
+        self.addChild(controller)
+        
+        container.addSubview(controller.view)
+        layoutConstraints(controller.view, toView: container)
+        
+        controller.didMove(toParent: self)
+        
+        return controller
+    }
+    
+    fileprivate func layoutConstraints(_ view: UIView, toView container: UIView) {
+        NSLayoutConstraint.activate([
+            view.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 0),
+            view.topAnchor.constraint(equalTo: container.topAnchor, constant: 0),
+            view.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: 0),
+            view.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: 0)
+            ])
     }
 }

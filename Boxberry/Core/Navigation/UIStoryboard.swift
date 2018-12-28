@@ -8,15 +8,15 @@
 
 import UIKit
 
-protocol StoryboardIdentifiable {
-    static var storyboardIdentifier: String { get }
+protocol Identifiable {
+    static var identifier: String { get }
 }
 
-extension UIViewController: StoryboardIdentifiable { }
+extension UIViewController: Identifiable { }
 
-extension StoryboardIdentifiable where Self: UIViewController {
+extension Identifiable where Self: UIViewController {
     
-    static var storyboardIdentifier: String {
+    static var identifier: String {
         return String(describing: self)
     }
 }
@@ -24,16 +24,16 @@ extension StoryboardIdentifiable where Self: UIViewController {
 extension UIStoryboard {
     
     func instantiateViewController<T: UIViewController>(_: T.Type) -> T {
-        guard let viewController = self.instantiateViewController(withIdentifier: T.storyboardIdentifier) as? T else {
-            fatalError("View controller с идентификатором \(T.storyboardIdentifier) не найден")
+        guard let viewController = self.instantiateViewController(withIdentifier: T.identifier) as? T else {
+            fatalError("View controller с идентификатором \(T.identifier) не найден")
         }
         
         return viewController
     }
     
     func instantiateViewController<T: UIViewController>() -> T {
-        guard let viewController = self.instantiateViewController(withIdentifier: T.storyboardIdentifier) as? T else {
-            fatalError("View controller с идентификатором \(T.storyboardIdentifier) не найден")
+        guard let viewController = self.instantiateViewController(withIdentifier: T.identifier) as? T else {
+            fatalError("View controller с идентификатором \(T.identifier) не найден")
         }
         
         return viewController

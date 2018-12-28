@@ -4,54 +4,6 @@
 
 import  UIKit
 
-/// Инкапсулирует загрузку из Nib файла
-@IBDesignable class UINibView: UIView {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        xibSetup()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        xibSetup()
-    }
-}
-
-extension UIView {
-    /// Вспомогательный метод для загрузки из `Nib`
-    func xibSetup() {
-        let view = loadFromNib()
-        stretch(view: view)
-        
-        addSubview(view)
-    }
-    
-    /// Инициализирует `View` из `Nib`
-    ///
-    /// - Returns: Возвращает `UIView`, для класса с таким же именем, что и `Nib`
-    fileprivate func loadFromNib<T: UIView>() -> T {
-        let selfType = type(of: self)
-        let bundle = Bundle(for: selfType)
-        let nibName = String(describing: selfType)
-        
-        let nib = UINib(nibName: nibName, bundle: bundle)
-
-        guard let view = nib.instantiate(withOwner: self, options: nil).first as? T else {
-            fatalError("Error loading nib with name \(nibName)")
-        }
-
-        return view
-    }
-    
-    /// Растягивает `Nib` по высоте и ширине родительской view
-    ///
-    /// - Parameter view: Обрабатываемая View
-    fileprivate func stretch(view: UIView) {
-        view.frame = bounds
-        view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-    }
-}
-
 // MARK: - UIViewController
 extension UIViewController {
     // Рекурсия

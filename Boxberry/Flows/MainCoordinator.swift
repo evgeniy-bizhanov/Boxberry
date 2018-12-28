@@ -45,7 +45,7 @@ final class MainCoordinator: AbstractCoordinator {
         let controller = UIStoryboard(name: storyboardId, bundle: nil)
             .instantiateViewController(PointViewController.self)
         
-        destination.addChild(viewController: controller, embedIn: view)
+        destination.loadFromNib(PointView.self, to: view)
         
         self.detailController = controller
     }
