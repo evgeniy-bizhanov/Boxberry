@@ -50,4 +50,10 @@ extension UIViewController {
             view.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: 0)
             ])
     }
+    
+    func dismissFromParent() {
+        self.willMove(toParent: nil)
+        self.view.removeFromSuperview()
+        self.removeFromParent()
+    }
 }

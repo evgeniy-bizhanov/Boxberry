@@ -50,11 +50,11 @@
 		7AC8FEB721A3C7F7004C48ED /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC8FEB621A3C7F7004C48ED /* Location.swift */; };
 		7AC8FEB921A3C80F004C48ED /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC8FEB821A3C80F004C48ED /* LocationService.swift */; };
 		7ADB6D9621BE4EC0006405DA /* Pods_Boxberry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710586EBABBC2011706899A9 /* Pods_Boxberry.framework */; };
+		7AE7CFFE21D66D5B00B7E3CA /* PointViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE7CFFD21D66D5B00B7E3CA /* PointViewModel.swift */; };
 		7AEF8FCC21D29365004359F3 /* AbstractCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEF8FCB21D29365004359F3 /* AbstractCoordinator.swift */; };
 		7AEF8FCE21D2998E004359F3 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEF8FCD21D2998E004359F3 /* AppCoordinator.swift */; };
 		7AEF8FD021D29A40004359F3 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEF8FCF21D29A40004359F3 /* MainCoordinator.swift */; };
 		7AEF8FD221D29BEA004359F3 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEF8FD121D29BEA004359F3 /* UIStoryboard.swift */; };
-		7AEF8FD621D35AD9004359F3 /* PointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEF8FD521D35AD9004359F3 /* PointViewController.swift */; };
 		7AF12BFC21B2E68C006EE048 /* GeoCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF12BFB21B2E68C006EE048 /* GeoCoder.swift */; };
 		7AF12BFE21B2E697006EE048 /* GeoCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF12BFD21B2E697006EE048 /* GeoCodable.swift */; };
 		7AF12C0021B2E6EA006EE048 /* LocationCoordinateDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF12BFF21B2E6EA006EE048 /* LocationCoordinateDto.swift */; };
@@ -127,11 +127,11 @@
 		7AB88B9321AD8384002A9EA4 /* CityRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityRequestManager.swift; sourceTree = "<group>"; };
 		7AC8FEB621A3C7F7004C48ED /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		7AC8FEB821A3C80F004C48ED /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		7AE7CFFD21D66D5B00B7E3CA /* PointViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointViewModel.swift; sourceTree = "<group>"; };
 		7AEF8FCB21D29365004359F3 /* AbstractCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractCoordinator.swift; sourceTree = "<group>"; };
 		7AEF8FCD21D2998E004359F3 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		7AEF8FCF21D29A40004359F3 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		7AEF8FD121D29BEA004359F3 /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
-		7AEF8FD521D35AD9004359F3 /* PointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointViewController.swift; sourceTree = "<group>"; };
 		7AF12BFB21B2E68C006EE048 /* GeoCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCoder.swift; sourceTree = "<group>"; };
 		7AF12BFD21B2E697006EE048 /* GeoCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCodable.swift; sourceTree = "<group>"; };
 		7AF12BFF21B2E6EA006EE048 /* LocationCoordinateDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCoordinateDto.swift; sourceTree = "<group>"; };
@@ -460,7 +460,7 @@
 			children = (
 				7A3CC0C321D52F4D0025838E /* PointView.xib */,
 				7A3CC0C921D53D000025838E /* PointView.swift */,
-				7AEF8FD521D35AD9004359F3 /* PointViewController.swift */,
+				7AE7CFFD21D66D5B00B7E3CA /* PointViewModel.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -746,12 +746,12 @@
 				7AB88B9421AD8384002A9EA4 /* CityRequestManager.swift in Sources */,
 				7AF12BFC21B2E68C006EE048 /* GeoCoder.swift in Sources */,
 				7A5CE36721B837FD007B2E55 /* ViewPoint.swift in Sources */,
+				7AE7CFFE21D66D5B00B7E3CA /* PointViewModel.swift in Sources */,
 				7A34310221A1B49000362CB6 /* ViewInput.swift in Sources */,
 				7A3CC0C221D4B8B10025838E /* UIViewController.swift in Sources */,
 				7A23301321AB4032005BCFD7 /* NetworkAssembler.swift in Sources */,
 				7A36100E21A4727C00909FA4 /* PointsViewBuilder.swift in Sources */,
 				7A7B486321AB1DFD00772370 /* RequestFactory.swift in Sources */,
-				7AEF8FD621D35AD9004359F3 /* PointViewController.swift in Sources */,
 				7AF12C0721B2F5A1006EE048 /* Mappable.swift in Sources */,
 				7AEF8FD021D29A40004359F3 /* MainCoordinator.swift in Sources */,
 				7A34311A21A26FA100362CB6 /* RequestRouter.swift in Sources */,

@@ -27,7 +27,16 @@ final class MainCoordinator: AbstractCoordinator {
             .instantiateViewController(PointsViewController.self)
         
         controller.onDetailRequest = { [weak self] container, point in
-            self?.showDetailModule(embedIn: container, destination: controller)
+            
+            guard
+                let point = point,
+                let model: PointViewModel = try? point.map() else
+            {
+                // TODO: Алерт пользователю
+                return
+            }
+            
+            self?.showDetailModule(embedIn: container, destination: controller, model: model)
         }
         
         let rootController = UINavigationController(rootViewController: controller)
@@ -36,16 +45,19 @@ final class MainCoordinator: AbstractCoordinator {
         self.rootController = rootController
     }
     
-    private func showDetailModule(embedIn view: UIView, destination: UIViewController) {
+    private func showDetailModule(embedIn view: UIView, destination: UIViewController, model: PointViewModel?) {
         
         guard detailController == nil else {
             return
         }
         
-        let controller = UIStoryboard(name: storyboardId, bundle: nil)
-            .instantiateViewController(PointViewController.self)
+        let controller = destination.loadFromNib(PointView.self, to: view)
+        controller.model = model
         
-        destination.loadFromNib(PointView.self, to: view)
+        controller.finishFlow = {
+            controller.dismissFromParent()
+            self.detailController = nil
+        }
         
         self.detailController = controller
     }

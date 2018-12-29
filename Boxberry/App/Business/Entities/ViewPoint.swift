@@ -75,7 +75,7 @@ struct ViewPoint {
     let gps: LocationCoordinate?
 }
 
-extension ViewPoint: Codable {
+extension ViewPoint: BidirectionalMappable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         

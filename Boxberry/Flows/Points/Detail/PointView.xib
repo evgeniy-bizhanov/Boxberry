@@ -12,6 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PointView" customModule="Boxberry" customModuleProvider="target">
             <connections>
+                <outlet property="addressLabel" destination="efw-TD-FN9" id="Eu9-ty-rTB"/>
+                <outlet property="cardImage" destination="JSM-Br-XhN" id="YEB-vL-kNb"/>
+                <outlet property="deliveryImage" destination="SJm-wS-gwB" id="hLj-Yz-bOa"/>
+                <outlet property="prepaidImage" destination="l3t-ye-DE0" id="jRF-k8-DC8"/>
                 <outlet property="view" destination="iN0-l3-epB" id="rzQ-Ub-NIF"/>
             </connections>
         </placeholder>
@@ -20,24 +24,98 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eY6-Ne-Nv1">
-                    <rect key="frame" x="16" y="36" width="343" height="33"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
+                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="cAK-w0-lXX">
+                    <rect key="frame" x="8" y="8" width="359" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efw-TD-FN9">
+                            <rect key="frame" x="0.0" y="15" width="247" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="-11" translatesAutoresizingMaskIntoConstraints="NO" id="ey7-XK-oHp">
+                            <rect key="frame" x="253" y="10" width="68" height="30"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CardWhite" translatesAutoresizingMaskIntoConstraints="NO" id="JSM-Br-XhN">
+                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="30" id="PjD-BN-qdz"/>
+                                        <constraint firstAttribute="width" secondItem="JSM-Br-XhN" secondAttribute="height" multiplier="1:1" id="hrq-V7-LfI"/>
+                                    </constraints>
+                                </imageView>
+                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PrepaidWhite" translatesAutoresizingMaskIntoConstraints="NO" id="l3t-ye-DE0">
+                                    <rect key="frame" x="19" y="0.0" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="l3t-ye-DE0" secondAttribute="height" multiplier="1:1" id="1RV-bl-gdT"/>
+                                        <constraint firstAttribute="width" constant="30" id="v6h-j9-xgi"/>
+                                    </constraints>
+                                </imageView>
+                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DeliveryWhite" translatesAutoresizingMaskIntoConstraints="NO" id="SJm-wS-gwB">
+                                    <rect key="frame" x="38" y="0.0" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="30" id="VJL-3h-gFC"/>
+                                        <constraint firstAttribute="width" secondItem="SJm-wS-gwB" secondAttribute="height" multiplier="1:1" id="eRE-Y8-xrO"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                        </stackView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gP5-go-3Xf">
+                            <rect key="frame" x="327" y="0.0" width="6" height="50"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="6" id="MDj-QN-ub4"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Lw-6N-836">
+                            <rect key="frame" x="339" y="15" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="4Lw-6N-836" secondAttribute="height" multiplier="1:1" id="2qr-86-I3Q"/>
+                                <constraint firstAttribute="width" constant="20" id="REz-js-4Qv"/>
+                            </constraints>
+                            <state key="normal" image="Close"/>
+                            <connections>
+                                <action selector="closeAction:" destination="-1" eventType="touchUpInside" id="goS-13-JX8"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
             </subviews>
-            <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="eY6-Ne-Nv1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="CgR-VD-mx4"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="eY6-Ne-Nv1" secondAttribute="trailing" constant="16" id="RF2-KH-QPa"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="eY6-Ne-Nv1" secondAttribute="bottom" constant="16" id="ekb-Ie-L4R"/>
-                <constraint firstItem="eY6-Ne-Nv1" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="gEU-PO-Bvb"/>
+                <constraint firstItem="cAK-w0-lXX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="N8h-LS-bod"/>
+                <constraint firstAttribute="trailing" secondItem="cAK-w0-lXX" secondAttribute="trailing" constant="8" id="PFe-XB-NGU"/>
+                <constraint firstItem="cAK-w0-lXX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="i0U-ds-hWg"/>
+                <constraint firstItem="K9A-ww-3J3" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="cAK-w0-lXX" secondAttribute="bottom" constant="8" id="sKJ-s1-4y9"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <viewLayoutGuide key="safeArea" id="K9A-ww-3J3"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="boolean" keyPath="translatesAutoresizingMaskIntoConstraints" value="NO"/>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="12"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="rect" keyPath="maskedCorners">
+                    <rect key="value" x="1" y="1" width="0.0" height="0.0"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                    <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                    <real key="value" value="5"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                    <real key="value" value="0.20000000000000001"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                    <size key="value" width="0.0" height="0.0"/>
+                </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="42" y="37"/>
         </view>
     </objects>
+    <resources>
+        <image name="CardWhite" width="30.5" height="30"/>
+        <image name="Close" width="17" height="17"/>
+        <image name="DeliveryWhite" width="30" height="30"/>
+        <image name="PrepaidWhite" width="30" height="30"/>
+    </resources>
 </document>
