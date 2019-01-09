@@ -65,9 +65,9 @@ extension PointViewModel: UITableViewDataSource {
         let identifier = item.type.identifier
         
         return tableView
-            .dequeueReusableCell(UITableViewItem.self, withIdentifier: identifier, for: indexPath) { cell in
+            .dequeueReusableCell(withIdentifier: identifier, for: indexPath) { (cell: UITableViewItem?) in
                 guard let cell = cell else {
-                    return nil
+                    return
                 }
                 
                 if indexPath.row == 0 {
@@ -75,8 +75,6 @@ extension PointViewModel: UITableViewDataSource {
                 }
                 
                 cell.item.value = item.collection[indexPath.row]
-                // TODO: Сделать без return
-                return cell
             }
     }
 }

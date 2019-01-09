@@ -9,6 +9,7 @@
 import UIKit
 
 fileprivate let storyboardId = "Points"
+fileprivate let pointStoryboardId = "Point"
 
 final class MainCoordinator: AbstractCoordinator {
     
@@ -51,7 +52,7 @@ final class MainCoordinator: AbstractCoordinator {
             return
         }
         
-        let controller = UIStoryboard(name: storyboardId, bundle: nil)
+        let controller = UIStoryboard(name: pointStoryboardId, bundle: nil)
             .instantiateViewController(PointViewController.self)
         
         controller.model = model

@@ -48,6 +48,7 @@
 		7AC8FEB721A3C7F7004C48ED /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC8FEB621A3C7F7004C48ED /* Location.swift */; };
 		7AC8FEB921A3C80F004C48ED /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC8FEB821A3C80F004C48ED /* LocationService.swift */; };
 		7ACBE95921E3B05B001E23E2 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACBE95821E3B05B001E23E2 /* UITableView.swift */; };
+		7ACBE95B21E5DA99001E23E2 /* Point.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ACBE95A21E5DA99001E23E2 /* Point.storyboard */; };
 		7ADB6D9621BE4EC0006405DA /* Pods_Boxberry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710586EBABBC2011706899A9 /* Pods_Boxberry.framework */; };
 		7AE7CFFE21D66D5B00B7E3CA /* PointViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE7CFFD21D66D5B00B7E3CA /* PointViewModel.swift */; };
 		7AEF8FCC21D29365004359F3 /* AbstractCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEF8FCB21D29365004359F3 /* AbstractCoordinator.swift */; };
@@ -137,6 +138,7 @@
 		7AC8FEB621A3C7F7004C48ED /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		7AC8FEB821A3C80F004C48ED /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		7ACBE95821E3B05B001E23E2 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		7ACBE95A21E5DA99001E23E2 /* Point.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Point.storyboard; sourceTree = "<group>"; };
 		7AE7CFFD21D66D5B00B7E3CA /* PointViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointViewModel.swift; sourceTree = "<group>"; };
 		7AEF8FCB21D29365004359F3 /* AbstractCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractCoordinator.swift; sourceTree = "<group>"; };
 		7AEF8FCD21D2998E004359F3 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -481,6 +483,7 @@
 		7AEF8FD721D35D8B004359F3 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				7ACBE95A21E5DA99001E23E2 /* Point.storyboard */,
 				7AE7CFFD21D66D5B00B7E3CA /* PointViewModel.swift */,
 				7AF265FA21E0D54200EABC9F /* PointViewType.swift */,
 				7AF265FC21E0D61300EABC9F /* AbstractPointViewItem.swift */,
@@ -613,6 +616,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AF2660321E25CF300EABC9F /* MetroView.xib in Resources */,
+				7ACBE95B21E5DA99001E23E2 /* Point.storyboard in Resources */,
 				7AF2660D21E263A200EABC9F /* ScheduleView.xib in Resources */,
 				7A316A71219DDE4500EED2E7 /* LaunchScreen.storyboard in Resources */,
 				7A316A6E219DDE4500EED2E7 /* Assets.xcassets in Resources */,
