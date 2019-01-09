@@ -9,7 +9,10 @@
 import Bond
 import UIKit
 
-final class PointViewModel: NSObject, Decodable {
+final class PointViewModel: NSObject {
+    
+    // MARK: - Properties
+    
     let address = Observable<String?>(nil)
     let delivery = Observable<Bool>(false)
     let prepaid = Observable<Bool>(false)
@@ -17,7 +20,30 @@ final class PointViewModel: NSObject, Decodable {
     
     var items = MutableObservableArray<AbstractPointViewItem>([])
     
-    public init(from decoder: Decoder) throws {
+    
+    // MARK: - Fields
+    // MARK: - Functions
+    // MARK: - Initializers
+    
+}
+
+
+// MARK: - Decodable
+
+extension PointViewModel: Decodable {
+    enum DecodingKeys: String, CodingKey {
+        case address = "addressReduce"
+        case delivery = "nalKD"
+        case prepaid = "onlyPrepaidOrders"
+        case card = "acquiring"
+        case contact = "phone"
+        case schedule = "workSchedule"
+        case metro
+    }
+    
+    public convenience init(from decoder: Decoder) throws {
+        self.init()
+        
         let container = try decoder.container(keyedBy: DecodingKeys.self)
         
         address.value = try container.decode(String.self, forKey: .address)
@@ -33,22 +59,8 @@ final class PointViewModel: NSObject, Decodable {
     }
 }
 
-extension PointViewModel {
-    enum DecodingKeys: String, CodingKey {
-        case address = "addressReduce"
-        case delivery = "nalKD"
-        case prepaid = "onlyPrepaidOrders"
-        case card = "acquiring"
-        case contact = "phone"
-        case schedule = "workSchedule"
-        case metro
-    }
-}
 
-protocol UITableViewItem: class {
-    var item: Observable<String?> { get }
-    var isLabelHidden: Observable<Bool> { get }
-}
+// MARK: - UITableViewDataSource
 
 extension PointViewModel: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -65,16 +77,17 @@ extension PointViewModel: UITableViewDataSource {
         let identifier = item.type.identifier
         
         return tableView
-            .dequeueReusableCell(withIdentifier: identifier, for: indexPath) { (cell: UITableViewItem?) in
+            .dequeueReusableCell(withIdentifier: identifier, for: indexPath) { (cell: PointViewCellModel?) in
                 guard let cell = cell else {
                     return
                 }
                 
                 if indexPath.row == 0 {
-                    cell.isLabelHidden.value = false
+                    cell.titleIsHidden.value = false
                 }
                 
-                cell.item.value = item.collection[indexPath.row]
+                cell.title.value = item.label
+                cell.value.value = item.collection[indexPath.row]
             }
     }
 }

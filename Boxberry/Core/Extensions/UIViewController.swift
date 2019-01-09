@@ -8,17 +8,36 @@
 
 import UIKit
 
+// MARK: - Identifiable
+extension UIViewController: Identifiable { }
+
+
+// MARK: - Embedding
+
 extension UIViewController {
     
-    func embedIn(_ view: UIView, of controller: UIViewController) {
+    /// Embed source `ViewController` in destination `ViewController`
+    ///
+    /// - Parameter view: A view that needs to embed source view
+    /// - Parameter destination: `ViewController` in whose view is needs to embed source view
+    func embedIn(_ view: UIView? = nil, of destination: UIViewController) {
         
-        controller.addChild(self)
+        guard let view = view ?? destination.view else {
+            fatalError("Контейнер для контроллера не определен")
+        }
+        
+        defer {
+            self.didMove(toParent: destination)
+        }
+        
+        destination.addChild(self)
         view.addSubview(self.view)
         layoutConstraints(self.view, toView: view)
-        
-        self.didMove(toParent: controller)
     }
     
+    /// Embed source `ViewController` in destination `ViewController` from nib (xib file)
+    ///
+    /// - Parameter container: A view that needs to embed source view
     @discardableResult
     func loadFromNib<T: UIViewController>(_: T.Type, to container: UIView?) -> T {
         
@@ -47,6 +66,7 @@ extension UIViewController {
             ])
     }
     
+    /// Dismiss the embedded `ViewController`
     func dismissFromParent() {
         self.willMove(toParent: nil)
         self.view.removeFromSuperview()

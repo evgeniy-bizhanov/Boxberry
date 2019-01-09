@@ -9,24 +9,25 @@
 import Bond
 import UIKit
 
-class ScheduleView: UITableViewCell, UITableViewItem {
+class ScheduleView: UITableViewCell, PointViewCellModel {
     
     // MARK: - IBOutlets
     
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var value: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var valueLabel: UILabel!
     
     
     // MARK: - Properties
     
-    var item = Observable<String?>(nil)
-    var isLabelHidden = Observable<Bool>(true)
+    var title = Observable<String?>(nil)
+    var value = Observable<String?>(nil)
+    var titleIsHidden = Observable<Bool>(true)
     
     
     // MARK: - Functions
     
     override func awakeFromNib() {
-        value.reactive.text <~ item
-        label.reactive.isHidden <~ isLabelHidden
+        valueLabel.reactive.text <~ value
+        titleLabel.reactive.isHidden <~ titleIsHidden
     }
 }

@@ -8,7 +8,12 @@
 
 import UIKit
 
+// MARK: - Identifiable
+
 extension UIView: Identifiable {}
+
+
+// MARK: - XibView
 
 @IBDesignable class UIXibView: UIView {
     override func awakeFromNib() {

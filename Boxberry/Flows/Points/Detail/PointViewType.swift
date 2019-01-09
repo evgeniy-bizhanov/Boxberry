@@ -6,12 +6,14 @@
 //  Copyright © 2019 Евгений Бижанов. All rights reserved.
 //
 
+/// Types of content for point detail controller
 enum PointViewType: String {
     case schedule = "Schedule"
     case contact = "Contact"
     case metro = "Metro"
 }
 
+/// Protocol intendent for hacking enum based Self constraint to give it identifier
 protocol PointViewTypeProtocol {}
 
 extension Identifiable where Self: PointViewTypeProtocol {

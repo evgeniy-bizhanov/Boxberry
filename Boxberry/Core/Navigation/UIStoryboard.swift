@@ -8,20 +8,9 @@
 
 import UIKit
 
-protocol Identifiable {
-    static var identifier: String { get }
-}
-
-extension UIViewController: Identifiable { }
-
-extension Identifiable {
-    static var identifier: String {
-        return String(describing: self)
-    }
-}
-
 extension UIStoryboard {
     
+    /// Instantiate the new instance of `ViewController` by its type identifier
     func instantiateViewController<T: UIViewController>(_: T.Type) -> T {
         guard let viewController = self.instantiateViewController(withIdentifier: T.identifier) as? T else {
             fatalError("View controller с идентификатором \(T.identifier) не найден")
@@ -30,6 +19,7 @@ extension UIStoryboard {
         return viewController
     }
     
+    /// Instantiate the new instance of `ViewController` by its type identifier
     func instantiateViewController<T: UIViewController>() -> T {
         guard let viewController = self.instantiateViewController(withIdentifier: T.identifier) as? T else {
             fatalError("View controller с идентификатором \(T.identifier) не найден")

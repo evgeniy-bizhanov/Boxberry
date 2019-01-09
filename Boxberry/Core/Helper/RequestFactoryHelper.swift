@@ -19,13 +19,17 @@ class RequestFactoryHelper {
      */
     static func makeFactory<T: AbstractRequestManager>(_ service: T.Type, resolver: Resolver) -> T {
         
-        let errorParser = resolver.resolve(AbstractErrorParser.self)
-        let sessionManager = resolver.resolve(SessionManager.self)
+        guard
+            let errorParser = resolver.resolve(AbstractErrorParser.self),
+            let sessionManager = resolver.resolve(SessionManager.self) else {
+                fatalError("Error parser and session manager resolved as nil for some reason")
+        }
+        
         let sessionQueue = resolver.resolve(DispatchQueue.self)
         
         return T(
-            errorParser: errorParser!,
-            sessionManager: sessionManager!,
+            errorParser: errorParser,
+            sessionManager: sessionManager,
             queue: sessionQueue
         )
     }

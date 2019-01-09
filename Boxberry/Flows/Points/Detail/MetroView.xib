@@ -41,8 +41,8 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="label" destination="kEN-KR-8A7" id="bIP-2d-gH3"/>
-                <outlet property="value" destination="YQB-ST-6fq" id="53d-Ub-PJT"/>
+                <outlet property="titleLabel" destination="kEN-KR-8A7" id="bIP-2d-gH3"/>
+                <outlet property="valueLabel" destination="YQB-ST-6fq" id="53d-Ub-PJT"/>
             </connections>
             <point key="canvasLocation" x="319" y="73"/>
         </tableViewCell>

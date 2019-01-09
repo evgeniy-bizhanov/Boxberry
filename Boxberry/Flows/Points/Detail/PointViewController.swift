@@ -8,6 +8,8 @@
 
 import UIKit
 
+// MARK: - UIViewController
+
 class PointViewController: UIViewController {
     
     // MARK: - IBOutlets
@@ -71,6 +73,9 @@ class PointViewController: UIViewController {
     
     // MARK: - Initializers
 }
+
+
+// MARK: - UITableViewDelegate
 
 extension PointViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

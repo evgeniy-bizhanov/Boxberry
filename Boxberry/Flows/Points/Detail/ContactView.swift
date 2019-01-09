@@ -9,24 +9,25 @@
 import Bond
 import UIKit
 
-class ContactView: UITableViewCell, UITableViewItem {
+class ContactView: UITableViewCell, PointViewCellModel {
     
     // MARK: - IBOutlets
     
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var value: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var valueButton: UIButton!
     
     
     // MARK: - Properties
     
-    var item = Observable<String?>(nil)
-    var isLabelHidden = Observable<Bool>(true)
+    var title = Observable<String?>(nil)
+    var value = Observable<String?>(nil)
+    var titleIsHidden = Observable<Bool>(true)
     
     
     // MARK: - Functions
     
     override func awakeFromNib() {
-        value.reactive.title <~ item
-        label.reactive.isHidden <~ isLabelHidden
+        valueButton.reactive.title <~ value
+        titleLabel.reactive.isHidden <~ titleIsHidden
     }
 }

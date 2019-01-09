@@ -42,8 +42,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="label" destination="05A-rp-kwD" id="yv7-cL-7fo"/>
-                <outlet property="value" destination="2oc-o2-7WG" id="oRr-1w-p2f"/>
+                <outlet property="titleLabel" destination="05A-rp-kwD" id="yv7-cL-7fo"/>
+                <outlet property="valueButton" destination="2oc-o2-7WG" id="oRr-1w-p2f"/>
             </connections>
         </tableViewCell>
     </objects>
