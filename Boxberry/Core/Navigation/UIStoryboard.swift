@@ -14,8 +14,7 @@ protocol Identifiable {
 
 extension UIViewController: Identifiable { }
 
-extension Identifiable where Self: UIViewController {
-    
+extension Identifiable {
     static var identifier: String {
         return String(describing: self)
     }

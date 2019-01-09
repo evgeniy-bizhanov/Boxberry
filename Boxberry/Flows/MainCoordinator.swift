@@ -51,10 +51,13 @@ final class MainCoordinator: AbstractCoordinator {
             return
         }
         
-        let controller = destination.loadFromNib(PointView.self, to: view)
-        controller.model = model
+        let controller = UIStoryboard(name: storyboardId, bundle: nil)
+            .instantiateViewController(PointViewController.self)
         
-        controller.finishFlow = {
+        controller.model = model
+        controller.embedIn(view, of: destination)
+        
+        controller.onClose = {
             controller.dismissFromParent()
             self.detailController = nil
         }

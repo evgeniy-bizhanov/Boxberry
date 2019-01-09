@@ -9,18 +9,14 @@
 import UIKit
 
 extension UIViewController {
-    func addChild(viewController controller: UIViewController, embedIn container: UIView? = nil) {
+    
+    func embedIn(_ view: UIView, of controller: UIViewController) {
         
-        guard let container = container ?? self.view else {
-            fatalError("Контейнер для контроллера не определен")
-        }
+        controller.addChild(self)
+        view.addSubview(self.view)
+        layoutConstraints(self.view, toView: view)
         
-        addChild(controller)
-        container.addSubview(controller.view)
-        
-        layoutConstraints(controller.view, toView: container)
-        
-        controller.didMove(toParent: self)
+        self.didMove(toParent: controller)
     }
     
     @discardableResult
