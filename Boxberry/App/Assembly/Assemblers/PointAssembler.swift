@@ -12,19 +12,22 @@ class PointAssembler: Assembly {
     
     func assemble(container: Container) {
         
-        container.register(AbstractDeepLinkManager.self) { resolver in
+        container.register(AbstractExternalsManager.self) { resolver in
             guard let errorParser = resolver.resolve(AbstractErrorParser.self) else {
                 fatalError(
-                    "Can't resolve \(AbstractDeepLinkManager.self) cause of " +
+                    "Can't resolve \(AbstractExternalsManager.self) cause of " +
                     "\(AbstractErrorParser.self) could not be resolved")
             }
             
-            return DeepLinkManager(errorParser: errorParser)
+            return ExternalsManager(errorParser: errorParser)
         }
         
         // Презентер
-        container.register(PointViewInput.self) { _, output in
-            return PointViewPresenter(output: output)
+        container.register(PointViewInput.self) { resolver, output in
+            return PointViewPresenter(
+                output: output,
+                externals: resolver.resolve(AbstractExternalsManager.self)
+            )
         }
     }
 }

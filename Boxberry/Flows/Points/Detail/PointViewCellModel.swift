@@ -13,3 +13,8 @@ protocol PointViewCellModel: class {
     var value: Observable<String?> { get }
     var titleIsHidden: Observable<Bool> { get }
 }
+
+protocol ContactCellModel: class {
+    typealias ContactTap = (String?) -> Void
+    var onContactTap: ContactTap? { get set }
+}

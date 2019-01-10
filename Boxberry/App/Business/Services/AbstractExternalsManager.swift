@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DeepLinkManager: AbstractDeepLinkManager {
+class ExternalsManager: AbstractExternalsManager {
     
     // MARK: - Properties
     
@@ -22,12 +22,12 @@ class DeepLinkManager: AbstractDeepLinkManager {
     }
 }
 
-protocol AbstractDeepLinkManager {
+protocol AbstractExternalsManager: class {
     
     func callPhoneNumber(_ phoneNumber: String, completion: ((Result<Bool>) -> Void)?)
 }
 
-extension AbstractDeepLinkManager {
+extension AbstractExternalsManager {
     
     func callPhoneNumber(_ phoneNumber: String, completion: ((Result<Bool>) -> Void)?) {
         

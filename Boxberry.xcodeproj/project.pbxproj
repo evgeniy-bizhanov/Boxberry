@@ -51,7 +51,7 @@
 		7ACBE95B21E5DA99001E23E2 /* Point.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ACBE95A21E5DA99001E23E2 /* Point.storyboard */; };
 		7ACBE95D21E6016A001E23E2 /* Identifable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACBE95C21E6016A001E23E2 /* Identifable.swift */; };
 		7ACBE95F21E60688001E23E2 /* PointViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACBE95E21E60688001E23E2 /* PointViewCellModel.swift */; };
-		7ACBE96321E6F978001E23E2 /* AbstractDeepLinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACBE96221E6F978001E23E2 /* AbstractDeepLinkManager.swift */; };
+		7ACBE96321E6F978001E23E2 /* AbstractExternalsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACBE96221E6F978001E23E2 /* AbstractExternalsManager.swift */; };
 		7ACBE96521E6FE95001E23E2 /* PointAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACBE96421E6FE94001E23E2 /* PointAssembler.swift */; };
 		7ACBE96821E70368001E23E2 /* PointViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACBE96721E70368001E23E2 /* PointViewPresenter.swift */; };
 		7ACBE96A21E706E2001E23E2 /* PointViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACBE96921E706E2001E23E2 /* PointViewBuilder.swift */; };
@@ -147,7 +147,7 @@
 		7ACBE95A21E5DA99001E23E2 /* Point.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Point.storyboard; sourceTree = "<group>"; };
 		7ACBE95C21E6016A001E23E2 /* Identifable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifable.swift; sourceTree = "<group>"; };
 		7ACBE95E21E60688001E23E2 /* PointViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointViewCellModel.swift; sourceTree = "<group>"; };
-		7ACBE96221E6F978001E23E2 /* AbstractDeepLinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractDeepLinkManager.swift; sourceTree = "<group>"; };
+		7ACBE96221E6F978001E23E2 /* AbstractExternalsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractExternalsManager.swift; sourceTree = "<group>"; };
 		7ACBE96421E6FE94001E23E2 /* PointAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointAssembler.swift; sourceTree = "<group>"; };
 		7ACBE96721E70368001E23E2 /* PointViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointViewPresenter.swift; sourceTree = "<group>"; };
 		7ACBE96921E706E2001E23E2 /* PointViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointViewBuilder.swift; sourceTree = "<group>"; };
@@ -462,7 +462,7 @@
 			isa = PBXGroup;
 			children = (
 				7AC8FEB521A3C7A2004C48ED /* Map */,
-				7ACBE96221E6F978001E23E2 /* AbstractDeepLinkManager.swift */,
+				7ACBE96221E6F978001E23E2 /* AbstractExternalsManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -837,7 +837,7 @@
 				7A316A64219DDE4300EED2E7 /* AppDelegate.swift in Sources */,
 				7A0CEFE921A14797003C2A32 /* Point.swift in Sources */,
 				7A5E364721A8A740009249E0 /* PointRequestProtocol.swift in Sources */,
-				7ACBE96321E6F978001E23E2 /* AbstractDeepLinkManager.swift in Sources */,
+				7ACBE96321E6F978001E23E2 /* AbstractExternalsManager.swift in Sources */,
 				7AFB799721AB392200E48085 /* AppConfig.swift in Sources */,
 				7A04F8C421C753C4000CA6CD /* MapViewDelegate.swift in Sources */,
 				7AC8FEB921A3C80F004C48ED /* LocationService.swift in Sources */,

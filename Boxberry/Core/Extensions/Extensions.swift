@@ -57,20 +57,31 @@ extension UIColor {
 
 // MARK: - String
 extension String {
-    var asPhoneNumber: String {
-
-        var numbers = components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
-
-        if numbers.count > 10 {
-            numbers = String(numbers[String.Index(encodedOffset: 1)...])
-        }
+    
+    var asDigits: String {
+        return components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+    }
+    
+    var asRawPhoneNumber: String {
+        return "+7" + self.asDigits.suffix(10)
+    }
+    
+    var asFormatPhoneNumber: String {
+        
+        let numbers = self.asRawPhoneNumber
         
         return String(
-            format: "%@ (%@) %@-%@-%@", "+7",
-            numbers[0...2],
-            numbers[3...5],
-            numbers[6...7],
-            numbers[8...9])
+            format: "%@ (%@) %@-%@-%@",
+            numbers[0...1],
+            numbers[2...4],
+            numbers[5...7],
+            numbers[8...9],
+            numbers[10...11])
+    }
+    
+    subscript (bounds: CountablePartialRangeFrom<Int>) -> String {
+        let start = index(startIndex, offsetBy: bounds.lowerBound)
+        return String(self[start...])
     }
     
     subscript (bounds: CountableClosedRange<Int>) -> String {

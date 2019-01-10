@@ -17,6 +17,10 @@ class PointViewPresenter: NSObject, PointViewInput {
     // MARK: - IBOutlets
     // MARK: - Models
     // MARK: - Services
+    
+    var externals: AbstractExternalsManager?
+    
+    
     // MARK: - Properties
     
     var model: PointViewModel?
@@ -29,10 +33,22 @@ class PointViewPresenter: NSObject, PointViewInput {
     
     // MARK: - IBActions
     // MARK: - Functions
+    
+    func call(to phoneNumber: String?) {
+        guard let phoneNumber = phoneNumber else {
+            // TODO: Show alert message
+            return
+        }
+        
+        externals?.callPhoneNumber(phoneNumber, completion: nil)
+    }
+    
+    
     // MARK: - Initializers
     
-    init(output: PointViewOutput) {
+    init(output: PointViewOutput, externals: AbstractExternalsManager?) {
         self.output = output
+        self.externals = externals
     }
 }
 
@@ -69,6 +85,12 @@ extension PointViewPresenter: UITableViewDataSource {
                 
                 cell.title.value = item.label
                 cell.value.value = item.collection[indexPath.row]
+                
+                if let cell = cell as? ContactCellModel {
+                    cell.onContactTap = { [weak self] contact in
+                        self?.call(to: contact)
+                    }
+                }
             }
     }
 }

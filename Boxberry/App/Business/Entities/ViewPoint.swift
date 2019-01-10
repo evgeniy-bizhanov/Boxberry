@@ -130,7 +130,7 @@ fileprivate func parseContacts(input: String) -> [String] {
     return input
         .split(separator: " ")
         .map {
-            String($0).asPhoneNumber
+            String($0).asRawPhoneNumber
         }
 }
 

@@ -9,7 +9,7 @@
 import Bond
 import UIKit
 
-class ContactView: UITableViewCell, PointViewCellModel {
+class ContactView: UITableViewCell, PointViewCellModel, ContactCellModel {
     
     // MARK: - IBOutlets
     
@@ -23,11 +23,20 @@ class ContactView: UITableViewCell, PointViewCellModel {
     var value = Observable<String?>(nil)
     var titleIsHidden = Observable<Bool>(true)
     
+    var onContactTap: ContactTap?
+    
+    
+    // MARK: - IBActions
+    
+    @IBAction func didTapValueButton(_ sender: Any) {
+        onContactTap?(value.value)
+    }
+    
     
     // MARK: - Functions
     
     override func awakeFromNib() {
-        valueButton.reactive.title <~ value
+        valueButton.reactive.title <~ value.map { $0?.asFormatPhoneNumber }
         titleLabel.reactive.isHidden <~ titleIsHidden
     }
 }
