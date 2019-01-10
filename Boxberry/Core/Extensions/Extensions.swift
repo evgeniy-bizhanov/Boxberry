@@ -53,3 +53,40 @@ extension UIColor {
         self.init(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: alpha)
     }
 }
+
+
+// MARK: - String
+extension String {
+    var asPhoneNumber: String {
+
+        var numbers = components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+
+        if numbers.count > 10 {
+            numbers = String(numbers[String.Index(encodedOffset: 1)...])
+        }
+        
+        return String(
+            format: "%@ (%@) %@-%@-%@", "+7",
+            numbers[0...2],
+            numbers[3...5],
+            numbers[6...7],
+            numbers[8...9])
+    }
+    
+    subscript (bounds: CountableClosedRange<Int>) -> String {
+        let start = index(startIndex, offsetBy: bounds.lowerBound)
+        let end = index(startIndex, offsetBy: bounds.upperBound)
+        return String(self[start...end])
+    }
+    
+    subscript (bounds: CountableRange<Int>) -> String {
+        let start = index(startIndex, offsetBy: bounds.lowerBound)
+        let end = index(startIndex, offsetBy: bounds.upperBound)
+        return String(self[start..<end])
+    }
+    
+    subscript (index: Int) -> String {
+        let index = self.index(startIndex, offsetBy: index)
+        return String(self[index])
+    }
+}

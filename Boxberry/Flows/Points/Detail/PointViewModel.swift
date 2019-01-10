@@ -9,7 +9,7 @@
 import Bond
 import UIKit
 
-final class PointViewModel: NSObject {
+final class PointViewModel {
     
     // MARK: - Properties
     
@@ -19,12 +19,6 @@ final class PointViewModel: NSObject {
     let card = Observable<Bool>(false)
     
     var items = MutableObservableArray<AbstractPointViewItem>([])
-    
-    
-    // MARK: - Fields
-    // MARK: - Functions
-    // MARK: - Initializers
-    
 }
 
 
@@ -56,38 +50,5 @@ extension PointViewModel: Decodable {
         let schedule = PointViewItem(.schedule, withValues: try container.decode([String].self, forKey: .schedule))
         
         items = MutableObservableArray([metro, contact, schedule].compactMap { $0 })
-    }
-}
-
-
-// MARK: - UITableViewDataSource
-
-extension PointViewModel: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return items.count
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items[section].rowCount
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let item = items[indexPath.section]
-        let identifier = item.type.identifier
-        
-        return tableView
-            .dequeueReusableCell(withIdentifier: identifier, for: indexPath) { (cell: PointViewCellModel?) in
-                guard let cell = cell else {
-                    return
-                }
-                
-                if indexPath.row == 0 {
-                    cell.titleIsHidden.value = false
-                }
-                
-                cell.title.value = item.label
-                cell.value.value = item.collection[indexPath.row]
-            }
     }
 }

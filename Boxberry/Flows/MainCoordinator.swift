@@ -55,7 +55,7 @@ final class MainCoordinator: AbstractCoordinator {
         let controller = UIStoryboard(name: pointStoryboardId, bundle: nil)
             .instantiateViewController(PointViewController.self)
         
-        controller.model = model
+        controller.input?.model = model
         controller.embedIn(view, of: destination)
         
         controller.onClose = {

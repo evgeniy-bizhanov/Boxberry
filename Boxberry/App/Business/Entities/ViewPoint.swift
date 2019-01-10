@@ -130,14 +130,7 @@ fileprivate func parseContacts(input: String) -> [String] {
     return input
         .split(separator: " ")
         .map {
-            
-            var value = $0.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
-            
-            if value.count > 10 {
-                value = "+7" + String(value[String.Index(encodedOffset: 1)...])
-            }
-            
-            return value
+            String($0).asPhoneNumber
         }
 }
 

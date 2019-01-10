@@ -51,6 +51,10 @@
 		7ACBE95B21E5DA99001E23E2 /* Point.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ACBE95A21E5DA99001E23E2 /* Point.storyboard */; };
 		7ACBE95D21E6016A001E23E2 /* Identifable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACBE95C21E6016A001E23E2 /* Identifable.swift */; };
 		7ACBE95F21E60688001E23E2 /* PointViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACBE95E21E60688001E23E2 /* PointViewCellModel.swift */; };
+		7ACBE96321E6F978001E23E2 /* AbstractDeepLinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACBE96221E6F978001E23E2 /* AbstractDeepLinkManager.swift */; };
+		7ACBE96521E6FE95001E23E2 /* PointAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACBE96421E6FE94001E23E2 /* PointAssembler.swift */; };
+		7ACBE96821E70368001E23E2 /* PointViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACBE96721E70368001E23E2 /* PointViewPresenter.swift */; };
+		7ACBE96A21E706E2001E23E2 /* PointViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACBE96921E706E2001E23E2 /* PointViewBuilder.swift */; };
 		7ADB6D9621BE4EC0006405DA /* Pods_Boxberry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710586EBABBC2011706899A9 /* Pods_Boxberry.framework */; };
 		7AE7CFFE21D66D5B00B7E3CA /* PointViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE7CFFD21D66D5B00B7E3CA /* PointViewModel.swift */; };
 		7AEF8FCC21D29365004359F3 /* AbstractCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEF8FCB21D29365004359F3 /* AbstractCoordinator.swift */; };
@@ -143,6 +147,10 @@
 		7ACBE95A21E5DA99001E23E2 /* Point.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Point.storyboard; sourceTree = "<group>"; };
 		7ACBE95C21E6016A001E23E2 /* Identifable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifable.swift; sourceTree = "<group>"; };
 		7ACBE95E21E60688001E23E2 /* PointViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointViewCellModel.swift; sourceTree = "<group>"; };
+		7ACBE96221E6F978001E23E2 /* AbstractDeepLinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractDeepLinkManager.swift; sourceTree = "<group>"; };
+		7ACBE96421E6FE94001E23E2 /* PointAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointAssembler.swift; sourceTree = "<group>"; };
+		7ACBE96721E70368001E23E2 /* PointViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointViewPresenter.swift; sourceTree = "<group>"; };
+		7ACBE96921E706E2001E23E2 /* PointViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointViewBuilder.swift; sourceTree = "<group>"; };
 		7AE7CFFD21D66D5B00B7E3CA /* PointViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointViewModel.swift; sourceTree = "<group>"; };
 		7AEF8FCB21D29365004359F3 /* AbstractCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractCoordinator.swift; sourceTree = "<group>"; };
 		7AEF8FCD21D2998E004359F3 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -307,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				7A36100B21A46A1000909FA4 /* PointsAssembler.swift */,
+				7ACBE96421E6FE94001E23E2 /* PointAssembler.swift */,
 				7A23301221AB4032005BCFD7 /* NetworkAssembler.swift */,
 				7A23301421AB4164005BCFD7 /* EnvironmentAssembler.swift */,
 			);
@@ -453,6 +462,7 @@
 			isa = PBXGroup;
 			children = (
 				7AC8FEB521A3C7A2004C48ED /* Map */,
+				7ACBE96221E6F978001E23E2 /* AbstractDeepLinkManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -466,6 +476,19 @@
 				7AF12BFB21B2E68C006EE048 /* GeoCoder.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		7ACBE96621E702D4001E23E2 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7AF2660221E25CF300EABC9F /* MetroView.xib */,
+				7AF2660421E25D5E00EABC9F /* MetroView.swift */,
+				7AF2660A21E25DEB00EABC9F /* ScheduleView.xib */,
+				7AF2660621E25DE700EABC9F /* ScheduleView.swift */,
+				7AF2661321E26A3100EABC9F /* ContactView.xib */,
+				7AF2661221E26A3100EABC9F /* ContactView.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		7AEF8FC921D292DA004359F3 /* Navigation */ = {
@@ -488,19 +511,16 @@
 		7AEF8FD721D35D8B004359F3 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				7ACBE96621E702D4001E23E2 /* Cells */,
 				7ACBE95A21E5DA99001E23E2 /* Point.storyboard */,
 				7AF2660021E22FA900EABC9F /* PointViewController.swift */,
+				7ACBE96721E70368001E23E2 /* PointViewPresenter.swift */,
+				7ACBE96921E706E2001E23E2 /* PointViewBuilder.swift */,
 				7AE7CFFD21D66D5B00B7E3CA /* PointViewModel.swift */,
 				7ACBE95E21E60688001E23E2 /* PointViewCellModel.swift */,
 				7AF265FA21E0D54200EABC9F /* PointViewType.swift */,
 				7AF265FC21E0D61300EABC9F /* AbstractPointViewItem.swift */,
 				7AF265FE21E0D73000EABC9F /* PointViewItem.swift */,
-				7AF2660221E25CF300EABC9F /* MetroView.xib */,
-				7AF2660421E25D5E00EABC9F /* MetroView.swift */,
-				7AF2660A21E25DEB00EABC9F /* ScheduleView.xib */,
-				7AF2660621E25DE700EABC9F /* ScheduleView.swift */,
-				7AF2661321E26A3100EABC9F /* ContactView.xib */,
-				7AF2661221E26A3100EABC9F /* ContactView.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -780,10 +800,12 @@
 				7AEF8FCC21D29365004359F3 /* AbstractCoordinator.swift in Sources */,
 				7AEF8FD221D29BEA004359F3 /* UIStoryboard.swift in Sources */,
 				7AF12C0021B2E6EA006EE048 /* LocationCoordinateDto.swift in Sources */,
+				7ACBE96821E70368001E23E2 /* PointViewPresenter.swift in Sources */,
 				7AC8FEB721A3C7F7004C48ED /* Location.swift in Sources */,
 				7AF2661421E26A3100EABC9F /* ContactView.swift in Sources */,
 				7A34311321A26FA100362CB6 /* Extensions.swift in Sources */,
 				7A34311E21A26FA100362CB6 /* ReactiveOperators.swift in Sources */,
+				7ACBE96521E6FE95001E23E2 /* PointAssembler.swift in Sources */,
 				7A34310021A1B23800362CB6 /* PointsViewPresenter.swift in Sources */,
 				7AF265F021DFA5E100EABC9F /* Result.swift in Sources */,
 				7AF2660821E25DE800EABC9F /* ScheduleView.swift in Sources */,
@@ -815,6 +837,7 @@
 				7A316A64219DDE4300EED2E7 /* AppDelegate.swift in Sources */,
 				7A0CEFE921A14797003C2A32 /* Point.swift in Sources */,
 				7A5E364721A8A740009249E0 /* PointRequestProtocol.swift in Sources */,
+				7ACBE96321E6F978001E23E2 /* AbstractDeepLinkManager.swift in Sources */,
 				7AFB799721AB392200E48085 /* AppConfig.swift in Sources */,
 				7A04F8C421C753C4000CA6CD /* MapViewDelegate.swift in Sources */,
 				7AC8FEB921A3C80F004C48ED /* LocationService.swift in Sources */,
@@ -825,6 +848,7 @@
 				7ACBE95921E3B05B001E23E2 /* UITableView.swift in Sources */,
 				7AF265FD21E0D61300EABC9F /* AbstractPointViewItem.swift in Sources */,
 				7A34311B21A26FA100362CB6 /* AbstractRequestManager.swift in Sources */,
+				7ACBE96A21E706E2001E23E2 /* PointViewBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

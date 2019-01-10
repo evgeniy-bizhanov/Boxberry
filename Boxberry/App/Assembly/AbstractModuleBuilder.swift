@@ -13,7 +13,8 @@ fileprivate let assembler = Assembler(
     [
         EnvironmentAssembler(),
         NetworkAssembler(),
-        PointsAssembler()
+        PointsAssembler(),
+        PointAssembler()
     ]
 )
 

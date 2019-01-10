@@ -10,6 +10,8 @@ import UIKit
 
 // MARK: - UIViewController
 
+protocol PointViewOutput: class {}
+
 class PointViewController: UIViewController {
     
     // MARK: - IBOutlets
@@ -23,7 +25,7 @@ class PointViewController: UIViewController {
     
     // MARK: - Models
     
-    var model: PointViewModel?
+    var input: PointViewInput?
     
     
     // MARK: - Services
@@ -44,23 +46,20 @@ class PointViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        input?.viewDidLoad()
         
         tableView.delegate = self
         
-        setupTable(model)
-        setupBindings(model)
+        setupTable()
+        setupBindings()
     }
     
-    func setupTable(_ model: PointViewModel?) {
-        guard let model = model else {
-            return
-        }
-        
-        tableView.dataSource = model
+    func setupTable() {
+        tableView.dataSource = input as? UITableViewDataSource
     }
     
-    func setupBindings(_ model: PointViewModel?) {
-        guard let model = model else {
+    func setupBindings() {
+        guard let model = input?.model else {
             return
         }
         
@@ -73,6 +72,11 @@ class PointViewController: UIViewController {
     
     // MARK: - Initializers
 }
+
+
+// MARK: - PointViewOutput
+
+extension PointViewController: PointViewOutput {}
 
 
 // MARK: - UITableViewDelegate

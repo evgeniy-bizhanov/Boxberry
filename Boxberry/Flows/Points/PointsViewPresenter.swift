@@ -38,11 +38,13 @@ class PointsViewPresenter: PointsViewInput {
     
     // MARK: - Properties
     
-    weak var output: PointsViewOutput?
     var selectedPoint: ViewPoint?
     
     
     // MARK: - Fields
+    
+    private weak var output: PointsViewOutput?
+    
     private var cities: [City]?
     private var points: [ViewPoint]?
     private var group = DispatchGroup()

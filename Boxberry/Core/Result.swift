@@ -8,5 +8,5 @@
 
 enum Result<T>: Error {
     case error(_ error: String)
-    case value(_ value: T)
+    case success(_ result: T)
 }

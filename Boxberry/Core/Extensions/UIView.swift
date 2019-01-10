@@ -23,7 +23,7 @@ extension UIView: Identifiable {}
             switch result {
             case .error(let error):
                 fatalError(error)
-            case .value(let view):
+            case .success(let view):
                 self?.didLoadFromNib(view)
             }
         }
@@ -46,7 +46,7 @@ fileprivate extension UIView {
         let nib = UINib(nibName: typeOfSelf.identifier, bundle: nil)
         
         if let view = nib.instantiate(withOwner: self, options: nil).first as? UIView {
-            completion?(.value(view))
+            completion?(.success(view))
         } else {
             completion?(.error("View с идентификатором \(typeOfSelf.identifier) не найден"))
         }
