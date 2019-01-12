@@ -136,6 +136,7 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="translatesAutoresizingMaskIntoConstraints" value="NO"/>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="cardImage" destination="JHD-Qe-R0O" id="aNK-Ix-EWt"/>
                         <outlet property="deliveryImage" destination="cBt-ms-ab0" id="3QN-ry-HwF"/>

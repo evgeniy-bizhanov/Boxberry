@@ -49,13 +49,9 @@ class PointViewController: UIViewController {
         input?.viewDidLoad()
         
         tableView.delegate = self
-        
-        setupTable()
-        setupBindings()
-    }
-    
-    func setupTable() {
         tableView.dataSource = input as? UITableViewDataSource
+        
+        setupBindings()
     }
     
     func setupBindings() {
@@ -84,6 +80,12 @@ extension PointViewController: PointViewOutput {}
 extension PointViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         guard 0..<tableView.numberOfSections - 1 ~= section else { return 0 }
-        return 1
+        return 0.5
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = tableView.separatorColor
+        return view
     }
 }

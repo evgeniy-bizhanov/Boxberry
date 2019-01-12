@@ -70,8 +70,8 @@ class PointsViewController: UIViewController {
         input?.requestUserLocation()
     }
     
-    @IBAction func callAction(_ sender: Any) {
-        print("call")
+    @IBAction func didTapCallButton(_ sender: Any) {
+        input?.callPhoneNumber()
     }
     
     @IBAction func pan(_ sender: UIPanGestureRecognizer) {

@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xDl-9L-Sy2">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,15 +11,15 @@
             <objects>
                 <viewController storyboardIdentifier="PointsViewController" id="OH5-Pg-bTm" customClass="PointsViewController" customModule="Boxberry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f9K-na-sug">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I0G-gV-Ns3" customClass="YMKView" customModule="Boxberry" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="XD9-hk-z8x">
-                                <rect key="frame" x="367" y="333.5" width="0.0" height="0.0"/>
+                                <rect key="frame" x="592" y="300" width="0.0" height="0.0"/>
                                 <subviews>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTZ-hu-yPY">
                                         <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
@@ -115,7 +111,7 @@
                                 </subviews>
                             </stackView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbc-MB-3dJ">
-                                <rect key="frame" x="159.5" y="595" width="56" height="56"/>
+                                <rect key="frame" x="272" y="528" width="56" height="56"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.21176470589999999" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -143,12 +139,12 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="callAction:" destination="OH5-Pg-bTm" eventType="touchUpInside" id="XcT-BF-IiY"/>
+                                    <action selector="didTapCallButton:" destination="OH5-Pg-bTm" eventType="touchUpInside" id="XcT-BF-IiY"/>
                                     <outletCollection property="gestureRecognizers" destination="lFY-ER-tur" appends="YES" id="9Oo-Xw-xeF"/>
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bms-aG-Rzd">
-                                <rect key="frame" x="0.0" y="507" width="375" height="160"/>
+                                <rect key="frame" x="0.0" y="440" width="600" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" placeholder="YES" id="DQR-6g-zsN"/>
                                 </constraints>

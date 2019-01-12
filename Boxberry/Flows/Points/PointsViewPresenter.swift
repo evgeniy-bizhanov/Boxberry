@@ -23,6 +23,7 @@ protocol PointsViewInput: ViewInput {
     
     func requestUserLocation()
     func selectPoint(withUserData data: Any?, completion: SelectCompletion?)
+    func callPhoneNumber()
 }
 
 
@@ -31,9 +32,10 @@ class PointsViewPresenter: PointsViewInput {
     
     // MARK: - Services
     
-    var geocoder: GeoCodable?
-    var locationManager: Location?
-    var requestManager: PointsRequestManager?
+    private var geocoder: GeoCodable?
+    private var locationManager: Location?
+    private var requestManager: PointsRequestManager?
+    private var externals: AbstractExternalsManager?
     
     
     // MARK: - Properties
@@ -64,12 +66,14 @@ class PointsViewPresenter: PointsViewInput {
         output: PointsViewOutput,
         geocoder: GeoCodable?,
         locationManager: Location?,
-        requestManager: PointsRequestManager?) {
+        requestManager: PointsRequestManager?,
+        externals: AbstractExternalsManager?) {
         
         self.output = output
         self.geocoder = geocoder
         self.locationManager = locationManager
         self.requestManager = requestManager
+        self.externals = externals
     }
 }
 
@@ -147,6 +151,18 @@ extension PointsViewPresenter {
                 self.output?.didRequestPoints(viewPoints)
             }
         }
+    }
+    
+    
+    // MARK: - User actions
+    
+    func callPhoneNumber() {
+        guard let phoneNumber = selectedPoint?.phone.first else {
+            // TODO: Show user alert
+            return
+        }
+        
+        externals?.callPhoneNumber(phoneNumber, completion: nil)
     }
 }
 

@@ -18,7 +18,7 @@ class PointViewPresenter: NSObject, PointViewInput {
     // MARK: - Models
     // MARK: - Services
     
-    var externals: AbstractExternalsManager?
+    private var externals: AbstractExternalsManager?
     
     
     // MARK: - Properties

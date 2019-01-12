@@ -12,16 +12,6 @@ class PointAssembler: Assembly {
     
     func assemble(container: Container) {
         
-        container.register(AbstractExternalsManager.self) { resolver in
-            guard let errorParser = resolver.resolve(AbstractErrorParser.self) else {
-                fatalError(
-                    "Can't resolve \(AbstractExternalsManager.self) cause of " +
-                    "\(AbstractErrorParser.self) could not be resolved")
-            }
-            
-            return ExternalsManager(errorParser: errorParser)
-        }
-        
         // Презентер
         container.register(PointViewInput.self) { resolver, output in
             return PointViewPresenter(
