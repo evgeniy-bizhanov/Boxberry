@@ -9,6 +9,6 @@
 struct AppConfig {
     struct Network {
         static let url = "http://api.boxberry.de/json.php"
-        static let token = "55555.rvpqcfee"
+        static let token = "xxxxxxx"
     }
 }
