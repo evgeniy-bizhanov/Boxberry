@@ -33,7 +33,8 @@ class PointsAssembler: Assembly {
                 output: output,
                 geocoder: resolver.resolve(GeoCodable.self),
                 locationManager: resolver.resolve(Location.self),
-                requestManager: resolver.resolve(PointsRequestManager.self)
+                requestManager: resolver.resolve(PointsRequestManager.self),
+                externals: resolver.resolve(AbstractExternalsManager.self)
             )
         }
     }

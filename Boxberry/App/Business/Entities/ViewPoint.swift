@@ -6,7 +6,12 @@
 //  Copyright © 2018 Евгений Бижанов. All rights reserved.
 //
 
+import Foundation
+
 struct ViewPoint {
+    
+    /// Код в базе boxberry
+    let code: String
     
     /// Наименование ПВЗ
     let name: String
@@ -14,11 +19,11 @@ struct ViewPoint {
     /// Полный адрес
     let address: String
     
-    /// Телефон или телефоны
-    let phone: String
+    /// Телефон или телефоны (разделитель - пробел)
+    let phone: [String]
     
-    /// График работы
-    let workSchedule: String
+    /// График работы (разделитель - ',')
+    let workSchedule: [String]
     
     /// Описание проезда
     let tripDescription: String
@@ -44,8 +49,8 @@ struct ViewPoint {
     /// Короткий адрес
     let addressReduce: String
     
-    /// Станция метро
-    let metro: String
+    /// Станция метро (разделитель - ';')
+    let metro: [String]
     
     /// Тип пункта выдачи: 1-ПВЗ, 2-СПВЗ
     let typeOfOffice: String
@@ -72,14 +77,18 @@ struct ViewPoint {
     let gps: LocationCoordinate?
 }
 
-extension ViewPoint: Codable {
+extension ViewPoint: BidirectionalMappable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
+        code = try container.decode(String.self, forKey: .code)
         name = try container.decode(String.self, forKey: .name)
         address = try container.decode(String.self, forKey: .address)
-        phone = try container.decode(String.self, forKey: .phone)
-        workSchedule = try container.decode(String.self, forKey: .workSchedule)
+        
+        phone = parseContacts(input: try container.decode(String.self, forKey: .phone))
+        metro = parse(try container.decode(String.self, forKey: .metro), delimeter: ";")
+        workSchedule = parse(try container.decode(String.self, forKey: .workSchedule))
+        
         tripDescription = try container.decode(String.self, forKey: .tripDescription)
         deliveryPeriod = try container.decode(Int.self, forKey: .deliveryPeriod)
         cityName = try container.decode(String.self, forKey: .cityName)
@@ -88,7 +97,6 @@ extension ViewPoint: Codable {
         area = try container.decode(String.self, forKey: .area)
         country = try container.decode(String.self, forKey: .country)
         addressReduce = try container.decode(String.self, forKey: .addressReduce)
-        metro = try container.decode(String.self, forKey: .metro)
         typeOfOffice = try container.decode(String.self, forKey: .typeOfOffice)
         
         onlyPrepaidOrders = try container.decode(String.self, forKey: .onlyPrepaidOrders)
@@ -115,4 +123,21 @@ extension ViewPoint: Codable {
             gps = nil
         }
     }
+}
+
+fileprivate func parseContacts(input: String) -> [String] {
+    
+    return input
+        .split(separator: " ")
+        .map {
+            String($0).asRawPhoneNumber
+        }
+}
+
+fileprivate func parse(_ input: String, delimeter: Character = ",") -> [String] {
+    return input
+        .split(separator: delimeter)
+        .map {
+            $0.trimmingCharacters(in: [" "])
+        }
 }

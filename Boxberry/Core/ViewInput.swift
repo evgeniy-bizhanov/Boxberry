@@ -8,8 +8,13 @@
 
 import Foundation
 
-@objc protocol ViewInput {
+protocol ViewInput {
     
     /// Представление загружено
-    @objc func viewDidLoad()
+    func viewDidLoad()
+}
+
+// MARK: - Optionals funcs
+extension ViewInput {
+    func viewDidLoad() {}
 }

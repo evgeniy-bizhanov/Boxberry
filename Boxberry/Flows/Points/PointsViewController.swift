@@ -22,17 +22,26 @@ protocol PointsViewOutput: class {
 
 class PointsViewController: UIViewController {
     
+    typealias ContainerView = UIView
+    
     // MARK: - IBOutlets
     
-    @IBOutlet var mapView: YMKView!
-    @IBOutlet var azimutButton: UIButton!
-    @IBOutlet var filterButton: UIButton!
-    @IBOutlet var userLocationButton: UIButton!
+    @IBOutlet weak var mapView: YMKView!
+    @IBOutlet weak var azimutButton: UIButton!
+    @IBOutlet weak var filterButton: UIButton!
+    @IBOutlet weak var userLocationButton: UIButton!
+    @IBOutlet weak var callButton: UIButton!
+    @IBOutlet weak var detailView: UIView!
     
     
     // MARK: - Models
     
     var input: PointsViewInput?
+    
+    
+    // MARK: - Properties
+    
+    var onDetailRequest: ((ContainerView, ViewPoint?) -> Void)?
     
     
     // MARK: - Fields
@@ -61,6 +70,21 @@ class PointsViewController: UIViewController {
         input?.requestUserLocation()
     }
     
+    @IBAction func didTapCallButton(_ sender: Any) {
+        input?.callPhoneNumber()
+    }
+    
+    @IBAction func pan(_ sender: UIPanGestureRecognizer) {
+        
+        let velocity = sender.velocity(in: self.callButton)
+        
+        if velocity.y > 0 {
+            self.callButton.isHidden = true
+        } else {
+            onDetailRequest?(detailView, input?.selectedPoint)
+        }
+    }
+    
     
     // MARK: - Functions
     
@@ -69,7 +93,6 @@ class PointsViewController: UIViewController {
         input?.viewDidLoad()
         
         mapView.delegate = self
-        buttonsToMap()
     }
 }
 
@@ -100,7 +123,7 @@ extension PointsViewController: PointsViewOutput {
             }
             
             if let location = point.gps {
-                mapView.addPlacemark(forLocation: location, withImage: image)
+                mapView.addPlacemark(forLocation: location, withImage: image, userData: point.code)
             }
         }
     }
@@ -143,62 +166,17 @@ extension PointsViewController: PointsViewOutput {
 // MARK: - MapViewDelegate
 
 extension PointsViewController: MapViewDelegate {
-    func cameraPositionDidChanged() {
+    func didCameraPositionChanged() {
         userLocationButton.isHidden = false
     }
     
-    func azimuthDidChanged() {
+    func didAzimuthChanged() {
         azimutButton.isHidden = false
     }
-}
-
-
-// MARK: - Fileprivate
-
-extension PointsViewController {
     
-    fileprivate func buttonsToMap() {
-        azimutButton = UIButton.circleButton(forImage: UIImage(named: "North"), radius: 16)
-        azimutButton.addTarget(self, action: #selector(azimutAction), for: .touchUpInside)
-        
-        filterButton = UIButton.circleButton(forImage: UIImage(named: "Filter"), radius: 20)
-        filterButton.addTarget(self, action: #selector(filterAction), for: .touchUpInside)
-        
-        userLocationButton = UIButton.circleButton(forImage: UIImage(named: "Arrow"), radius: 16)
-        userLocationButton.addTarget(self, action: #selector(userLocationAction), for: .touchUpInside)
-        
-        embedMapControlsInStack([azimutButton, userLocationButton, filterButton])
-    }
-    
-    fileprivate func layoutStackView(_ stack: UIStackView) {
-        let margins = mapView.layoutMarginsGuide
-        
-        self.mapView.addSubview(stack)
-        
-        stack.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 6).isActive = true
-        stack.bottomAnchor.constraint(equalTo: margins.centerYAnchor, constant: 50).isActive = true
-    }
-    
-    fileprivate func embedMapControlsInStack(_ controls: [UIView]) {
-        let stack = UIStackView.mapControlsStackView(arrangedSubviews: controls)
-        
-        self.layoutStackView(stack)
-    }
-}
-
-
-// MARK: - Fileprivate fabric
-
-fileprivate extension UIStackView {
-    
-    static func mapControlsStackView(arrangedSubviews views: [UIView]) -> UIStackView {
-        
-        let stack = UIStackView(arrangedSubviews: views)
-        stack.axis = .vertical
-        stack.spacing = 6
-        stack.alignment = .center
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        
-        return stack
+    func didPlacemarkTapped(withUserData data: Any?, _ location: LocationCoordinate) {
+        input?.selectPoint(withUserData: data) { [weak self] isHidden in
+            self?.callButton.isHidden = isHidden
+        }
     }
 }

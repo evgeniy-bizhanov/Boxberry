@@ -49,15 +49,19 @@ class YMKView: YMKMapView {
     private func setupView() {
         // Включение / выключение жестов наклона, например, параллельное панорамирование двумя пальцами.
         map.isTiltGesturesEnabled = false
+        map.isIndoorEnabled = false
+        map.isModelsEnabled = false
+        map.isFastTapEnabled = false
     }
     
     private func setupListeners() {
-        self.map.addCameraListener(with: self)
-        self.userLocationLayer.setObjectListenerWith(self)
+        map.addCameraListener(with: self)
+        userLocationLayer.setObjectListenerWith(self)
     }
     
     private func layoutLayers() {
         placemarks = map.addObjectLayer(withLayerId: "placemarks")
+        placemarks.addTapListener(with: self)
     }
     
 }
@@ -109,6 +113,7 @@ extension YMKView {
 extension YMKView {
     func addPlacemark(
         forLocation location: LocationCoordinate, withImage image: UIImage? = nil,
+        userData data: Any? = nil,
         didAddPlacemark: PlacemarkCompletion? = nil) {
         
         let target = YMKPoint(latitude: location.latitude, longitude: location.longitude)
@@ -120,6 +125,8 @@ extension YMKView {
         } else {
             placemark = placemarks.addEmptyPlacemark(with: target)
         }
+        
+        placemark.userData = data
         
         didAddPlacemark?(placemark)
     }
@@ -133,12 +140,22 @@ extension YMKView: YMKMapCameraListener {
         finished: Bool) {
         
         if cameraUpdateSource == .gestures {
-            delegate?.cameraPositionDidChanged()
+            delegate?.didCameraPositionChanged()
             
             if cameraPosition.azimuth != defaultAzimuth {
-                delegate?.azimuthDidChanged()
+                delegate?.didAzimuthChanged()
             }
         }
+    }
+}
+
+extension YMKView: YMKMapObjectTapListener {
+    func onMapObjectTap(with mapObject: YMKMapObject, point: YMKPoint) -> Bool {
+        
+        guard let location: LocationCoordinate = try? point.map() else { return false }
+        delegate?.didPlacemarkTapped(withUserData: mapObject.userData, location)
+        
+        return true
     }
 }
 

@@ -4,54 +4,6 @@
 
 import  UIKit
 
-/// Инкапсулирует загрузку из Nib файла
-@IBDesignable class UINibView: UIView {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        xibSetup()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        xibSetup()
-    }
-}
-
-extension UIView {
-    /// Вспомогательный метод для загрузки из `Nib`
-    func xibSetup() {
-        let view = loadFromNib()
-        stretch(view: view)
-        
-        addSubview(view)
-    }
-    
-    /// Инициализирует `View` из `Nib`
-    ///
-    /// - Returns: Возвращает `UIView`, для класса с таким же именем, что и `Nib`
-    fileprivate func loadFromNib<T: UIView>() -> T {
-        let selfType = type(of: self)
-        let bundle = Bundle(for: selfType)
-        let nibName = String(describing: selfType)
-        
-        let nib = UINib(nibName: nibName, bundle: bundle)
-
-        guard let view = nib.instantiate(withOwner: self, options: nil).first as? T else {
-            fatalError("Error loading nib with name \(nibName)")
-        }
-
-        return view
-    }
-    
-    /// Растягивает `Nib` по высоте и ширине родительской view
-    ///
-    /// - Parameter view: Обрабатываемая View
-    fileprivate func stretch(view: UIView) {
-        view.frame = bounds
-        view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-    }
-}
-
 // MARK: - UIViewController
 extension UIViewController {
     // Рекурсия
@@ -99,5 +51,53 @@ extension UIColor {
         let green = Double(value >> 8 & 0xFF) / 255.0
         let blue = Double(value >> 0 & 0xFF) / 255.0
         self.init(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: alpha)
+    }
+}
+
+
+// MARK: - String
+extension String {
+    
+    var asDigits: String {
+        return components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+    }
+    
+    var asRawPhoneNumber: String {
+        return "+7" + self.asDigits.suffix(10)
+    }
+    
+    var asFormatPhoneNumber: String {
+        
+        let numbers = self.asRawPhoneNumber
+        
+        return String(
+            format: "%@ (%@) %@-%@-%@",
+            numbers[0...1],
+            numbers[2...4],
+            numbers[5...7],
+            numbers[8...9],
+            numbers[10...11])
+    }
+    
+    subscript (bounds: CountablePartialRangeFrom<Int>) -> String {
+        let start = index(startIndex, offsetBy: bounds.lowerBound)
+        return String(self[start...])
+    }
+    
+    subscript (bounds: CountableClosedRange<Int>) -> String {
+        let start = index(startIndex, offsetBy: bounds.lowerBound)
+        let end = index(startIndex, offsetBy: bounds.upperBound)
+        return String(self[start...end])
+    }
+    
+    subscript (bounds: CountableRange<Int>) -> String {
+        let start = index(startIndex, offsetBy: bounds.lowerBound)
+        let end = index(startIndex, offsetBy: bounds.upperBound)
+        return String(self[start..<end])
+    }
+    
+    subscript (index: Int) -> String {
+        let index = self.index(startIndex, offsetBy: index)
+        return String(self[index])
     }
 }

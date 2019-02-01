@@ -6,10 +6,14 @@
 //  Copyright © 2018 Евгений Бижанов. All rights reserved.
 //
 
-import YandexMapKit
-
 protocol MapViewDelegate: class {
     
-    func cameraPositionDidChanged()
-    func azimuthDidChanged()
+    /// Called when camera position has changed
+    func didCameraPositionChanged()
+    
+    /// Called when azimuth has changed
+    func didAzimuthChanged()
+    
+    /// Called when placemark was tapped
+    func didPlacemarkTapped(withUserData data: Any?, _ location: LocationCoordinate)
 }

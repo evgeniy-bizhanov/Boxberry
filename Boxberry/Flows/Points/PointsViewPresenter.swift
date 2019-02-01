@@ -16,7 +16,14 @@ import Foundation
 
 protocol PointsViewInput: ViewInput {
     
+    typealias Visibility = Bool
+    typealias SelectCompletion = (Visibility) -> Void
+    
+    var selectedPoint: ViewPoint? { get }
+    
     func requestUserLocation()
+    func selectPoint(withUserData data: Any?, completion: SelectCompletion?)
+    func callPhoneNumber()
 }
 
 
@@ -25,19 +32,23 @@ class PointsViewPresenter: PointsViewInput {
     
     // MARK: - Services
     
-    var geocoder: GeoCodable?
-    var locationManager: Location?
-    var requestManager: PointsRequestManager?
+    private var geocoder: GeoCodable?
+    private var locationManager: Location?
+    private var requestManager: PointsRequestManager?
+    private var externals: AbstractExternalsManager?
     
     
     // MARK: - Properties
     
-    weak var output: PointsViewOutput?
+    var selectedPoint: ViewPoint?
     
     
     // MARK: - Fields
+    
+    private weak var output: PointsViewOutput?
+    
     private var cities: [City]?
-    private var points: [Point]?
+    private var points: [ViewPoint]?
     private var group = DispatchGroup()
     
     
@@ -55,12 +66,14 @@ class PointsViewPresenter: PointsViewInput {
         output: PointsViewOutput,
         geocoder: GeoCodable?,
         locationManager: Location?,
-        requestManager: PointsRequestManager?) {
+        requestManager: PointsRequestManager?,
+        externals: AbstractExternalsManager?) {
         
         self.output = output
         self.geocoder = geocoder
         self.locationManager = locationManager
         self.requestManager = requestManager
+        self.externals = externals
     }
 }
 
@@ -132,9 +145,45 @@ extension PointsViewPresenter {
                     return
             }
             
+            self.points = viewPoints
+            
             DispatchQueue.main.async {
                 self.output?.didRequestPoints(viewPoints)
             }
+        }
+    }
+    
+    
+    // MARK: - User actions
+    
+    func callPhoneNumber() {
+        guard let phoneNumber = selectedPoint?.phone.first else {
+            // TODO: Show user alert
+            return
+        }
+        
+        externals?.callPhoneNumber(phoneNumber, completion: nil)
+    }
+}
+
+
+// MARK: Placemarks
+
+extension PointsViewPresenter {
+    func selectPoint(withUserData data: Any?, completion: SelectCompletion?) {
+        
+        guard
+            let code = data as? String,
+            code != "" else {
+            
+                return
+        }
+        
+        if let point = points?.first(where: { $0.code == code }) {
+            self.selectedPoint = point
+            completion?(false)
+        } else {
+            completion?(true)
         }
     }
 }
